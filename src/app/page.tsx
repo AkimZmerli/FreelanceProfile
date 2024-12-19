@@ -10,6 +10,7 @@ import FramerWrapper from "@/components/animation/FramerWrapper";
 export const siteConfig = {
   name: "Akim the Dream",
   description: "Ich bin leidenschaftlicher Web Dev",
+  url: "https://freelance-portfolio.vercel.app",
 
 }
 export default function Home() {
