@@ -1,6 +1,6 @@
 "use client"
 import { useState, useEffect } from 'react';
-import { Download } from 'lucide-react';
+import { Download, Link } from 'lucide-react';
 import { Button } from '../ui/button';
 
 const HackerBtn = ({ label }: { label: string }) => {
@@ -34,10 +34,15 @@ const HackerBtn = ({ label }: { label: string }) => {
 
   return (
     <Button size={'lg'} className='text-base px-5 py-6'       onMouseEnter={startScrambling}
-    >   <Download className="mx-1" />
+    >   
+      <Download className="mx-1" />
+  
         {displayText}
     </Button>
   );
 };
 
 export default HackerBtn;
+
+
+// add CV to download button

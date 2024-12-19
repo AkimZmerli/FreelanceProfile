@@ -112,33 +112,32 @@
   animation: text-slide 12.5s cubic-bezier(0.83, 0, 0.17, 1) infinite;
 }
 
+.GithubBtn {
+  top: -20px;
+}
+
 @keyframes text-slide {
   0%,
-  16% {
+  18% {
     transform: translateY(0%);
   }
-
-  20%,
+  18%,
   36% {
-    transform: translateY(-16.66%);
+    transform: translateY(-20%);
   }
-
-  40%,
-  56% {
-    transform: translateY(-33.33%);
+  36%,
+  54% {
+    transform: translateY(-40%);
   }
-
-  60%,
-  76% {
-    transform: translateY(-50%);
+  54%,
+  72% {
+    transform: translateY(-60%);
   }
-
-  80%,
-  96% {
-    transform: translateY(-66.66%);
-  }
-
+  72%,
   100% {
-    transform: translateY(-83.33%);
+    transform: translateY(-80%);
   }
 }
+
+/* adjust timing for slides: first too short, last too long */
+

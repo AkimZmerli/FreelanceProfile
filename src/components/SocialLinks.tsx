@@ -3,13 +3,14 @@ import { Facebook, Linkedin, Twitter, ExternalLink } from "lucide-react";
 import { buttonVariants } from "./ui/button";
 import Link from "next/link";
 import FramerWrapper from "./animation/FramerWrapper";
+import { FaDiscord } from "react-icons/fa";
 
 const SocialLinks = () => {
   const links = [
-    { name: "Facebook", link: "https://www.facebook.com/shahina.khatun.1044", icon: <Facebook /> },
-    { name: "Twitter", link: "https://twitter.com/Taquiimam14", icon: <Twitter /> },
-    { name: "Linkedin", link: "https://www.linkedin.com/in/taqui-imam", icon: <Linkedin /> },
-    { name: "External", link: "https://tinyurl.com/MdTaquiImam", icon: <ExternalLink /> },
+    { name: "Facebook", link: "https://discord.com/channels/665641579368677395/1019670950297485343", icon: <FaDiscord className="scale-180"/> },
+    { name: "Twitter", link: "https://x.com/AkimZmerli", icon: <Twitter /> },
+    { name: "Linkedin", link: "https://www.linkedin.com/in/akim-zmerli-785215196/", icon: <Linkedin /> },
+    
   ];
   return (
     <>
@@ -31,3 +32,6 @@ const SocialLinks = () => {
 };
 
 export default SocialLinks;
+
+
+/* make discord icon bigger// add another icon to the list */

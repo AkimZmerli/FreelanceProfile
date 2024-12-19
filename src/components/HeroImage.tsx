@@ -8,12 +8,12 @@ const HeroImage = ()  => {
     return(
         <>
           <Image
-          src={logo}
+          src="/Racing-removebg.png"
           alt="logo"
           loading="eager"
           priority
-          height={1000}
-          width={1000}
+          height={600}
+          width={600}
         />
         </>
     )
