@@ -21,12 +21,12 @@ const skillPage = () => {
         {alt:"css", img:css},
         {alt:"js", img:js},
         {alt:"ts", img:ts},
-        {alt:"cplus", img:cplus},
+        
     ]
     const framework = [
         {alt:"react", img:react},
         {alt:"nextjs", img:nextjs},
-        {alt:"scss", img:scss},
+     
         {alt:"tailwind", img:tailwind},
         {alt:"github", img:github},
         {alt:"vscode", img:vscode},
@@ -45,23 +45,20 @@ const skillPage = () => {
         <FramerWrapper y={0} x={200} >
 
         <p className="font-poppins text-xl w-full text-primary max-sm:text-lg">
-          Currently i am a fresher and i have a solid understand of HTML5, CSS3, JS, TS and React, including
-          responsive design principles. I specialize in building web
-          applications and sites using Javascript, Typescript, React, Nextjs &
-          Node.
+        Aktuell bin ich Berufseinsteiger und habe ein solides Verständnis von HTML5, CSS3, JS, TS und React, einschließlich responsiver Designprinzipien. Ich spezialisiere mich auf den Bau von Webanwendungen mit JavaScript, TypeScript, React, Next.js und Node.
         </p>
         </FramerWrapper>
         <FramerWrapper y={100} delay={0.30} className="block">
         <h1 className="gap-2 text-2xl font-poppins text-primary font-semibold flex text_underline relative max-sm:text-xl">
-           Programming Languages
+           Programmiersprachen
         </h1>
         <div className="w-full h-fit flex-row flex justify-between items-center">
         <SkillsFooter items={language} />
         </div>
         </FramerWrapper>
-        <FramerWrapper  className="block" y={100} delay={0.32}>
+        <FramerWrapper  className="block " y={100} delay={0.32}>
         <h1 className="gap-2 text-2xl font-poppins text-primary font-semibold flex text_underline relative max-sm:text-xl">
-           Framework/Libraries and Version Control
+           Framework/Libraries und Version Control
         </h1>
         <div className="w-full h-fit flex-row flex justify-between items-center">
         <SkillsFooter items={framework} />
@@ -73,3 +70,6 @@ const skillPage = () => {
 };
 
 export default skillPage;
+
+
+// TS is messed up , update techs tack 

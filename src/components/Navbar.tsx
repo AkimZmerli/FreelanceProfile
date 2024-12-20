@@ -31,28 +31,28 @@ const Navbar = () => {
       href: '/',
     },
     {
-      title: 'About',
+      title: 'Über mich',
       icon: (
         <User className='h-full w-full ' />
       ),
       href: '/about',
     },
     {
-      title: 'Skills',
+      title: 'Skillset',
       icon: (
         <Briefcase className='h-full w-full ' />
       ),
       href: '/skills',
     },
     {
-      title: 'Education',
+      title: 'Ausbildung',
       icon: (
         <GraduationCap className='h-full w-full ' />
       ),
       href: '/education',
     },
     {
-      title: 'Projects',
+      title: 'Projekte',
       icon: (
         <FolderGit2 className='h-full w-full ' />
       ),
@@ -60,19 +60,19 @@ const Navbar = () => {
     },
    
     {
-      title: 'Contact us',
+      title: 'Kontakt',
       icon: (
         <Mail className='h-full w-full ' />
       ),
       href: '/contact',
     },
-    {
-      title: 'More',
-      icon: (
-        <MoreHorizontal className='h-full w-full ' />
-      ),
-      href: '/more',
-    },
+    // {
+    //   title: 'Games',
+    //   icon: (
+    //     <MoreHorizontal className='h-full w-full ' />
+    //   ),
+    //   href: '/more',
+    // },
   ];
   const [scrolling, setScrolling] = useState(false);
   const pathname = usePathname()
