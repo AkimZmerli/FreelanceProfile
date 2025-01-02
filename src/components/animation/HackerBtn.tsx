@@ -33,9 +33,9 @@ const HackerBtn = ({ label }: { label: string }) => {
   }, [label]);
 
   return (
-    <Button size={'lg'} className='text-base px-5 py-6'       onMouseEnter={startScrambling}
+    <Button size={'lg'} className='text-base px-4 py-6'       onMouseEnter={startScrambling}
     >   
-      <Download className="mx-1" />
+      {/* <Download className="mx-1" /> */}
   
         {displayText}
     </Button>
@@ -45,4 +45,3 @@ const HackerBtn = ({ label }: { label: string }) => {
 export default HackerBtn;
 
 
-// add CV to download button

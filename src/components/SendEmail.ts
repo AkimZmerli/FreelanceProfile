@@ -15,8 +15,8 @@ export const SendEmail = async (formdata: FormData) => {
     };
   }
   await resend.emails.send({
-    from: "Contact Form <onboarding@resend.dev>",
-    to: `mdtaqui.jhar@gmail.com`,
+    from: "akim.zmerli@gmail.com",
+    to: `akim.zmerli@gmail.com`,
     subject: `${name} From Contact Form.`,
     reply_to: `${SenderEmail}`,
     text: `sender email: ${SenderEmail} 
@@ -27,3 +27,6 @@ return redirect('/')
  
   
 };
+
+
+// buy own domain

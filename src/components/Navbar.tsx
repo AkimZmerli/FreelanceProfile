@@ -44,13 +44,13 @@ const Navbar = () => {
       ),
       href: '/skills',
     },
-    {
-      title: 'Ausbildung',
-      icon: (
-        <GraduationCap className='h-full w-full ' />
-      ),
-      href: '/education',
-    },
+    // {
+    //   title: 'Ausbildung',
+    //   icon: (
+    //     <GraduationCap className='h-full w-full ' />
+    //   ),
+    //   href: '/education',
+    // },
     {
       title: 'Projekte',
       icon: (
@@ -104,7 +104,7 @@ const Navbar = () => {
         <DockItem
           className={cn("aspect-square rounded-full bg-gray-200 dark:bg-neutral-800",pathname === item.href && " bg-gray-100 border border-primary}")}
           >
-          <DockLabel >{item.title}</DockLabel>
+          {/* <DockLabel >{item.title}</DockLabel> */}
           <DockIcon className={cn(pathname === item.href && "text-[#2f7df4]")}>{item.icon}</DockIcon>
         </DockItem>
           </Link>
