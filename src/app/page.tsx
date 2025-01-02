@@ -17,7 +17,7 @@ export default function Home() {
   return (
    <>
       {/* LEFT SIDE  */}
-      <FramerWrapper className="  w-auto flex flex-col justify-start gap-5" y={0} x={-100}>
+      <FramerWrapper className="  flex flex-col justify-start gap-5" y={0} x={-90}>
         <HeroTexts />
         <div className="h-fit w-full p-4 flex gap-4">
           <SocialLinks />
@@ -29,12 +29,14 @@ export default function Home() {
       
   
       {/* IMAGE  */}
-        <HeroImage />
+        <div className="mt-20">
+          <HeroImage />
+        </div>
       </FramerWrapper>
      
       {/* GITHUB BUTTON  */}
       <GithubBtn/>
-      <DarkModeButton /> 
+      
       </>
   );
 }

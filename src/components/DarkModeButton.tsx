@@ -1,40 +1,5 @@
 "use client"
 
-// import { cn } from '@/lib/utils'
-// import { Download } from 'lucide-react'
-// import Link from 'next/link'
-// import React, { useState } from 'react';
-// import { buttonVariants } from './ui/button'
-// import HackerBtn from './animation/HackerBtn'
-
-// function DarkModeButton() {
-
-//   const [isDarkMode, setIsDarkMode] = useState(false);
-
-//   const handleToggleDarkMode = () => {
-//     setIsDarkMode(!isDarkMode);
-//     document.body.classList.toggle('dark');
-//   };
-//   return (
-   
-
-//     <button
-//       className={cn('px-4 py-2 rounded-md  mt-2', {
-//         'bg-gray-800 text-white': isDarkMode,
-//         'bg-white text-gray-800': !isDarkMode,
-//       })}
-//       onClick={handleToggleDarkMode}
-//     >
-// <HackerBtn label={isDarkMode ? 'Light Mode' : 'Dark Mode'}>
-  
-// </HackerBtn>
-//     </button>
-
-
-//   )
-// }
-
-// export default DarkModeButton
 
 import React from 'react';
 import { Moon, Sun } from 'lucide-react';
@@ -82,3 +47,41 @@ const DarkModeButton = () => {
 };
 
 export default DarkModeButton;
+
+
+
+// import { cn } from '@/lib/utils'
+// import { Download } from 'lucide-react'
+// import Link from 'next/link'
+// import React, { useState } from 'react';
+// import { buttonVariants } from './ui/button'
+// import HackerBtn from './animation/HackerBtn'
+
+// function DarkModeButton() {
+
+//   const [isDarkMode, setIsDarkMode] = useState(false);
+
+//   const handleToggleDarkMode = () => {
+//     setIsDarkMode(!isDarkMode);
+//     document.body.classList.toggle('dark');
+//   };
+//   return (
+   
+
+//     <button
+//       className={cn('px-4 py-2 rounded-md  mt-2', {
+//         'bg-gray-800 text-white': isDarkMode,
+//         'bg-white text-gray-800': !isDarkMode,
+//       })}
+//       onClick={handleToggleDarkMode}
+//     >
+// <HackerBtn label={isDarkMode ? 'Light Mode' : 'Dark Mode'}>
+  
+// </HackerBtn>
+//     </button>
+
+
+//   )
+// }
+
+// export default DarkModeButton

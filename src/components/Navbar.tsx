@@ -1,5 +1,6 @@
 "use client"
 import { cn } from "@/lib/utils";
+import DarkModeButton from "./DarkModeButton";
 
 
 import {
@@ -109,6 +110,7 @@ const Navbar = () => {
         </DockItem>
           </Link>
       ))}
+      <DarkModeButton />
     </Dock>
     </div>
   );

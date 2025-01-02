@@ -35,14 +35,14 @@ const skillPage = () => {
 
   return (
     // SKILLS PAGE
-    <div className="h-full w-full relative flex flex-col items-start gap-5 overflow-hidden">
+    <div className="h-full w-full relative flex flex-col items-start  gap-10 overflow-hidden">
       <Badge className=" gap-2">
         <Lightbulb className="h-5 w-5" />
         My Skills
       </Badge>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-6">
         <Heading>My Technical Experience/Skills.</Heading>
-        <FramerWrapper y={0} x={200} >
+        <FramerWrapper y={0} x={200} className={"block mb-10"}>
 
         <p className="font-poppins text-xl w-full text-primary max-sm:text-lg">
         Aktuell bin ich Berufseinsteiger und habe ein solides Verständnis von HTML5, CSS3, JS, TS und React, einschließlich responsiver Designprinzipien. Ich spezialisiere mich auf den Bau von Webanwendungen mit JavaScript, TypeScript, React, Next.js und Node.
