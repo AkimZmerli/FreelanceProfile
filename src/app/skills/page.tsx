@@ -68,6 +68,7 @@ const skillPage = () => {
         <TotalRecall />
         </FramerWrapper>
       </div>
+      
     </div>
   );
 };

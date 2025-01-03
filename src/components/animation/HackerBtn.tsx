@@ -1,9 +1,15 @@
 "use client"
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactNode } from 'react';
 import { Download, Link } from 'lucide-react';
 import { Button } from '../ui/button';
 
-const HackerBtn = ({ label }: { label: string }) => {
+interface HackerBtnProps {
+  label: string;
+  children?: ReactNode;
+  className?: string;
+}
+
+const HackerBtn = ({ label, children, className }: HackerBtnProps) => {
   const [displayText, setDisplayText] = useState(label);
   const charset = "abcdefghijklmnopqrstuvwxyz";
 
