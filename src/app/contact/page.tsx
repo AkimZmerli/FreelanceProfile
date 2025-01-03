@@ -3,6 +3,8 @@ import FramerWrapper from "@/components/animation/FramerWrapper";
 import Heading from "@/components/Heading";
 import { Badge } from "@/components/ui/badge";
 import { Mail, Phone } from "lucide-react";
+import TotalRecall from "@/components/TotalRecall";
+
 
 
  
@@ -24,6 +26,7 @@ const contactPage = () => {
         </div>
         <p className=" font-poppins text-lg w-full text-primary max-sm:text-base"></p>
       </div>
+      <TotalRecall />
     </div>
   );
 };

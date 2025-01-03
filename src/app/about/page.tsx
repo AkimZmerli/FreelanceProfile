@@ -3,6 +3,7 @@ import FramerWrapper from "@/components/animation/FramerWrapper";
 import Heading from "@/components/Heading";
 import { Badge } from "@/components/ui/badge";
 import { Circle, Heart, User2 } from "lucide-react";
+import TotalRecall from "@/components/TotalRecall";
 const page = () => {
   const items = [
     { hobby: "Outdoor Sport" },
@@ -24,12 +25,16 @@ const page = () => {
             Software und Web <br /> Entwickler aus Leipzig
           </Heading>
    
+
+
         <FramerWrapper y={0} x={100} >
           <p className=" font-poppins text-2xl w-full text-primary mt-6 mb-6 max-sm:text-lg">
             Ich bin Fullstack Web Entwickler mit einem Herz für spannendes Storytelling und Special Effects. Auf meinem Weg sammelte ich Erfahrungen als kreativer Schauspieler, neugieriger Wissenschaftler und systemischer Coach. All die Erfahrung zeichnet meine Arbeit aus und garantiert dir eine kompentente Lösung für jeden Auftrag.
           
           </p>
         </FramerWrapper>
+
+        
       </div>
       <FramerWrapper className="w-full flex flex-row justify-between max-lg:flex-col " y={100} delay={0.30}>
         <Aboutfooter  />
@@ -51,6 +56,7 @@ const page = () => {
             );
           })}
         </div>
+        <TotalRecall />
       </FramerWrapper>
     </div>
   );

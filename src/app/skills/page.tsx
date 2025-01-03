@@ -14,6 +14,8 @@ import tailwind from '../../../public/tailwindcss.png'
 import github from '../../../public/github.png'
 import vscode from '../../../public/vscode.png'
 import FramerWrapper from "@/components/animation/FramerWrapper";
+import TotalRecall from "@/components/TotalRecall";
+TotalRecall
 const skillPage = () => {
 
     const language = [
@@ -37,7 +39,7 @@ const skillPage = () => {
     // SKILLS PAGE
     <div className="h-full w-full relative flex flex-col items-start  gap-10 overflow-hidden">
       <Badge className=" gap-2">
-        <Lightbulb className="h-5 w-5" />
+        <Lightbulb className="h-5 w-6" />
         My Skills
       </Badge>
       <div className="flex flex-col gap-6">
@@ -63,6 +65,7 @@ const skillPage = () => {
         <div className="w-full h-fit flex-row flex justify-between items-center">
         <SkillsFooter items={framework} />
         </div>
+        <TotalRecall />
         </FramerWrapper>
       </div>
     </div>
