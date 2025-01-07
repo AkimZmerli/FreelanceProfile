@@ -6,7 +6,7 @@ function TextRotator() {
     <div
     className="py-4  rounded-md flex flex-col justify-center items-center overflow-hidden"
   >
-    <div className="font-poppins text-base sm:text-3xl [text-wrap:balance] text-gray-700">
+    <div className="font-poppins text-base sm:text-3xl dark:text-white [text-wrap:balance] text-gray-700">
     Ich bin Web Developer &
       <span
         className="inline-flex ml-2 flex-col h-[calc(theme(fontSize.lg)*theme(lineHeight.tight))] sm:h-[calc(theme(fontSize.3xl)*theme(lineHeight.tight))] overflow-hidden"
@@ -14,11 +14,11 @@ function TextRotator() {
         <ul
           className="block text-left font-rubik text-lg sm:text-4xl leading-tight [&_li]:block animate-text-slide"
         >
-          <li className="text-[#2f7df4]">Creator</li>
-          <li className="text-[#2f7df4]">Freelancer</li>
-          <li className="text-[#2f7df4]">Software Engineer</li>
-          <li className="text-[#2f7df4]">Story Teller</li>
-          <li className="text-[#2f7df4]">Chess Hustler</li>
+          <li className="text-cyan-500 dark:text-pink-500">Creator</li>
+          <li className="text-cyan-500 dark:text-pink-500">Freelancer</li>
+          <li className="text-cyan-500 dark:text-pink-500">Software Engineer</li>
+          <li className="text-cyan-500 dark:text-pink-500">Story Teller</li>
+          <li className="text-cyan-500 dark:text-pink-500">Chess Hustler</li>
           
           
           

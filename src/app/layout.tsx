@@ -88,12 +88,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${poppins.variable} ${rubik.variable}`}>
+    <html lang="en" className="light">
+      <body className={`${poppins.variable} ${rubik.variable} dark:bg-gray-900`}>
         <main
           className={cn(
-            "flex  relative  break-words h-dvh min-h-screen items-center justify-between pt-14 pb-4 px-20 max-md:p-4 bg-transparent  max-sm:pt-20 bg-[radial-gradient(#2f7df4_1px,transparent_1px)] [background-size:16px_16px]",
-            { "bg-white": "#E6E7EB" }
+            "flex relative break-words h-dvh min-h-screen items-center justify-between pt-14 pb-4 px-20 max-md:p-4 bg-white dark:bg-gray-900 max-sm:pt-20 bg-[radial-gradient(#06B6D4_1px,transparent_1px)] dark:bg-[radial-gradient(#FF34B3_1px,transparent_1px)] [background-size:16px_16px]",
           )}
         >
           {/* NAVBAR ->  */}

@@ -39,8 +39,11 @@ const HackerBtn = ({ label, children, className }: HackerBtnProps) => {
   }, [label]);
 
   return (
-    <Button size={'lg'} className='text-base px-4 py-6'       onMouseEnter={startScrambling}
-    >   
+    <Button 
+    size={'lg'} 
+    className='text-base px-4 py-6 bg-cyan-500 hover:bg-cyan-600 dark:bg-pink-500 dark:hover:bg-pink-600 text-white shadow-lg hover:shadow-cyan-300/50 dark:hover:shadow-purple-500/50 transition-all duration-300'
+    onMouseEnter={startScrambling}
+  >   
       {/* <Download className="mx-1" /> */}
   
         {displayText}

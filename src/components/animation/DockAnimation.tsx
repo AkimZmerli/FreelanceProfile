@@ -125,10 +125,9 @@ function Dock({
 
 function DockItem({ children, className }: DockItemProps) {
   const ref = useRef<HTMLDivElement>(null);
-
   const { distance, magnification, mouseX, spring } = useDock();
-
   const isHovered = useMotionValue(0);
+  const timeoutRef = useRef<NodeJS.Timeout>();
 
   const mouseDistance = useTransform(mouseX, (val) => {
     const domRect = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
@@ -141,18 +140,37 @@ function DockItem({ children, className }: DockItemProps) {
     [40, magnification, 40]
   );
 
-  const width = useSpring(widthTransform, spring);
+  const width = useSpring(widthTransform, {
+    ...spring,
+    damping: 20, // Increased damping for smoother animation
+  });
+
+  const handleHoverStart = () => {
+    clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => isHovered.set(1), 50);
+  };
+
+  const handleHoverEnd = () => {
+    clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => isHovered.set(0), 100);
+  };
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(timeoutRef.current);
+    };
+  }, []);
 
   return (
     <motion.div
       ref={ref}
       style={{ width }}
-      onHoverStart={() => isHovered.set(1)}
-      onHoverEnd={() => isHovered.set(0)}
+      onHoverStart={handleHoverStart}
+      onHoverEnd={handleHoverEnd}
       onFocus={() => isHovered.set(1)}
       onBlur={() => isHovered.set(0)}
       className={cn(
-        'relative inline-flex items-center justify-center',
+        'relative inline-flex items-center justify-center select-none pointer-events-auto',
         className
       )}
       tabIndex={0}

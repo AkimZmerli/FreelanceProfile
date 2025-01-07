@@ -59,6 +59,13 @@ const Navbar = () => {
       ),
       href: '/projects',
     },
+    // {
+    //   title: 'Games',
+    //   icon: (
+    //     <FolderGit2 className='h-full w-full ' />
+    //   ),
+    //   href: '/games',
+    // },
    
     {
       title: 'Kontakt',
@@ -106,7 +113,7 @@ const Navbar = () => {
           className={cn("aspect-square rounded-full bg-gray-200 dark:bg-neutral-800",pathname === item.href && " bg-gray-100 border border-primary}")}
           >
           {/* <DockLabel >{item.title}</DockLabel> */}
-          <DockIcon className={cn(pathname === item.href && "text-[#2f7df4]")}>{item.icon}</DockIcon>
+          <DockIcon className={cn(pathname === item.href && "text-cyan-500 dark:text-pink-500 ")}>{item.icon}</DockIcon>
         </DockItem>
           </Link>
       ))}
