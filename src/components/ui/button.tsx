@@ -11,7 +11,7 @@ const buttonVariants = cva(
         destructive:
           "rounded-md bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          'border border-[#000] dark:border-white bg-transparent hover:bg-accent hover:text-accent-foreground dark:text-white dark:hover:bg-gray-700',
+          'border border-[#000] dark:border-gray-300 bg-transparent hover:bg-accent hover:text-accent-foreground dark:text-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200',
         custom:
           'rounded-md bg-[#020817] text-white hover:bg-[#020817d6] hover:shadow-lg',
         subtle:

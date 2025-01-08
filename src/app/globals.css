@@ -15,9 +15,10 @@
  
     --popover: 0 0% 100%;
     --popover-foreground: 220 20% 30%;
+    --radius: 0.5rem;
 
     /* Adding back necessary colors with softer tones */
-    --primary: 220 20% 45%;  /* Softer gray for borders */
+    --primary: 220 20% 25%;  /* Softer gray for borders */
     --primary-foreground: 210 40% 98%;
 
     --border: 220 20% 85%;  /* Very light gray for borders */
@@ -35,7 +36,7 @@
     --popover-foreground: 210 20% 80%;
 
     /* Dark mode colors */
-    --primary: 210 20% 60%;  /* Softer gray for dark mode borders */
+    --primary: 210 20% 85%;  /* Softer gray for dark mode borders */
     --primary-foreground: 210 20% 98%;
 
     --border: 215 20% 30%;  /* Darker gray for borders */
@@ -49,11 +50,19 @@
   display: block;
   width: 6rem;
   height: .6rem;
-  background-color: rgb(6 182 212); /* cyan-500 */
+  background-color: rgb(6 182 212); /* cyan-500 in light mode */
 }
 
 .dark .name_underline::after {
-  background-color: rgb(236 72 153); /* pink-500 */
+  background-color: rgb(236 72 153); /* pink-500 in dark mode */
+}
+
+.nav-border {
+  border-color: rgb(6 182 212); /* cyan-500 in light mode */
+}
+
+.dark .nav-border {
+  border-color: rgb(236 72 153); /* pink-500 in dark mode */
 }
 
 .icon_underline::after {
@@ -63,12 +72,12 @@
   display: block;
   width: 2rem;
   height: .3rem;
-  background-color: rgb(6 182 212); /* cyan-500 */
+  background-color: rgb(6 182 212); /* cyan-500 in light mode */
   margin-bottom: 2rem;
 }
 
 .dark .icon_underline::after {
-  background-color: rgb(236 72 153); /* pink-500 */
+  background-color: rgb(236 72 153); /* pink-500 in dark mode */
 }
 
 .education_point::before {
@@ -80,12 +89,12 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: rgb(6 182 212); /* cyan-500 */
+  background-color: rgb(6 182 212); /* cyan-500 in light mode */
   outline: 3px solid var(--primary);
 }
 
 .dark .education_point::before {
-  background-color: rgb(236 72 153); /* pink-500 */
+  background-color: rgb(236 72 153); /* pink-500 in dark mode */
 }
 
 /* TEXT ROTATOR STYLES  */

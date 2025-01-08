@@ -33,7 +33,7 @@ export default function Home() {
       
       
       {/* IMAGE  */}
-        <div className="mt-20">
+        <div className="">
           <HeroImage />
         </div>
       </FramerWrapper>

@@ -1,15 +1,15 @@
 "use client"
 import { useState, useEffect, ReactNode } from 'react';
-import { Download, Link } from 'lucide-react';
 import { Button } from '../ui/button';
 
 interface HackerBtnProps {
   label: string;
   children?: ReactNode;
   className?: string;
+  isActive?: boolean;
 }
 
-const HackerBtn = ({ label, children, className }: HackerBtnProps) => {
+const HackerBtn = ({ label, children, className, isActive = false }: HackerBtnProps) => {
   const [displayText, setDisplayText] = useState(label);
   const charset = "abcdefghijklmnopqrstuvwxyz";
 
@@ -40,17 +40,17 @@ const HackerBtn = ({ label, children, className }: HackerBtnProps) => {
 
   return (
     <Button 
-    size={'lg'} 
-    className='text-base px-4 py-6 bg-cyan-500 hover:bg-cyan-600 dark:bg-pink-500 dark:hover:bg-pink-600 text-white shadow-lg hover:shadow-cyan-300/50 dark:hover:shadow-purple-500/50 transition-all duration-300'
-    onMouseEnter={startScrambling}
-  >   
-      {/* <Download className="mx-1" /> */}
-  
-        {displayText}
+      size={'lg'} 
+      className={`text-base px-4 py-6 ${
+        isActive 
+          ? 'bg-cyan-500 hover:bg-cyan-600 text-white shadow-lg hover:shadow-cyan-300/50' 
+          : 'bg-pink-500 hover:bg-pink-600 text-white shadow-lg hover:shadow-purple-500/50'
+      } transition-all duration-300`}
+      onMouseEnter={startScrambling}
+    >   
+      {displayText}
     </Button>
   );
 };
 
 export default HackerBtn;
-
-

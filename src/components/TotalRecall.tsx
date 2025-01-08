@@ -1,43 +1,72 @@
 "use client"
 import { cn } from '@/lib/utils'
-import { Download } from 'lucide-react'
-import Link from 'next/link'
-import React, { useState, useEffect } from 'react';
-import { buttonVariants } from './ui/button'
+import React, { useState, useEffect, useRef } from 'react';
 import HackerBtn from './animation/HackerBtn'
 
 function TotalRecall() {
-  // Check if we're on the client side and get the initial theme
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') || 'light';
-    }
-    return 'light';
-  });
+  const [isChaosModeActive, setIsChaosModeActive] = useState(false);
+  const chaosIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const charset = "abcdefghijklmnopqrstuvwxyz";
 
-  // Update the theme when component mounts and when theme changes
-  useEffect(() => {
-    const root = window.document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      root.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [theme]);
-
-  // Handle theme toggle
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
+  const randomChars = (length: number) => {
+    return Array.from(
+      { length },
+      () => charset[Math.floor(Math.random() * charset.length)]
+    ).join("");
   };
+
+  const applyChaosToDom = () => {
+    const textElements = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span, a');
+    textElements.forEach((element) => {
+      const originalText = element.textContent || '';
+      if (originalText.trim()) {
+        element.setAttribute('data-original', originalText);
+        element.textContent = randomChars(originalText.length);
+      }
+    });
+  };
+
+  const restoreOriginalText = () => {
+    if (chaosIntervalRef.current) {
+      clearInterval(chaosIntervalRef.current);
+      chaosIntervalRef.current = null;
+    }
+    const textElements = document.querySelectorAll('[data-original]');
+    textElements.forEach((element) => {
+      element.textContent = element.getAttribute('data-original');
+      element.removeAttribute('data-original');
+    });
+    setIsChaosModeActive(false);
+  };
+
+  const toggleChaosMode = () => {
+    if (!isChaosModeActive) {
+      applyChaosToDom();
+      chaosIntervalRef.current = setInterval(applyChaosToDom, 100);
+      setIsChaosModeActive(true);
+    } else {
+      restoreOriginalText();
+    }
+  };
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (chaosIntervalRef.current) {
+        clearInterval(chaosIntervalRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div
       className={cn('px-4 py-2 rounded-md mt-2')}
-      onClick={toggleTheme}
+      onClick={toggleChaosMode}
     >
-      <HackerBtn label={theme === 'dark' ? 'What did you do?!' : 'Destroy Page?'} />
+      <HackerBtn 
+        label={isChaosModeActive ? 'What Did You Do?!?' : 'Destroy Page?'} 
+        isActive={isChaosModeActive}
+      />
     </div>
   )
 }

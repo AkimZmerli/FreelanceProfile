@@ -1,19 +1,17 @@
 "use client"
 
-
 import React from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { useEffect } from 'react';
 
-
 const DarkModeButton = () => {
   const [mounted, setMounted] = React.useState(false);
-  const [theme, setTheme] = React.useState('light');
+  const [theme, setTheme] = React.useState('dark'); // Set dark as default
 
   // Only run on client side
   useEffect(() => {
     setMounted(true);
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedTheme = localStorage.getItem('theme') || 'dark'; // Use dark as default
     setTheme(savedTheme);
   }, []);
 
@@ -37,9 +35,8 @@ const DarkModeButton = () => {
 
   // Prevent hydration mismatch by not rendering until mounted
   if (!mounted) {
-    return null; // or a skeleton/placeholder
+    return null;
   }
-
 
   return (
     <button

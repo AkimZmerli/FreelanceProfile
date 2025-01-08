@@ -11,8 +11,14 @@ const SkillsFooter:React.FC<MyComponentProps> = ({items}) => {
     <>
       { items && items.map((val, indx) => {
         return (
-          <div className="p-8" key={indx}>
-            <Image src={val?.img} alt={val?.alt} className="rounded-full w-auto max-h-20" />
+          <div className="p-8 flex items-center justify-center" key={indx}>
+            <Image 
+              src={val?.img} 
+              alt={val?.alt} 
+              className="rounded-full object-contain"
+              width={90}
+              height={90}
+            />
           </div>
         );
       })}

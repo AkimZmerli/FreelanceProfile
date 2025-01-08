@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import { siteConfig } from "./page";
 import DarkModeButton from "@/components/DarkModeButton";
+import Footer from "@/components/footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -88,19 +89,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="light">
+    <html lang="en" className="dark">
       <body className={`${poppins.variable} ${rubik.variable} dark:bg-gray-900`}>
-        <main
+      <main
           className={cn(
-            "flex relative break-words h-dvh min-h-screen items-center justify-between pt-14 pb-4 px-20 max-md:p-4 bg-white dark:bg-gray-900 max-sm:pt-20 bg-[radial-gradient(#06B6D4_1px,transparent_1px)] dark:bg-[radial-gradient(#FF34B3_1px,transparent_1px)] [background-size:16px_16px]",
+            "flex relative break-words h-dvh min-h-screen items-center pb-10 justify-between pt-14 px-20 max-md:p-4 bg-white dark:bg-gray-900 max-sm:pt-20 bg-[radial-gradient(#06B6D4_1px,transparent_1px)] dark:bg-[radial-gradient(#FF34B3_1px,transparent_1px)] [background-size:16px_16px] [background-position:0_0]",
           )}
-        >
-          {/* NAVBAR ->  */}
+        >          {/* NAVBAR ->  */}
           <Navbar />
   
           {children}
         </main>
+        {/* <Footer /> */}
       </body>
+      
     </html>
   );
 }

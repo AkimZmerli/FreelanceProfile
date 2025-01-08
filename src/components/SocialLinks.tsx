@@ -7,7 +7,7 @@ import { FaDiscord } from "react-icons/fa";
 
 const SocialLinks = () => {
   const links = [
-    { name: "Facebook", link: "https://discord.com/channels/665641579368677395/1019670950297485343", icon: <FaDiscord className="scale-180"/> },
+    { name: "Discord", link: "https://discord.com/channels/665641579368677395/1019670950297485343", icon: <FaDiscord className="h-5 w-5"/> },
     { name: "Twitter", link: "https://x.com/AkimZmerli", icon: <Twitter /> },
     { name: "Linkedin", link: "https://www.linkedin.com/in/akim-zmerli-785215196/", icon: <Linkedin /> },
     

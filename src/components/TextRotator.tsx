@@ -4,11 +4,12 @@ function TextRotator() {
   return (
    
     <div
-    className="py-4  rounded-md flex flex-col justify-center items-center overflow-hidden"
+    className="pt-4  rounded-md flex flex-col justify-center items-center overflow-hidden"
   >
-    <div className="font-poppins text-base sm:text-3xl dark:text-white [text-wrap:balance] text-gray-700">
-    Ich bin Web Developer &
-      <span
+    <div className="font-poppins text-base sm:text-3xl dark:text-primary [text-wrap:balance] text-gray-700">
+    I am Web Dev 4 Life <br /> and 
+    
+ <span
         className="inline-flex ml-2 flex-col h-[calc(theme(fontSize.lg)*theme(lineHeight.tight))] sm:h-[calc(theme(fontSize.3xl)*theme(lineHeight.tight))] overflow-hidden"
       >
         <ul
@@ -26,6 +27,7 @@ function TextRotator() {
           
         </ul>
       </span>
+      
     </div>
   </div>
   )
