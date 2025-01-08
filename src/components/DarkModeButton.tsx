@@ -5,17 +5,21 @@ import React from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { useEffect } from 'react';
 
-const DarkModeButton = () => {
-  // Check if we're on the client side and get the initial theme
-  const [theme, setTheme] = React.useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') || 'light';
-    }
-    return 'light';
-  });
 
-  // Update the theme when component mounts and when theme changes
+const DarkModeButton = () => {
+  const [mounted, setMounted] = React.useState(false);
+  const [theme, setTheme] = React.useState('light');
+
+  // Only run on client side
   useEffect(() => {
+    setMounted(true);
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+    
     const root = window.document.documentElement;
     if (theme === 'dark') {
       root.classList.add('dark');
@@ -24,12 +28,18 @@ const DarkModeButton = () => {
       root.classList.remove('dark');
       localStorage.setItem('theme', 'light');
     }
-  }, [theme]);
+  }, [theme, mounted]);
 
   // Handle theme toggle
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
+
+  // Prevent hydration mismatch by not rendering until mounted
+  if (!mounted) {
+    return null; // or a skeleton/placeholder
+  }
+
 
   return (
     <button
