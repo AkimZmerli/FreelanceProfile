@@ -19,9 +19,9 @@ export async function SendEmail(formData: FormData) {
 
   try {
     const data = await resend.emails.send({
-      from: 'mail@akimzmerli.site', 
-      to: ['akim.zmerli@googlemail.com'], 
-      replyTo: senderEmail.toString(),
+      from: 'mail@akimzmerli.site',
+      to: ['akim.zmerli@googlemail.com'],
+      replyTo: senderEmail.toString(), // Changed from reply_to to replyTo
       subject: `New Message from ${name}`,
       text: `
         Name: ${name}
@@ -29,7 +29,7 @@ export async function SendEmail(formData: FormData) {
         Message: ${message}
       `,
     });
-
+    
     if (data.error) {
       console.error('Resend API Error:', data.error);
       throw new Error(`Resend API Error: ${JSON.stringify(data.error)}`);
