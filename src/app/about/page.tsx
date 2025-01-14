@@ -45,7 +45,7 @@ const page = () => {
           <Heart className="h-8 w-8" /> Hobbies
         </h1>
         <div className="w-full h-fit p-2 flex flex-row justify-between gap-7 max-lg:flex-col">
-          {items.map((val, indx) => {
+         {items.map((val, indx) => {
             return (
               <div
                 key={indx}

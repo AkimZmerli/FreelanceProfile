@@ -114,7 +114,7 @@ const Navbar = () => {
             pathname === item.href && "bg-gray-100 border nav-border")}
           >
           {/* <DockLabel >{item.title}</DockLabel> */}
-          <DockIcon className={cn(pathname === item.href && "text-cyan-500 dark:text-pink-500 ")}>{item.icon}</DockIcon>
+          <DockIcon className={cn(pathname === item.href && "text-cyan-500 dark:text-pink-500")}>{item.icon}</DockIcon>
         </DockItem>
           </Link>
       ))}
