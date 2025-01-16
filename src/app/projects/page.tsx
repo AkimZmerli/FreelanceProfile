@@ -12,22 +12,22 @@ const projectsPage = () => {
     {
       title: "Eisdiele Pfeiffer",
       description:
-        `Deine lieblings Eisdiele Pfeiffer hat einen neuen Internetauftritt. Hier findest du alles rund um das leckerste Eis der Südvorstadt.`,
-      tags: ["Zustand", "Supabase", "Shadcn Ui", "Nextjs"],
+        `Your favorite ice cream parlor, Pfeiffer, has a new online presence. Here you'll find everything about the tastiest ice cream in the Südvorstadt neighborhood`,
+      tags: ["Zustand", "Shadcn Ui", "Nextjs"],
       link: "https://www.youtube.com/watch?v=xxA-Wq1w2G4",
     },
    
     {
       title: "ProjektmanagerIn meets Tanz",
       description:
-        "Du brauchst eine neue Visitenkarte, die neue kreative Wege entdeckt? Dann bist du hier genau richtig",
+        "You need a new business card that explores new creative paths? Then you are in the right place!",
       tags: ["Nextjs", "Typescript", "Shadcn Ui"],
       link: "https://www.youtube.com/watch?v=eerHzJP2-Zc",
     },
     {
-      title: "K!nk Educator ",
+      title: "Lichtbildnerei Valentin ",
       description:
-        " Hinter LOLA SAPIEHA stehe ich als Körpertherapeut*in. Mein Anliegen ist es, Menschen, auf ihrer Reise in eine explorative Sinnlichkeit zu unterstützen. ",
+        "Discover the powerful photographic art of a rising artist from Chemnitz. His visual language leaves all amateurs speechless.",
       tags: ["Nextjs", "Typescript", "Shadcn Ui"],
       link: "https://www.youtube.com/watch?v=0DubP5iYTic",
     },
