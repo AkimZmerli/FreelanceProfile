@@ -31,7 +31,7 @@ const page = () => {
 
         <FramerWrapper y={0} x={100} >
           <p className=" font-poppins text-3xl w-full text-primary mt-6 mb-6 max-sm:text-lg">
-            I really enjoy listning to people's stories and creating a product
+            I really enjoy listning to people&apos;s stories and creating a product
             that resembles their vision. 
           
           </p>
