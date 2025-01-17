@@ -14,7 +14,7 @@ const HeroImage = ()  => {
           priority
           height={600}
           width={600}
-          className="transform translate-y-[-3%] " 
+          className="transform translate-y-[7%] translate-x-[-7%] "
         />
         </>
     )
