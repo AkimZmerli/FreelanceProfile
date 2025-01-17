@@ -90,6 +90,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
+        <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    </meta> 
+    </head>
       <body className={`${poppins.variable} ${rubik.variable} dark:bg-gray-900`}>
       <main
           className={cn(
@@ -102,7 +106,7 @@ export default function RootLayout({
         </main>
         {/* <Footer /> */}
       </body>
-      
+     
     </html>
   );
 }
