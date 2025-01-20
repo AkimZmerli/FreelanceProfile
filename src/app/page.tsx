@@ -33,9 +33,9 @@ export default function Home() {
       
       
       {/* IMAGE  */}
-        <div className="">
+     
           <HeroImage />
-        </div>
+        
       </FramerWrapper>
      
       {/* GITHUB BUTTON  */}

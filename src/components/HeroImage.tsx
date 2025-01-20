@@ -12,9 +12,9 @@ const HeroImage = ()  => {
           alt="logo"
           loading="eager"
           priority
-          height={600}
-          width={600}
-          className="transform translate-y-[7%] translate-x-[-7%] "
+          height={500}
+          width={500}
+          className="transform translate-y-[-6%]  "
         />
         </>
     )
