@@ -97,7 +97,7 @@ export default function RootLayout({
       <body className={`${poppins.variable} ${rubik.variable} dark:bg-gray-900`}>
       <main
           className={cn(
-            "flex relative break-words h-full min-h-screen items-center pb-10 justify-between pt-14 px-20 max-md:p-4 bg-white dark:bg-gray-900 max-sm:pt-20 bg-[radial-gradient(#06B6D4_1px,transparent_1px)] dark:bg-[radial-gradient(#FF34B3_1px,transparent_1px)] [background-size:16px_16px] [background-position:0_0]",
+            "flex relative break-words h-full min-h-screen items-center pb-10 justify-between pt-14 px-20 max-md:p-4 bg-white dark:bg-gray-900 max-sm:pt-20 bg-[radial-gradient(#FF34B3_1px,transparent_1px)] dark:bg-[radial-gradient(#FF34B3_1px,transparent_1px)] [background-size:16px_16px] [background-position:0_0]",
           )}
         >          {/* NAVBAR ->  */}
           <Navbar />

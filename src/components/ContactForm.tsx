@@ -1,3 +1,5 @@
+"use client";
+
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
@@ -11,16 +13,36 @@ import {
 } from "@/components/ui/card";
 import { Button } from "./ui/button";
 import { SendEmail } from "./SendEmail";
+import { useEffect } from "react";
+
+
 
 const ContactForm = () => {
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = `https://www.google.com/recaptcha/api.js?render=6LeA3NoqAAAAAEguX1FK3SzG8-WtM9Tp42kTXuHx`;
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    grecaptcha.ready(() => {
+      grecaptcha.execute('6LeA3NoqAAAAAEguX1FK3SzG8-WtM9Tp42kTXuHx', { action: 'submit' }).then(async (token) => {
+        const formData = new FormData(event.target as HTMLFormElement);
+        formData.append('g-recaptcha-response', token);
+
+        // Call SendEmail with formData
+        await SendEmail(formData);
+      });
+    });
+  };
+
   return (
     <Card>
-      <form
-        action={async (FormData) => {
-          "use server";
-          await SendEmail(FormData);
-        }}
-      >
+      <form onSubmit={handleSubmit}>
         <CardHeader>
           <CardTitle className="icon_underline">Schreib mich an</CardTitle>
           <CardDescription>
