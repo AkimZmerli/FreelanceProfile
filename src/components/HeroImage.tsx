@@ -13,9 +13,7 @@ const HeroImage = () => {
           width: '100%',
           height: 'auto',
           maxWidth: '500px',
-          position: 'absolute',
-          bottom: '0',
-          right: '0',
+  
         }}
         width={500}
         height={500}

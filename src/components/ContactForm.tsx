@@ -44,7 +44,7 @@ const ContactForm = () => {
     <Card>
       <form onSubmit={handleSubmit}>
         <CardHeader>
-          <CardTitle className="icon_underline">Drop me a message!</CardTitle>
+          <CardTitle className="icon_underline">Leave me a message!</CardTitle>
           <CardDescription>
 after sending the form, you will be redirected to the main page          </CardDescription>
         </CardHeader>
