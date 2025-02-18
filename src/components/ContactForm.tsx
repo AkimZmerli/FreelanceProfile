@@ -30,7 +30,7 @@ const ContactForm = () => {
     event.preventDefault();
 
     grecaptcha.ready(() => {
-      grecaptcha.execute('6LeA3NoqAAAAAEguX1FK3SzG8-WtM9Tp42kTXuHx', { action: 'submit' }).then(async (token) => {
+      grecaptcha.execute('6LeA3NoqAAAAAEguX1FK3SzG8-WtM9Tp42kTXuHx', { action: 'submit' }).then(async (token: string) => {
         const formData = new FormData(event.target as HTMLFormElement);
         formData.append('g-recaptcha-response', token);
 
