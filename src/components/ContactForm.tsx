@@ -44,10 +44,9 @@ const ContactForm = () => {
     <Card>
       <form onSubmit={handleSubmit}>
         <CardHeader>
-          <CardTitle className="icon_underline">Schreib mich an</CardTitle>
+          <CardTitle className="icon_underline">Drop me a message!</CardTitle>
           <CardDescription>
-            nach dem Absenden landest du wieder auf der Homepage
-          </CardDescription>
+after sending the form, you will be redirected to the main page          </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid w-full max-w-sm items-center gap-1.5 mt-2">
@@ -56,7 +55,7 @@ const ContactForm = () => {
               type="text"
               name="name"
               required
-              placeholder="Gib hier deine email an"
+              placeholder="enter your name"
             />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5 mt-2">
@@ -65,13 +64,13 @@ const ContactForm = () => {
               type="email"
               name="SenderEmail"
               required
-              placeholder="Gib hier deine email an"
+              placeholder="enter your email"
             />
           </div>
           <div className="grid w-full max-w-sm items-center gap-1.5 mt-2">
-            <Label htmlFor="message">Deine Nachricht</Label>
+            <Label htmlFor="message">Your Message</Label>
             <textarea
-              placeholder="was möchtest du mir sagen..."
+              placeholder="how can I assist you?"
               name="message"
               required
               className=" resize-none flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
@@ -80,7 +79,7 @@ const ContactForm = () => {
         </CardContent>
         <CardFooter>
           <Button type="submit" className="w-full">
-            Absenden
+          send
           </Button>
         </CardFooter>
       </form>

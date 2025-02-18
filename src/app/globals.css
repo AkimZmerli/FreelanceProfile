@@ -80,6 +80,17 @@
   background-color: rgb(236 72 153); /* pink-500 in dark mode */
 }
 
+.responsive-hero-image {
+  @media (max-width: 768px) {
+    width: 80%;
+    max-width: 400px;
+  }
+  @media (max-width: 480px) {
+    width: 70%;
+    max-width: 300px;
+  }
+}
+
 .education_point::before {
   content: "";
   display: block;

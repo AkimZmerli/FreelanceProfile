@@ -59,13 +59,13 @@ const Navbar = () => {
       ),
       href: '/projects',
     },
-    {
-      title: 'Games',
-      icon: (
-        <FolderGit2 className='h-full w-full ' />
-      ),
-      href: '/games',
-    },
+    // {
+    //   title: 'Games',
+    //   icon: (
+    //     <FolderGit2 className='h-full w-full ' />
+    //   ),
+    //   href: '/games',
+    // },
    
     {
       title: 'Kontakt',
