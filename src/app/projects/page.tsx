@@ -14,22 +14,22 @@ const projectsPage = () => {
       description:
         `Your favorite ice cream parlor, Pfeiffer, has a new online presence. Here you'll find everything about the tastiest ice cream in the Südvorstadt neighborhood`,
       tags: ["Zustand", "Shadcn Ui", "Nextjs"],
-      link: "https://www.youtube.com/watch?v=xxA-Wq1w2G4",
+      link: "https://www.leipzig-leben.de/eisdiele-pfeifer-leipzig/",
     },
    
     {
       title: "ProjektmanagerIn meets Tanz",
       description:
-        "You need a new business card that explores new creative paths? Then you are in the right place!",
+        "You need a new business card that explores creative paths? Then you are in the right place!",
       tags: ["Nextjs", "Typescript", "Shadcn Ui"],
-      link: "https://www.youtube.com/watch?v=eerHzJP2-Zc",
+      link: "https://www.youtube.com/watch?v=o-YBDTqX_ZU",
     },
     {
       title: "Lichtbildnerei Valentin ",
       description:
         "Discover the powerful photographic art of a rising artist from Chemnitz. His visual language leaves all amateurs speechless.",
       tags: ["Nextjs", "Typescript", "Shadcn Ui"],
-      link: "https://www.youtube.com/watch?v=0DubP5iYTic",
+      link: "https://www.instagram.com/valentinmici/",
     },
     
   ];
