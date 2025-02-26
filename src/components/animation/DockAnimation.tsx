@@ -33,6 +33,7 @@ type DockProps = {
   panelHeight?: number;
   magnification?: number;
   spring?: SpringOptions;
+  enableHover?: boolean;
 };
 type DockItemProps = {
   className?: string;
@@ -79,6 +80,7 @@ function Dock({
   magnification = DEFAULT_MAGNIFICATION,
   distance = DEFAULT_DISTANCE,
   panelHeight = DEFAULT_PANEL_HEIGHT,
+  enableHover = true, // New prop to control hover
 }: DockProps) {
   const mouseX = useMotionValue(Infinity);
   const isHovered = useMotionValue(0);
@@ -100,12 +102,16 @@ function Dock({
     >
       <motion.div
         onMouseMove={({ pageX }) => {
-          isHovered.set(1);
-          mouseX.set(pageX);
+          if (enableHover) {
+            isHovered.set(1);
+            mouseX.set(pageX);
+          }
         }}
         onMouseLeave={() => {
-          isHovered.set(0);
-          mouseX.set(Infinity);
+          if (enableHover) {
+            isHovered.set(0);
+            mouseX.set(Infinity);
+          }
         }}
         className={cn(
           'mx-auto flex w-fit gap-1.5 sm:gap-4 rounded-2xl bg-gray-50 px-4 dark:bg-neutral-900',

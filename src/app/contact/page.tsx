@@ -17,7 +17,7 @@ const contactPage = () => {
         Contact
       </Badge>
       <div className="flex flex-col gap-3 w-full">
-        <Heading>Any questions left? <br /> Here is a suggestion </Heading>
+        <Heading>Is there something <br /> on your mind? </Heading>
         <div className="h-auto w-full flex justify-center items-center">
           <FramerWrapper y={0} scale={0.8}>
 
@@ -26,7 +26,7 @@ const contactPage = () => {
         </div>
         <p className=" font-poppins text-lg w-full text-primary max-sm:text-base"></p>
       </div>
-      <TotalRecall />
+   
     </div>
   );
 };

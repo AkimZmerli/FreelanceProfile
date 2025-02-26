@@ -4,8 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import { siteConfig } from "./page";
-import DarkModeButton from "@/components/DarkModeButton";
-import Footer from "@/components/footer";
+
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -97,10 +96,13 @@ export default function RootLayout({
       <body className={`${poppins.variable} ${rubik.variable} dark:bg-gray-900`}>
       <main
           className={cn(
-            "flex relative break-words h-full min-h-screen items-center pb-10 justify-between pt-14 px-20 max-md:p-4 bg-white dark:bg-gray-900 max-sm:pt-20 bg-[radial-gradient(#FF34B3_1px,transparent_1px)] dark:bg-[radial-gradient(#FF34B3_1px,transparent_1px)] [background-size:16px_16px] [background-position:0_0]",
+            "flex relative break-words h-full min-h-screen items-center pb-10 justify-between pt-2 px-20 max-md:p-4 bg-white dark:bg-gray-900 max-sm:pt-20 bg-[radial-gradient(#FF34B3_1px,transparent_1px)] dark:bg-[radial-gradient(#FF34B3_1px,transparent_1px)] [background-size:16px_16px] [background-position:0_0]",
           )}
         >          {/* NAVBAR ->  */}
-          <Navbar />
+        
+          
+            <Navbar />
+       
   
           {children}
         </main>
