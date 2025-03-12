@@ -30,10 +30,9 @@ const page = () => {
 
 
         <FramerWrapper y={0} x={100} >
-          <p className=" font-poppins text-3xl w-full text-primary mt-6 mb-6 max-sm:text-lg">
-            I really enjoy listning to people&apos;s stories and creating a product
-            that resembles their vision. 
-          
+          <p className=" font-poppins text-4xl w-full text-primary mt-6 mb-6 max-sm:text-lg">
+            After years of working in the academic and social sector, I found my one true passion. Developing Dreams with Code.
+            Together we will spin ideas, figure out your resources and make your web site as unique as you are. Join me on this path of creativity.
           </p>
         </FramerWrapper>
 

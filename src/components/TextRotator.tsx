@@ -6,7 +6,7 @@ function TextRotator() {
     <div
     className="pt-4  rounded-md flex flex-col justify-center items-center overflow-hidden"
   >
-    <div className="font-poppins text-base sm:text-3xl dark:text-primary [text-wrap:balance] text-gray-700">
+    <div className="font-poppins text-base sm:text-5xl dark:text-primary [text-wrap:balance] text-gray-700">
     I am Front-End Developer <br /> and
     
  <span

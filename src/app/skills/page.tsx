@@ -43,16 +43,16 @@ const skillPage = () => {
         My Skills
       </Badge>
       <div className="flex flex-col gap-6">
-        <Heading>My Technical Experience/Skills.</Heading>
+        <Heading>Tech Stack</Heading>
         <FramerWrapper y={0} x={200} className={"block mb-10"}>
 
-        <p className="font-poppins text-xl w-full text-primary max-sm:text-lg">
-        Aktuell bin ich Berufseinsteiger und habe ein solides Verständnis von HTML5, CSS3, JS, TS und React, einschließlich responsiver Designprinzipien. Ich spezialisiere mich auf den Bau von Webanwendungen mit JavaScript, TypeScript, React, Next.js und Node.
+        <p className="font-poppins text-2xl w-full text-primary max-sm:text-lg">
+          6 Months of waking up early, learning the latest tech stack and working with the most dedicated teachers. This was my rock solid routine during the WebDev Bootcamp.  After class I would teach myself even more through the Odin Project. So I would become one hell of an engineer. <br />This is my current stack: 
         </p>
         </FramerWrapper>
         <FramerWrapper y={100} delay={0.30} className="block">
         <h1 className="gap-2 text-2xl font-poppins text-primary font-semibold flex text_underline relative max-sm:text-xl">
-           Programmiersprachen
+           Programming Languages
         </h1>
         <div className="w-full h-fit flex-row flex justify-between items-center">
         <SkillsFooter items={language} />
@@ -60,7 +60,7 @@ const skillPage = () => {
         </FramerWrapper>
         <FramerWrapper  className="block " y={100} delay={0.32}>
         <h1 className="gap-2 text-2xl font-poppins text-primary font-semibold flex text_underline relative max-sm:text-xl">
-           Framework/Libraries und Version Control
+           Framework/Libraries and Version Control
         </h1>
         <div className="w-full h-fit flex-row flex justify-between items-center">
         <SkillsFooter items={framework} />
