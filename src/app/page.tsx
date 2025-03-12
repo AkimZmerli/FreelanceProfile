@@ -21,10 +21,7 @@ export default function Home() {
       <FramerWrapper className="  flex flex-col justify-start gap-5" y={0} x={-90}>
         <HeroTexts />
         
-        <div className="h-fit w-full p-4 flex gap-4">
-          <SocialLinks />
-          
-        </div>
+
        
       </FramerWrapper>
       {/* RIGHT SIDE image  */}

@@ -3,7 +3,7 @@ import FramerWrapper from "@/components/animation/FramerWrapper";
 import Heading from "@/components/Heading";
 import { Badge } from "@/components/ui/badge";
 import { Mail, Phone } from "lucide-react";
-import TotalRecall from "@/components/TotalRecall";
+
 
 
 

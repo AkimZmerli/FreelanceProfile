@@ -1,5 +1,6 @@
 import logo from "../../public/portfolioLogo.png";
 import Image from "next/image"
+import './HeroImage.css';
 
 const HeroImage = () => {
   return (
@@ -17,7 +18,7 @@ const HeroImage = () => {
         }}
         width={500}
         height={500}
-        className="responsive-hero-image transform translate-y-[6%]"
+        className="responsive-hero-image"
       />
     </div>
   );

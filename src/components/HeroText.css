@@ -1,0 +1,9 @@
+.hero-text-container {
+
+  }
+  
+  @media (min-width: 1200px) {
+    .hero-text-container {
+      transform: translateY(15%) translateX(10%); /* Adjust for larger screens */
+    }
+  }
