@@ -20,7 +20,7 @@ function TotalRecall() {
 
     let prefix = "";
     for (let index = 0; index < originalText.length; index++) {
-      await new Promise((resolve) => setTimeout(resolve, 39));
+      await new Promise((resolve) => setTimeout(resolve, 20));
       prefix += originalText.charAt(index);
       element.textContent = prefix + randomChars(originalText.length - prefix.length);
     }
