@@ -7,42 +7,76 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 20% 30%; /* Softer gray for light mode */
+    --background: #f2f2f2; /* Lighten the background for light mode */
+    /* Hex: #f2f2f2 - A very light grey */
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 20% 30%;
- 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 30%;
-    --radius: 0.5rem;
+    --foreground: 220 20% 30%; /* Softer gray for light mode text */
+    /* Hex: #4d4d4d - A medium-dark grey */
 
-    /* Adding back necessary colors with softer tones */
-    --primary: 220 20% 25%;  /* Softer gray for borders */
-    --primary-foreground: 210 40% 98%;
+    --card: #e6e6e6; /* Light grey for card background */
+    /* Hex: #e6e6e6 - A light grey */
 
-    --border: 220 20% 85%;  /* Very light gray for borders */
-    --ring: 220 20% 65%;    /* Medium gray for focus rings */
+    --card-foreground: #4d4d4d; /* Text color for cards */
+    /* Hex: #4d4d4d - A medium-dark grey */
+
+    --popover: #ffffff; /* Popover background */
+    /* Hex: #ffffff - White */
+
+    --popover-foreground: #4d4d4d ; /* Text color for popovers */
+    /* Hex: #4d4d4d - A medium-dark grey */
+
+    --radius: 0.5rem; /* Border radius for rounded corners */
+
+    /* Adjusted colors */
+    --primary: #404040;  /* Softer gray for borders */
+    /* Hex: #404040 - A dark grey */
+
+    --primary-foreground: #f2f2f2; /* Text color on primary elements */
+    /* Hex: #f2f2f2 - A very light grey */
+
+    --border:#862c2c;  /* Very light gray for borders */
+    /* Hex: #d9d9d9 - A very light grey */
+
+    --ring: #a6a6a6;    /* Medium gray for focus rings */
+    /* Hex: #a6a6a6 - A medium grey */
   }
- 
+
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 20% 80%; /* Softer gray for dark mode */
- 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 20% 80%;
- 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 20% 80%;
+    --background: #1a1a1a; /* Dark background for dark mode */
+    /* Hex: #1a1a1a - A very dark grey */
 
-    /* Dark mode colors */
+    --foreground: #e6e6e6; /* Lighten the greyish text color */
+    /* Hex: #e6e6e6 - A light grey */
+
+    --card: #1a1a1a; /* Card background in dark mode */
+    /* Hex: #1a1a1a - A very dark grey */
+
+    --card-foreground: #cccccc; /* Text color for cards in dark mode */
+    /* Hex: #cccccc - A light grey */
+
+    --popover: #1a1a1a; /* Popover background in dark mode */
+    /* Hex: #1a1a1a - A very dark grey */
+
+    --popover-foreground: #cccccc; /* Text color for popovers in dark mode */
+    /* Hex: #cccccc - A light grey */
+
+    /* Adjusted colors */
     --primary: 210 20% 85%;  /* Softer gray for dark mode borders */
-    --primary-foreground: 210 20% 98%;
+    /* Hex: #d9d9d9 - A very light grey */
 
-    --border: 215 20% 30%;  /* Darker gray for borders */
-    --ring: 210 20% 65%;    /* Lighter gray for focus rings */
+    --primary-foreground: #ffffff; /* Text color on primary elements in dark mode */
+    /* Hex: #ffffff - White */
+
+    --border: #4d4d4d ;  /* Darker gray for borders in dark mode */
+    /* Hex: #4d4d4d - A medium-dark grey */
+
+    --ring: #a6a6a6;    /* Lighter gray for focus rings in dark mode */
+    /* Hex: #a6a6a6 - A medium grey */
   }
 }
+
+
+
 
 /* CUSTOM CSS  */
 .name_underline::after {

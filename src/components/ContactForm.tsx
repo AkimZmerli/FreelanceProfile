@@ -104,7 +104,7 @@ after sending, you will have 30 secs to leave the page          </CardDescriptio
           </div>
         </CardContent>
         <CardFooter>
-          <Button type="submit" className="w-full bg-slate-800 rounded-md border hover:text-black">
+          <Button type="submit" className="w-full bg-slate-800 text-gray-100 rounded-md border hover:text-black">
             Send
           </Button>
         </CardFooter>
