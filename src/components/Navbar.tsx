@@ -81,15 +81,14 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div
-    onMouseEnter={() => setHoverEnabled(true)}
-    onMouseLeave={() => setHoverEnabled(false)}
+<div 
+onMouseEnter={() => setHoverEnabled(true)}
     
-    
-    
-  >
-      <div className={`fixed top-5 right-0 left-0 px-0   sm:px-5 m-auto border- w-full sm:w-fit h-fit z-[+9999999] ${scrolling ? "hidden":"block"} `}>
-        <div >
+  
+>
+      <div className={` fixed top-5 right-0 left-0 px-0  sm:px-5 m-auto border- w-full sm:w-fit h-fit z-[+9999999] ${scrolling ? "hidden":"block"} `}>
+        <div className="width-full  
+  onMouseLeave={() => setHoverEnabled(false)}">
           <Dock enableHover={hoverEnabled} className='items-end pb-3 rounded-full border border-gray-200 dark:border-neutral-600 bg-gray-100'>
             {data.map((item, idx) => (
               <Link href={item.href} key={idx}>
