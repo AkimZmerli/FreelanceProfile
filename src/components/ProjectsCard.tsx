@@ -29,7 +29,7 @@ const ProjectCards: React.FC<projectcardprops> = ({ value, num }) => {
         {
           value.tags.map((itm:string, indx:number) => {
             // return <Badge key={indx}>{itm}</Badge>
-            return <span className={`inline-flex items-center m-6 gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium ${itm === 'Nextjs' && 'bg-teal-100 text-teal-800' || itm === 'Freelancing' && 'bg-yellow-100 text-yellow-800 ' || itm === 'Shadcn Ui' && 'bg-blue-100 text-blue-800' || itm === 'Typescript' && 'bg-red-100 text-red-800' || 'bg-gray-100 text-gray-800'}  `} key={indx}>{itm}</span>
+            return <span className={`inline-flex text-center items-center m-6 gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium ${itm === 'Nextjs' && 'bg-teal-300 text-black' || itm === 'Freelancing' && 'bg-yellow-100 text-yellow-800 ' || itm === 'Shadcn Ui' && 'bg-red-300 text-black' || itm === 'Typescript' && 'bg-blue-300 text-black' || 'bg-gray-100 text-gray-800'}  `} key={indx}>{itm}</span>
           })
         }
         </div>

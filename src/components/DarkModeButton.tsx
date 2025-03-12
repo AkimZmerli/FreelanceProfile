@@ -41,7 +41,7 @@ const DarkModeButton = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-lg transition-colors duration-200 hover:bg-gray-100 bg-gray-200 dark:hover:bg-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700"
+      className="p-2 rounded-lg transition-colors duration-200 hover:bg-gray-100 bg-gray-300 dark:hover:bg-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700"
       aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       {theme === 'dark' ? (

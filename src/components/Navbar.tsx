@@ -89,19 +89,21 @@ const Navbar = () => {
     
   >
       <div className={`fixed top-5 right-0 left-0 px-0   sm:px-5 m-auto border- w-full sm:w-fit h-fit z-[+9999999] ${scrolling ? "hidden":"block"} `}>
-        <Dock enableHover={hoverEnabled}className='items-end pb-3 rounded-full'>
-          {data.map((item, idx) => (
-            <Link href={item.href} key={idx}>
-              <DockItem
-                className={cn("aspect-square rounded-full bg-gray-200 dark:bg-neutral-700",
-                  pathname === item.href && "bg-gray-100 border nav-border")}
-              >
-                <DockIcon className={cn(pathname === item.href && "text-cyan-500 dark:text-pink-500")}>{item.icon}</DockIcon>
-              </DockItem>
-            </Link>
-          ))}
-          <DarkModeButton />
-        </Dock>
+        <div >
+          <Dock enableHover={hoverEnabled} className='items-end pb-3 rounded-full border border-gray-200 dark:border-neutral-600 bg-gray-100'>
+            {data.map((item, idx) => (
+              <Link href={item.href} key={idx}>
+                <DockItem
+                  className={cn("aspect-square rounded-full bg-gray-300 dark:bg-neutral-700",
+                    pathname === item.href && "bg-gray-100 border nav-border")}
+                >
+                  <DockIcon className={cn(pathname === item.href && "text-cyan-500 dark:text-pink-500")}>{item.icon}</DockIcon>
+                </DockItem>
+              </Link>
+            ))}
+            <DarkModeButton />
+          </Dock>
+        </div>
       </div>
     </div>
   );

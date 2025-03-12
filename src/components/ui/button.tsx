@@ -13,7 +13,7 @@ const buttonVariants = cva(
         outline:
           'border border-[#000] dark:border-gray-300 bg-transparent hover:bg-accent hover:text-accent-foreground dark:text-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200',
         custom:
-          'rounded-md bg-[#020817] text-white hover:bg-[#020817d6] hover:shadow-lg',
+          'rounded-md bg-[#2A3A5A] text-white hover:bg-[#020817d6] hover:shadow-lg',
         subtle:
           'rounded-md border border-input bg-background hover:bg-[#6aa2e6] hover:text-white',
         ghost:

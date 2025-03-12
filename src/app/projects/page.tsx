@@ -13,7 +13,7 @@ const projectsPage = () => {
       title: "Eisdiele Pfeiffer",
       description:
         `Your favorite ice cream parlor, Pfeiffer, has a new online presence. Here you'll find everything about the tastiest ice cream in the Südvorstadt neighborhood`,
-      tags: ["Zustand", "Shadcn Ui", "Nextjs"],
+      tags: ["Typescript", "Shadcn Ui", "Nextjs"],
       link: "https://www.leipzig-leben.de/eisdiele-pfeifer-leipzig/",
     },
    
