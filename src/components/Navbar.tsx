@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 
 
 import {
+  Atom,
   Briefcase,
   FolderGit2,
   GraduationCap,
@@ -44,6 +45,13 @@ const Navbar = () => {
         <Briefcase className='h-full w-full ' />
       ),
       href: '/skills',
+    },
+    {
+      title: 'Test',
+      icon: (
+        <Atom className='h-full w-full ' />
+      ),
+      href: '/testpage',
     },
     {
       title: 'Projekte',
