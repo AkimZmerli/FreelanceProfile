@@ -20,6 +20,17 @@ export default function TestPage() {
             className="w-full h-[600px]"
           ></iframe>
         </div>
+        <div>
+      
+  <iframe
+    allowFullScreen
+    scrolling="no"
+    className="fp-iframe"
+    style={{ border: '1px solid lightgray', width: '800px', height: '254px' }}
+    src="https://heyzine.com/flip-book/02f0bcc8ca.html"
+  ></iframe>
+</div>
+    
       </div>
     </div>
   );
