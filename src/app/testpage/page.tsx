@@ -1,6 +1,10 @@
 
 
+
+
 export default function TestPage() {
+
+
   return (
     <div className="flex flex-col justify-start items-center w-full min-h-screen py-2 px-4">
       <div className="py-12">
@@ -21,15 +25,33 @@ export default function TestPage() {
           ></iframe>
         </div>
         <div>
-      
+        <div className="flex justify-center mt-10">
+          <h2>Lichtbildnerei</h2>
+        </div>
   <iframe
     allowFullScreen
     scrolling="no"
     className="fp-iframe"
-    style={{ border: '1px solid lightgray', width: '800px', height: '254px' }}
+    style={{ border: '1px solid lightgray', marginTop: '50px', width: '800px', height: '400px' }}
     src="https://heyzine.com/flip-book/02f0bcc8ca.html"
   ></iframe>
 </div>
+<div className="flex justify-center m-10">
+          <h2>zwölftausend</h2>
+        </div>
+<iframe
+  width="760"
+
+  height="515"
+  src="https://www.youtube.com/embed/UxW4BC9YngI"
+  title="YouTube video player"
+
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+></iframe>
+
+
+
     
       </div>
     </div>
