@@ -117,7 +117,7 @@ function Dock({
           'mx-auto flex w-fit gap-1.5 sm:gap-4 rounded-2xl bg-gray-50 px-4 dark:bg-neutral-900',
           className
         )}
-        style={{ height: panelHeight }}
+        style={{ height: '100%' }}
         role='toolbar'
         aria-label='Application dock'
       >
@@ -152,20 +152,16 @@ function DockItem({ children, className }: DockItemProps) {
   });
 
   const handleHoverStart = () => {
-    clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => isHovered.set(1), 50);
+    // Remove the timeout that was causing issues
+    isHovered.set(1);
   };
-
+  
   const handleHoverEnd = () => {
-    clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => isHovered.set(0), 100);
+    // Remove the timeout that was causing issues
+    isHovered.set(0);
   };
 
-  useEffect(() => {
-    return () => {
-      clearTimeout(timeoutRef.current);
-    };
-  }, []);
+
 
   return (
     <motion.div
