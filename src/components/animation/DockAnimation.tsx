@@ -86,7 +86,7 @@ function Dock({
   const isHovered = useMotionValue(0);
 
   const maxHeight = useMemo(() => {
-    return Math.max(DOCK_HEIGHT, magnification + magnification / 2 + 4);
+    return Math.max(DOCK_HEIGHT, magnification + magnification / 2 + 5);
   }, [magnification]);
 
   const heightRow = useTransform(isHovered, [0, 1], [panelHeight, maxHeight]);
@@ -117,7 +117,7 @@ function Dock({
           'mx-auto flex w-fit gap-1.5 sm:gap-4 rounded-2xl bg-gray-50 px-4 dark:bg-neutral-900',
           className
         )}
-        style={{ height: panelHeight }}
+        style={{ height: '90%' }}
         role='toolbar'
         aria-label='Application dock'
       >
@@ -143,7 +143,7 @@ function DockItem({ children, className }: DockItemProps) {
   const widthTransform = useTransform(
     mouseDistance,
     [-distance, 0, distance],
-    [40, magnification, 40]
+    [40, magnification, 35]
   );
 
   const width = useSpring(widthTransform, {
