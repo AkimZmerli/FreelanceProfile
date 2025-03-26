@@ -3,7 +3,12 @@
 import React, { useEffect } from "react"
 import { SunMoon } from "lucide-react"
 
-const DarkModeButton = ({ className }) => {
+
+type DarkModeButtonProps = {
+  className?: string; 
+};
+
+const DarkModeButton = ({ className }: DarkModeButtonProps) => {
   const [mounted, setMounted] = React.useState(false)
   const [theme, setTheme] = React.useState("dark") // Set dark as default
 
