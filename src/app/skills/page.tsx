@@ -19,19 +19,19 @@ TotalRecall
 const skillPage = () => {
 
     const language = [
-        {alt:"html", img:html},
-        {alt:"css", img:css},
-        {alt:"js", img:js},
-        {alt:"ts", img:ts},
+        {alt:"html", img:html, description: "HTML", link: "https://www.youtube.com/watch?v=ok-plXXHlWw" },
+        {alt:"css", img:css, description: "CSS", link: "https://www.youtube.com/watch?v=DHjqpvDnNGE" },
+        {alt:"js", img:js, description: "Javascript", link: "https://www.youtube.com/watch?v=DHjqpvDnNGE" },
+        {alt:"ts", img:ts, description: "Typescript", link: "https://www.youtube.com/watch?v=zQnBQ4tB3ZA" },
         
     ]
     const framework = [
-        {alt:"react", img:react},
-        {alt:"nextjs", img:nextjs},
+        {alt:"react", img:react, description: "React", link: "https://react.dev/" },
+        {alt:"nextjs", img:nextjs, description: "Nextjs", link: "https://nextjs.org/" },
      
-        {alt:"tailwind", img:tailwind},
-        {alt:"github", img:github},
-        {alt:"vscode", img:vscode},
+        {alt:"tailwind", img:tailwind, description: "Tailwind", link: "https://tailwindcss.com/" },
+        {alt:"github", img:github, description: "Github", link: "https://github.com/" },
+        {alt:"vscode", img:vscode, description: "Vscode", link: "https://code.visualstudio.com/" },
     ]
        
 
@@ -46,7 +46,7 @@ const skillPage = () => {
         <Heading>Tech Stack</Heading>
         <FramerWrapper y={0} x={200} className={"block mb-10"}>
 
-        <p className="font-poppins text-2xl w-full text-primary max-sm:text-lg">
+        <p className="font-poppins text-4xl w-full text-primary max-sm:text-lg">
           6 Months of waking up early, learning the latest tech stack and working with the most dedicated teachers. This was my rock solid routine during the WebDev Bootcamp.  After class I would teach myself even more through the Odin Project. So I would become one hell of an engineer. <br />This is my current stack: 
         </p>
         </FramerWrapper>

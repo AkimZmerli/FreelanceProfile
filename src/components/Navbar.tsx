@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils"
 import { SunMoon } from "lucide-react"
 
-import { Briefcase, FolderGit2, HomeIcon, Mail, User } from "lucide-react"
+import { Rocket, Factory, Tent, Send, Atom } from "lucide-react"
 
 import { Dock, DockIcon, DockItem } from "@/components/animation/DockAnimation"
 
@@ -15,27 +15,27 @@ const Navbar = () => {
   const data = [
     {
       title: "Home",
-      icon: <HomeIcon className="h-full w-full" />,
+      icon: <Tent className="h-full w-full" />,
       href: "/",
     },
     {
       title: "Über mich",
-      icon: <User className="h-full w-full" />,
+      icon: <Atom className="h-full w-full" />,
       href: "/about",
     },
     {
       title: "Skillset",
-      icon: <Briefcase className="h-full w-full" />,
+      icon: <Rocket className="h-full w-full" />,
       href: "/skills",
     },
     {
       title: "Projekte",
-      icon: <FolderGit2 className="h-full w-full" />,
+      icon: <Factory className="h-full w-full" />,
       href: "/projects",
     },
     {
       title: "Kontakt",
-      icon: <Mail className="h-full w-full" />,
+      icon: <Send className="h-full w-full" />,
       href: "/contact",
     },
     {
@@ -100,25 +100,25 @@ const Navbar = () => {
         <div className="width-full" onMouseLeave={() => setHoverEnabled(false)}>
           <Dock
             enableHover={hoverEnabled}
-            className="items-end pb-3 rounded-full border border-gray-200 dark:border-neutral-600 bg-gray-100"
+            className="items-end pb-3 rounded-full border border-sky-300 dark:border-neutral-600 bg-sky-100"
           >
             {data.map((item, idx) =>
               item.href ? (
                 <Link href={item.href} key={idx}>
                   <DockItem
                     className={cn(
-                      "aspect-square rounded-full bg-gray-300 dark:bg-neutral-700",
+                      "aspect-square rounded-full bg-zinc-200 border border-zinc-500  dark:bg-neutral-600",
                       pathname === item.href && "bg-gray-100 border nav-border",
                     )}
                   >
-                    <DockIcon className={cn(pathname === item.href && "text-cyan-500 dark:text-pink-500")}>
+                    <DockIcon className={cn(pathname === item.href && "text-cyan-500 dark:text-pink-500 ")}>
                       {item.icon}
                     </DockIcon>
                   </DockItem>
                 </Link>
               ) : (
                 <div onClick={item.action === "toggleTheme" ? toggleTheme : undefined} key={idx}>
-                  <DockItem className="aspect-square rounded-full bg-gray-300 dark:bg-neutral-700">
+                  <DockItem className="aspect-square rounded-full border border-zinc-400 bg-zinc-200 dark:border-neutral-700 dark:bg-neutral-700">
                     <DockIcon
                       className={
                         item.action === "toggleTheme" ? (theme === "dark" ? "text-[#f2f2f2]" : "text-[#404040]") : ""
