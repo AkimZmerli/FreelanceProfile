@@ -1,8 +1,15 @@
-.responsive-hero-image {
-    transform: translateY(11%);
-  }
+
   
-  @media (min-width: 1900px){
+  @media (max-width: 1480px){
+    /* Adjust for larger screens */
+    .responsive-hero-image {
+      transform: translateY(20%) translateX(20%);
+      width: 900px; /* Increase the width */
+    height: auto; /* Maintain aspect ratio */
+    }
+  }
+
+  @media (min-width: 1480px){
     /* Adjust for larger screens */
     .responsive-hero-image {
       transform: translateY(28%) translateX(20%);
