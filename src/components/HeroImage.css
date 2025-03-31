@@ -3,7 +3,7 @@
   @media (max-width: 1480px){
     /* Adjust for larger screens */
     .responsive-hero-image {
-      transform: translateY(20%) translateX(20%);
+      transform: translateY(20%) translateX(25%);
       width: 900px; /* Increase the width */
     height: auto; /* Maintain aspect ratio */
     }

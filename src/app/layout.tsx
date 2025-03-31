@@ -3,7 +3,8 @@ import {  Poppins, Rubik } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
-import { siteConfig } from "./page";
+import { siteConfig } from "./page"
+import Script from "next/script";
 
 
 const poppins = Poppins({
@@ -107,6 +108,11 @@ export default function RootLayout({
           {children}
         </main>
         {/* <Footer /> */}
+
+    < Script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js" strategy="afterInteractive"/>
+    <Script
+ src="https://files.bpcontent.cloud/2025/03/29/14/20250329141635-FAA5SGHZ.js" strategy="afterInteractive"/>
+    
       </body>
      
     </html>
