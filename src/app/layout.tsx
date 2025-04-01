@@ -21,10 +21,10 @@ const rubik = Rubik({
 export const metadata: Metadata = {
   metadataBase: new URL("https://freelance-profil.vercel.app/"),
   title: {
-    default: "WebDev4life",
+    default: "WebDev4Life",
     template: `%s - Software Engineer`,
   },
-  description: "I enjoy listening to my clients stories and work on a product that resembles their vision. Together we will create a page that is build to last and shine.",
+  description: "Web Developer and Software Engineer for Hire. I enjoy listening to my clients stories and work on a product that resembles their vision. Together we will create a page that is build to last and shine.",
 
   // added new keywords for seo
   keywords: [
@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     "akim.zmerli",
     "AkimZmerli",
     "freelancer",
+    "for hire",
     "freelancer web developer",
     "typescript",
     "javascript",
