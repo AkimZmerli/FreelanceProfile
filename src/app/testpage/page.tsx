@@ -49,7 +49,9 @@ export default function TestPage() {
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowFullScreen
 ></iframe>
-
+<div className="flex justify-center m-10">
+          <h2>3D Flip book</h2>
+        </div>
 
 
     
