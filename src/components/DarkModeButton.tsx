@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react"
 import { SunMoon } from "lucide-react"
-impor { useEffect, useState } from "react"
+
 
 
 type DarkModeButtonProps = {
