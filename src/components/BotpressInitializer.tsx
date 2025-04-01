@@ -20,16 +20,22 @@ export default function BotpressInitializer() {
           window.botpress.init({
             botId: "1c5d9e01-f29c-4871-979c-f7e13402eabf",
             configuration: {
+              composerPlaceholder: "what can I help you with?",
+              botName: "Alan Rickman",
               website: {},
-              email: {},
+              email: {
+                title: "akim.zmerli@googlemail.com",
+                link: "akim.zmerli@googlemail.com"
+              },
               phone: {},
               termsOfService: {},
               privacyPolicy: {},
-              color: "#3B82F6",
+              color: "#06b6d4",
               variant: "solid",
-              themeMode: "light",
-              fontFamily: "inter",
+              themeMode: "dark",
+              fontFamily: "ibm",
               radius: 1,
+             
             },
             clientId: "d513bef8-8842-4adf-b151-2e06b6b08c43",
           })
@@ -53,7 +59,7 @@ export default function BotpressInitializer() {
       {/* First load the inject script which defines window.botpress */}
       <Script
         id="botpress-inject"
-        src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"
+        src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"
         strategy="afterInteractive"
         onLoad={() => {
           console.log("Botpress inject script loaded")
@@ -83,4 +89,5 @@ export default function BotpressInitializer() {
     </>
   )
 }
+
 

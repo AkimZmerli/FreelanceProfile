@@ -9,6 +9,11 @@ variant?: string
 themeMode?: string
 fontFamily?: string
 radius?: number
+additionalStylesheetUrl?: string
+title?: string
+link?: string
+botName?: string
+composerPlaceholder?: string
 }
 
 interface BotpressInitOptions {

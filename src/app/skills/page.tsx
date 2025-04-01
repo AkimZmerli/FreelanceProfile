@@ -9,7 +9,7 @@ import js from '../../../public/js.png'
 import ts from '../../../public/ts.png'
 import react from '../../../public/react.png'
 import nextjs from '../../../public/nextjs.jpeg'
-import cplus from '../../../public/c++.jpeg'
+
 import tailwind from '../../../public/tailwindcss.png'
 import github from '../../../public/github.png'
 import vscode from '../../../public/vscode.png'
@@ -79,4 +79,3 @@ const skillPage = () => {
 export default skillPage;
 
 
-// TS is messed up , update techs tack 
