@@ -9,7 +9,10 @@ import js from '../../../public/js.png'
 import ts from '../../../public/ts.png'
 import react from '../../../public/react.png'
 import nextjs from '../../../public/nextjs.jpeg'
-import cplus from '../../../public/c++.jpeg'
+import figma from '../../../public/figma.png'
+import linear from '../../../public/linear.png'
+import windsurf from '../../../public/windsurf.png'
+import docker from '../../../public/docker.png'
 import tailwind from '../../../public/tailwindcss.png'
 import github from '../../../public/github.png'
 import vscode from '../../../public/vscode.png'
@@ -19,19 +22,22 @@ TotalRecall
 const skillPage = () => {
 
     const language = [
-        {alt:"html", img:html, description: "HTML", link: "https://www.youtube.com/watch?v=ok-plXXHlWw" },
-        {alt:"css", img:css, description: "CSS", link: "https://www.youtube.com/watch?v=DHjqpvDnNGE" },
-        {alt:"js", img:js, description: "Javascript", link: "https://www.youtube.com/watch?v=DHjqpvDnNGE" },
-        {alt:"ts", img:ts, description: "Typescript", link: "https://www.youtube.com/watch?v=zQnBQ4tB3ZA" },
+
+      {alt:"ts", img:ts, description: "Typescript", link: "https://www.youtube.com/watch?v=zQnBQ4tB3ZA" },
+      {alt:"react", img:react, description: "React", link: "https://www.youtube.com/watch?v=Tn6-PIqc4UM" },
+      {alt:"nextjs", img:nextjs, description: "Nextjs", link: "https://www.youtube.com/watch?v=Sklc_fQBmcs&t=290s" },
+      {alt:"tailwind", img:tailwind, description: "Tailwind", link: "https://www.youtube.com/watch?v=mr15Xzb1Ook" },
+        
+        
         
     ]
     const framework = [
-        {alt:"react", img:react, description: "React", link: "https://react.dev/" },
-        {alt:"nextjs", img:nextjs, description: "Nextjs", link: "https://nextjs.org/" },
-     
-        {alt:"tailwind", img:tailwind, description: "Tailwind", link: "https://tailwindcss.com/" },
-        {alt:"github", img:github, description: "Github", link: "https://github.com/" },
-        {alt:"vscode", img:vscode, description: "Vscode", link: "https://code.visualstudio.com/" },
+      {alt:"html", img:figma, description: "HTML", link: "https://www.youtube.com/watch?v=veKJUY2VmxQ" },
+        
+        {alt:"css", img:linear, description: "CSS", link: "https://www.youtube.com/watch?v=cxBubxMynDQ" },
+        
+        {alt:"js", img:windsurf, description: "Javascript", link: "https://codeium.com/windsurf" },
+        {alt:"vscode", img:docker, description: "Vscode", link: "https://www.youtube.com/watch?v=Gjnup-PuquQ" },
     ]
        
 
@@ -52,7 +58,7 @@ const skillPage = () => {
         </FramerWrapper>
         <FramerWrapper y={100} delay={0.30} className="block">
         <h1 className="gap-2 text-2xl font-poppins text-primary font-semibold flex text_underline relative max-sm:text-xl">
-           Programming Languages
+           Building Stack
         </h1>
         <div className="w-full h-fit flex-row flex justify-between items-center">
         <SkillsFooter items={language} />
@@ -60,7 +66,7 @@ const skillPage = () => {
         </FramerWrapper>
         <FramerWrapper  className="block " y={100} delay={0.32}>
         <h1 className="gap-2 text-2xl font-poppins text-primary font-semibold flex text_underline relative max-sm:text-xl">
-           Framework/Libraries and Version Control
+           Design and Version Control Stack
         </h1>
         <div className="w-full h-fit flex-row flex justify-between items-center">
         <SkillsFooter items={framework} />
