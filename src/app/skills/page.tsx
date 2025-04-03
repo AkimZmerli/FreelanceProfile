@@ -10,7 +10,7 @@ import ts from '../../../public/ts.png'
 import react from '../../../public/react.png'
 import nextjs from '../../../public/nextjs.jpeg'
 import figma from '../../../public/figma.png'
-import linear from '../../../public/linear.png'
+import linear from '../../../public/Linear.png'
 import windsurf from '../../../public/windsurf.png'
 import docker from '../../../public/docker.png'
 import tailwind from '../../../public/tailwindcss.png'
@@ -32,12 +32,12 @@ const skillPage = () => {
         
     ]
     const framework = [
-      {alt:"html", img:figma, description: "HTML", link: "https://www.youtube.com/watch?v=veKJUY2VmxQ" },
+      {alt:"html", img:figma, description: "Figma", link: "https://www.youtube.com/watch?v=veKJUY2VmxQ" },
         
-        {alt:"css", img:linear, description: "CSS", link: "https://www.youtube.com/watch?v=cxBubxMynDQ" },
+        {alt:"css", img:linear, description: "Linear", link: "https://www.youtube.com/watch?v=cxBubxMynDQ" },
         
-        {alt:"js", img:windsurf, description: "Javascript", link: "https://codeium.com/windsurf" },
-        {alt:"vscode", img:docker, description: "Vscode", link: "https://www.youtube.com/watch?v=Gjnup-PuquQ" },
+        {alt:"js", img:windsurf, description: "Windsurf", link: "https://codeium.com/windsurf" },
+        {alt:"vscode", img:docker, description: "Docker", link: "https://www.youtube.com/watch?v=Gjnup-PuquQ" },
     ]
        
 
