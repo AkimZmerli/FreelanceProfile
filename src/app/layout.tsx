@@ -96,23 +96,20 @@ export default function RootLayout({
     <meta name="viewport" content="width=device-width, initial-scale=1">
     </meta> 
     </head>
-      <body className={`${poppins.variable} ${rubik.variable} dark:bg-gray-900`}>
+      <body className={`${poppins.variable} ${rubik.variable} dark:bg-gray-900 relative`}>
       <main
           className={cn(
             "flex relative break-words h-full min-h-screen items-center pb-10 justify-between pt-2 px-20 max-md:p-4 bg-sky-50 dark:bg-gray-900 max-sm:pt-20 bg-[radial-gradient(#FF34B3_1px,transparent_1px)] dark:bg-[radial-gradient(#06b6d4_1px,transparent_1px)] [background-size:16px_16px] [background-position:0_0]",
           )}
-        >          {/* NAVBAR ->  */}
-        
-          
-            <Navbar />
-       
-  
-          {children}
-        </main>
-        {/* <Footer /> */}
+        >          
+          <Navbar />
 
-<BotpressInitializer /> 
-    
+          {children}
+</ main>
+<div className="absolute bottom-10 right-10">
+  <BotpressInitializer />
+</div>
+        {/* <Footer /> */}
       </body>
      
     </html>

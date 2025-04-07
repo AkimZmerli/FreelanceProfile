@@ -18,6 +18,8 @@ import github from '../../../public/github.png'
 import vscode from '../../../public/vscode.png'
 import FramerWrapper from "@/components/animation/FramerWrapper";
 import TotalRecall from "@/components/TotalRecall";
+import AnimateReact from "@/components/animeJS";
+
 
 
 TotalRecall
@@ -62,7 +64,9 @@ const skillPage = () => {
         <h1 className="gap-2 text-2xl font-poppins text-primary font-semibold flex text_underline relative max-sm:text-xl">
            Building Stack
         </h1>
+        <AnimateReact />
         <div className="w-full h-fit flex-row flex justify-between items-center">
+          
         <SkillsFooter items={language} />
         </div>
         </FramerWrapper>
