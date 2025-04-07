@@ -11,7 +11,7 @@ interface HackerBtnProps {
 
 const HackerBtn = ({ label, children, className, isActive = false }: HackerBtnProps) => {
   const [displayText, setDisplayText] = useState(label);
-  const charset = "abcdefghijklmnopqrstuvwxyz";
+  const charset = "abcdefghijklmnopqrstuvwxyz"
 
   const randomChars = (length: number) => {
     return Array.from(

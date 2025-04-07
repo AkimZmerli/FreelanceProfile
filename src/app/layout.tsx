@@ -3,7 +3,8 @@ import {  Poppins, Rubik } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
-import { siteConfig } from "./page";
+import { siteConfig } from "./page"
+import BotpressInitializer from "@/components/BotpressInitializer";
 
 
 const poppins = Poppins({
@@ -20,7 +21,7 @@ const rubik = Rubik({
 export const metadata: Metadata = {
   metadataBase: new URL("https://freelance-profil.vercel.app/"),
   title: {
-    default: "WebDev4life",
+    default: "WebDev4Life",
     template: `%s - Software Engineer`,
   },
   description: "Web Developer and Software Engineer for Hire. I enjoy listening to my clients stories and work on a product that resembles their vision. Together we will create a page that is build to last and shine.",
@@ -36,6 +37,7 @@ export const metadata: Metadata = {
     "akim.zmerli",
     "AkimZmerli",
     "freelancer",
+    "for hire",
     "freelancer web developer",
     "for hire",
     "typescript",
@@ -108,6 +110,9 @@ export default function RootLayout({
           {children}
         </main>
         {/* <Footer /> */}
+
+<BotpressInitializer /> 
+    
       </body>
      
     </html>

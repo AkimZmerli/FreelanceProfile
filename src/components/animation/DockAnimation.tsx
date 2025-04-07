@@ -117,7 +117,7 @@ function Dock({
           'mx-auto flex w-fit gap-1.5 sm:gap-4 rounded-2xl bg-gray-50 px-4 dark:bg-neutral-900',
           className
         )}
-        style={{ height: '90%' }}
+        style={{ height: '100%' }}
         role='toolbar'
         aria-label='Application dock'
       >

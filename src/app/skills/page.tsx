@@ -18,6 +18,8 @@ import github from '../../../public/github.png'
 import vscode from '../../../public/vscode.png'
 import FramerWrapper from "@/components/animation/FramerWrapper";
 import TotalRecall from "@/components/TotalRecall";
+
+
 TotalRecall
 const skillPage = () => {
 
@@ -73,8 +75,9 @@ const skillPage = () => {
         </div>
         <TotalRecall />
         </FramerWrapper>
+  
       </div>
-      
+        
     </div>
   );
 };
@@ -82,4 +85,3 @@ const skillPage = () => {
 export default skillPage;
 
 
-// TS is messed up , update techs tack 

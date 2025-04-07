@@ -1,7 +1,8 @@
 "use client"
 
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { SunMoon } from "lucide-react"
+
 
 
 type DarkModeButtonProps = {
@@ -18,6 +19,8 @@ const DarkModeButton = ({ className }: DarkModeButtonProps) => {
     const savedTheme = localStorage.getItem("theme") || "dark" // Use dark as default
     setTheme(savedTheme)
   }, [])
+
+  
 
   useEffect(() => {
     if (!mounted) return
@@ -48,7 +51,10 @@ const DarkModeButton = ({ className }: DarkModeButtonProps) => {
      <SunMoon className="scale-[1.0]" style={{ minWidth: "24px", minHeight: "24px" }} />
       </div>
     </div>
+  
   )
 }
+
+
 
 export default DarkModeButton
