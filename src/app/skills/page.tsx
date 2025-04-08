@@ -1,3 +1,4 @@
+"use client"
 import Heading from "@/components/Heading";
 import SkillsFooter from "@/components/SkillsFooter";
 import { Badge } from "@/components/ui/badge";
@@ -17,14 +18,23 @@ import tailwind from '../../../public/tailwindcss.png'
 import github from '../../../public/github.png'
 import vscode from '../../../public/vscode.png'
 import FramerWrapper from "@/components/animation/FramerWrapper";
-import TotalRecall from "@/components/TotalRecall";
-
+import ScrambleButton from "@/components/ScrambleButton";
+import { useRef } from "react";
 import AnimatedSkills from "@/components/AnimatedSkills";
 
 
 
-TotalRecall
-const skillPage = () => {
+
+const SkillPage = () => {
+
+  const languageRef = useRef<AnimatedSkillsRef>(null);
+  const frameworkRef = useRef<AnimatedSkillsRef>(null);
+
+  const handleRotate = () => {
+    languageRef.current?.rotate();
+
+    frameworkRef.current?.rotate();
+  };
 
     const language = [
 
@@ -68,7 +78,7 @@ const skillPage = () => {
    
         <div className="w-full h-fit flex-row flex justify-between items-center">
           
-        <AnimatedSkills items={language} animationConfig= {{scale: 1.25, duration: 300, delay: 250
+        <AnimatedSkills ref= {languageRef} items={language} animationConfig= {{scale: 1.25, duration: 300, delay: 250
         }} />
         </div>
         </FramerWrapper>
@@ -77,10 +87,13 @@ const skillPage = () => {
            Design and Version Control Stack
         </h1>
         <div className="w-full h-fit flex-row flex justify-between items-center">
-        <AnimatedSkills items={framework} animationConfig= {{scale: 1.15, duration: 400, delay: 250
+        <AnimatedSkills ref= {frameworkRef} items={framework} animationConfig= {{scale: 1.15, duration: 400, delay: 250
         }} />
         </div>
-        <TotalRecall />
+        <ScrambleButton 
+        text= "Spin. The. Wheel"
+        onClick={handleRotate}
+        className="mt-4"/>
         </FramerWrapper>
   
       </div>
@@ -89,6 +102,6 @@ const skillPage = () => {
   );
 };
 
-export default skillPage;
+export default SkillPage;
 
 
