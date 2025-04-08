@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 
-interface MyComponentProps{
+export interface MyComponentProps{
     items:Array<{ alt: string; img: any; description: string; link: string}>
 }
 
