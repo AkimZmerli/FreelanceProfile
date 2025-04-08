@@ -24,8 +24,7 @@ export default function BotpressInitializer() {
               botName: "Alan Rickman",
               website: {},
               email: {
-                title: "akim.zmerli@googlemail.com",
-                link: "akim.zmerli@googlemail.com"
+             
               },
               phone: {},
               termsOfService: {},
