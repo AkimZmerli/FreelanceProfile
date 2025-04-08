@@ -1,6 +1,6 @@
 "use client"
 
-import { animate, createScope, type Scope as AnimeScope, createSpring } from "animeJS"
+import { animate, createScope, type Scope as AnimeScope, createSpring } from "animejs"
 import { useEffect, useRef, useState, forwardRef, useCallback } from "react"
 import Image from "next/image"
 import type { MyComponentProps } from "./SkillsFooter"

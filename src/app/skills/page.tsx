@@ -20,7 +20,7 @@ import vscode from '../../../public/vscode.png'
 import FramerWrapper from "@/components/animation/FramerWrapper";
 import ScrambleButton from "@/components/ScrambleButton";
 import { useRef } from "react";
-import AnimatedSkills from "@/components/AnimatedSkills";
+import AnimatedSkills, { AnimatedSkillsRef } from "@/components/AnimatedSkills";
 
 
 
@@ -103,5 +103,3 @@ const SkillPage = () => {
 };
 
 export default SkillPage;
-
-
