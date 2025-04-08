@@ -68,7 +68,7 @@ const SkillPage = () => {
         <FramerWrapper y={0} x={200} className={"block mb-10"}>
 
         <p className="font-poppins text-4xl w-full text-primary max-sm:text-lg">
-          6 Months of waking up early, learning the latest tech stack and working with the most dedicated teachers. This was my rock solid routine during the WebDev Bootcamp.  After class I would teach myself even more through the Odin Project. So I would become one hell of an engineer. <br />This is my current stack: 
+          Bootcamp was hard but it turned me into one hell of a programmer with the latest software to build websites. This is my current stack: 
         </p>
         </FramerWrapper>
         <FramerWrapper y={100} delay={0.30} className="block">
