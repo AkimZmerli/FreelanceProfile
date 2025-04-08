@@ -7,6 +7,7 @@ interface ScrambleButtonProps {
     onClick?: () => void;
     className?: string;
     disabled?: boolean;
+    isActive?: boolean;
 }
 
 const ScrambleButton: React.FC<ScrambleButtonProps> = ({ 
