@@ -1,4 +1,3 @@
-"use client"
 import { Star } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Card, CardHeader, CardTitle, CardContent } from "./ui/card"
@@ -7,7 +6,7 @@ import { motion } from "framer-motion"
 
 interface ReviewCardProps {
   reviewerName: string
-  reviewerImage: string
+  reviewerImage: { alt: string; img: any }
   rating: number
   reviewText: string
   className?: string
@@ -16,7 +15,7 @@ interface ReviewCardProps {
 
 export default function ReviewCard({
   reviewerName,
-  reviewerImage = "/placeholder.svg?height=80&width=80",
+  reviewerImage,
   rating = 0,
   reviewText,
   className,
@@ -26,13 +25,13 @@ export default function ReviewCard({
     <Card className={cn("max-w-md w-full", className)}>
       <CardHeader className="flex flex-col items-center text-center">
         <div className="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-gray-100">
-          <Image
-            src={reviewerImage || "/placeholder.svg"}
-            alt={`${reviewerName}'s profile`}
-            className="w-full h-full object-cover"
-            width={80}
-            height={80}
-          />
+          <Image 
+              src={reviewerImage?.img} 
+              alt={reviewerImage?.alt || reviewerName} 
+              className="w-full h-full object-cover"
+              width={80}
+              height={80}
+            />
         </div>
 
         <CardTitle className="text-lg mb-2">{reviewerName}</CardTitle>
@@ -48,7 +47,7 @@ export default function ReviewCard({
       </CardHeader>
 
       <CardContent>
-        <p className="text-gray-600 text-center">{reviewText}</p>
+        <p className="text-[#e6e6e6] text-center">{reviewText}</p>
       </CardContent>
     </Card>
   )

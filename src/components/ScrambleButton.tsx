@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 interface ScrambleButtonProps {
     text: string;
+    toggledText?: string; // Add optional toggled text
     onClick?: () => void;
     className?: string;
     disabled?: boolean;
@@ -12,14 +13,17 @@ interface ScrambleButtonProps {
 
 const ScrambleButton: React.FC<ScrambleButtonProps> = ({ 
     text,
+    toggledText = text, // Default to main text if no toggled text provided
     onClick,
     className,
-    disabled = false
-}) => {
+    disabled = false,
+    isActive = false
+}) =>  {
     const [isScrambling, setIsScrambling] = useState(false);
     const buttonRef = useRef<HTMLButtonElement>(null);
     const charset = "abcdefghijklmnopqrstuvwxyz";
     const originalText = useRef(text);
+    const [currentText, setCurrentText] = useState(text);
 
     const randomChars = (length: number) => {
         return Array.from(
@@ -37,12 +41,19 @@ const ScrambleButton: React.FC<ScrambleButtonProps> = ({
 
         for (let index = 0; index < text.length; index++) {
             if (!buttonRef.current) break;
-            await new Promise((resolve) => setTimeout(resolve, 20));
+            await new Promise((resolve) => setTimeout(resolve, 40));
             prefix += text.charAt(index);
             buttonRef.current.textContent = prefix + randomChars(text.length - prefix.length);
         }
 
         setIsScrambling(false);
+    };
+
+    const handleClick = () => {
+        if (!disabled && onClick) {
+            setCurrentText(currentText === text ? toggledText : text);
+            onClick();
+        }
     };
 
     const handleMouseEnter = () => {
@@ -51,11 +62,6 @@ const ScrambleButton: React.FC<ScrambleButtonProps> = ({
         }
     };
 
-    const handleMouseLeave = () => {
-        if (buttonRef.current) {
-            buttonRef.current.textContent = originalText.current;
-        }
-    };
 
     return (
         <button
@@ -65,12 +71,11 @@ const ScrambleButton: React.FC<ScrambleButtonProps> = ({
                 disabled && "opacity-50 cursor-not-allowed",
                 className
             )}
-            onClick={onClick}
+            onClick={handleClick}
             onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
             disabled={disabled || isScrambling}
         >
-            {text}
+            {currentText}
         </button>
     );
 };

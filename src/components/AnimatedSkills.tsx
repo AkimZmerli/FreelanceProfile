@@ -50,7 +50,7 @@ const AnimatedSkills = forwardRef<AnimatedSkillsRef, MyComponentProps & { animat
         animate(".skill-item", {
           scale: [
             { to: animationConfig.scale, ease: "inOut(3)", duration: animationConfig.duration || 200 },
-            { to: 1, ease: createSpring({ stiffness: 300 }) },
+            { to: 1, ease: createSpring({ stiffness: 200 }) },
           ],
           loop: true,
           delay: (el, i) => i * 100,

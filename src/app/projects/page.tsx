@@ -15,13 +15,12 @@ const ProjectsPage = () => {
   // PROJECTS DATA
   const Projects = [
     {
-      title: "Eisdiele Pfeiffer",
+      title: "Lichtbildnerei Valentin ",
       description:
-        `Your favorite ice cream parlor, Pfeiffer, has a new online presence. Here you'll find everything about the tastiest ice cream in the Südvorstadt neighborhood`,
-      tags: ["Typescript", "Shadcn Ui", "Nextjs"],
-      link: "https://www.leipzig-leben.de/eisdiele-pfeifer-leipzig/",
+        "Discover the powerful photographic art of a rising artist from Chemnitz. His visual language leaves all amateurs speechless.",
+      tags: ["Nextjs", "Typescript", "Shadcn Ui"],
+      link: "https://www.instagram.com/valentinmici/",
     },
-   
     {
       title: "ProjektmanagerIn meets Tanz",
       description:
@@ -30,32 +29,44 @@ const ProjectsPage = () => {
       link: "https://www.youtube.com/watch?v=o-YBDTqX_ZU",
     },
     {
-      title: "Lichtbildnerei Valentin ",
+      title: "Eisdiele Pfeiffer",
       description:
-        "Discover the powerful photographic art of a rising artist from Chemnitz. His visual language leaves all amateurs speechless.",
-      tags: ["Nextjs", "Typescript", "Shadcn Ui"],
-      link: "https://www.instagram.com/valentinmici/",
-    },
+        `Your favorite ice cream parlor, Pfeiffer, has a new online presence. Here you'll find everything about the tastiest ice cream in the Südvorstadt neighborhood`,
+      tags: ["Typescript", "Shadcn Ui", "Nextjs"],
+      link: "https://www.leipzig-leben.de/eisdiele-pfeifer-leipzig/",
+    }
+   
+
+
   ];
 
   const reviews = [
     {
       reviewerName: "Valentin Mici",
-      reviewerImage: "/reviewer1.png",
+      reviewerImage: {
+        img: "/valentin.png",
+        alt: "Valentin Mici"
+      },
       rating: 5,
       reviewText:
         "Absolutely love WebDev4Life! They really know what they are doing, getting the best out of my brand and build an incredible website. Thank you so much.",
     },
     {
       reviewerName: "Max Planck",
-      reviewerImage: "/reviewer2.png",
+      reviewerImage: {
+        img: "/max.png",
+        alt: "Max Planck"
+      },
       rating: 5,
       reviewText:
         "I actually didn't need a new Website but after seeing WebDev4Life's magic skills I had to get a new one. And it has been built to last. You have come to the right place",
     },
     {
       reviewerName: "Jeff Bezos",
-      reviewerImage: "/reviewer3.png",
+      reviewerImage: {
+        img: "/jeff.png",
+        alt: "Jeff Bezos"
+      },
       rating: 1,
       reviewText:
         "This punk scammed me! He used his moms Account and never paid for his own Prime Subscription. I want my money Back!! ",
@@ -91,8 +102,10 @@ const ProjectsPage = () => {
       <div className="flex justify-center w-full">
         <ScrambleButton 
           text="Show Reviews"
+          toggledText="Hide Reviews"
           onClick={toggleReviews}
           className="w-fit"
+          isActive={isVisible}
         />
       </div>
 
