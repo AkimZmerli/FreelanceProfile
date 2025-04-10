@@ -40,6 +40,7 @@ const ProjectsPage = () => {
 
   ];
 
+
   const reviews = [
     {
       reviewerName: "Valentin Mici",
@@ -52,10 +53,10 @@ const ProjectsPage = () => {
         "Absolutely love WebDev4Life! They really know what they are doing, getting the best out of my brand and build an incredible website. Thank you so much.",
     },
     {
-      reviewerName: "Max Planck",
+      reviewerName: "Alan Turing",
       reviewerImage: {
-        img: "/max.png",
-        alt: "Max Planck"
+        img: "/alan.png",
+        alt: "Alan Turing"
       },
       rating: 5,
       reviewText:
@@ -99,7 +100,8 @@ const ProjectsPage = () => {
         })}
       </div>
 
-      <div className="flex justify-center w-full">
+      <FramerWrapper y={0} x={-100}>
+      <div className="flex items-center w-full m-8">
         <ScrambleButton 
           text="Show Reviews"
           toggledText="Hide Reviews"
@@ -108,6 +110,7 @@ const ProjectsPage = () => {
           isActive={isVisible}
         />
       </div>
+      </FramerWrapper>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 w-full">
         {reviews.map((review, index) => (

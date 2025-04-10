@@ -21,6 +21,7 @@ import FramerWrapper from "@/components/animation/FramerWrapper";
 import ScrambleButton from "@/components/ScrambleButton";
 import { useRef } from "react";
 import AnimatedSkills, { AnimatedSkillsRef } from "@/components/AnimatedSkills";
+import { useState } from "react";
 
 
 
@@ -29,11 +30,15 @@ const SkillPage = () => {
 
   const languageRef = useRef<AnimatedSkillsRef>(null);
   const frameworkRef = useRef<AnimatedSkillsRef>(null);
+  const [isSpinning, setIsSpinning] = useState(false);
 
   const handleRotate = () => {
     languageRef.current?.rotate();
-
     frameworkRef.current?.rotate();
+    setIsSpinning(true);
+    setTimeout(() => {
+      setIsSpinning(false);
+    }, 1500);
   };
 
     const language = [
@@ -92,8 +97,12 @@ const SkillPage = () => {
         </div>
         <ScrambleButton 
         text= "Spin. The. Wheel"
+        toggledText= "KEEP SPINNING!!"
+      
         onClick={handleRotate}
-        className="mt-4"/>
+        className="mt-4 w-fit"
+        isActive= {isSpinning}
+        />
         </FramerWrapper>
   
       </div>

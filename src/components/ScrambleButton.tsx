@@ -1,6 +1,7 @@
 "use client"
 import { cn } from '@/lib/utils'
 import React, { useState, useEffect, useRef } from 'react';
+import { Button } from './ui/button';
 
 interface ScrambleButtonProps {
     text: string;
@@ -65,18 +66,18 @@ const ScrambleButton: React.FC<ScrambleButtonProps> = ({
 
     return (
         <button
-            ref={buttonRef}
-            className={cn(
-                "text-lg px-4 py-4 bg-pink-500 active:bg-cyan-500 text-primary-foreground rounded-md hover:bg-pink-600 text-white shadow-lg hover:shadow-pink-500/50 transition-colors",
-                disabled && "opacity-50 cursor-not-allowed",
-                className
-            )}
-            onClick={handleClick}
-            onMouseEnter={handleMouseEnter}
-            disabled={disabled || isScrambling}
-        >
-            {currentText}
-        </button>
+        ref={buttonRef}
+        className={`text-base px-4 py-4 rounded-md shadow-lg ${
+            isActive 
+              ? 'bg-cyan-500 hover:bg-cyan-600 text-white hover:shadow-xl hover:shadow-cyan-300/50' 
+              : 'bg-pink-500 hover:bg-pink-600 text-white hover:shadow-xl hover:shadow-purple-500/50'
+          } transition-all duration-300`}
+        onClick={handleClick}
+        onMouseEnter={handleMouseEnter}
+        disabled={disabled || isScrambling}
+    >
+        {currentText}
+    </button>
     );
 };
 

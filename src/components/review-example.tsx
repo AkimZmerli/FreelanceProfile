@@ -6,7 +6,7 @@ import ReviewCard from "./review-card"
 import ScrambleButton from "./ScrambleButton"
 import Image from "next/image"
 import valentin from '../../public/valentin.png'
-import max from '../../public/max.png'
+import alan from '../../public/alan.png'
 import jeff from '../../public/jeff.png'
 
 export default function ReviewExample() {
@@ -24,10 +24,10 @@ export default function ReviewExample() {
         "Absolutely love WebDev4Life! They really know what they are doing, getting the best out of my brand and build an incredible website. Thank you so much.",
     },
     {
-      reviewerName: "Max Planck",
+      reviewerName: "Alan Turing",
       reviewerImage: {
-        img: "/max.png",
-        alt: "Max Planck"
+        img: "/alan.png",
+        alt: "Alan Turing"
       },
       rating: 5,
       reviewText:
