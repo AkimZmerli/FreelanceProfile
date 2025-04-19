@@ -7,12 +7,6 @@ import TotalRecall from "@/components/TotalRecall";
 
 
 const page = () => {
-  // const items = [
-  //   { hobby: "Outdoor Sport" },
-  //   { hobby: "Schallplatten sammeln" },
-  //   { hobby: "um die Welt reisen" },
-  //   { hobby: "Saunieren und Eisbaden" },
-  // ];
 
   return (
     // ABOUT PAGE

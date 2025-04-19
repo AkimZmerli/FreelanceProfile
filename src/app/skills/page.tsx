@@ -15,6 +15,7 @@ import linear from '../../../public/Linear.png'
 import windsurf from '../../../public/windsurf.png'
 import docker from '../../../public/docker.png'
 import tailwind from '../../../public/tailwindcss.png'
+import payload from '../../../public/payload.png'
 import github from '../../../public/github.png'
 import vscode from '../../../public/vscode.png'
 import FramerWrapper from "@/components/animation/FramerWrapper";
@@ -57,7 +58,7 @@ const SkillPage = () => {
         {alt:"css", img:linear, description: "Linear", link: "https://www.youtube.com/watch?v=cxBubxMynDQ" },
         
         {alt:"js", img:windsurf, description: "Windsurf", link: "https://codeium.com/windsurf" },
-        {alt:"vscode", img:docker, description: "Docker", link: "https://www.youtube.com/watch?v=Gjnup-PuquQ" },
+        {alt:"vscode", img:payload, description: "Payload", link: "https://payloadcms.com/" },
     ]
        
 
