@@ -28,11 +28,11 @@ const Navbar = () => {
       icon: <Rocket className="h-full w-full" />,
       href: "/skills",
     },
-    {
-      title: "Projekte",
-      icon: <Factory className="h-full w-full" />,
-      href: "/projects",
-    },
+    // {
+    //   title: "Projekte",
+    //   icon: <Factory className="h-full w-full" />,
+    //   href: "/projects",
+    // },
     {
       title: "Kontakt",
       icon: <Send className="h-full w-full" />,
