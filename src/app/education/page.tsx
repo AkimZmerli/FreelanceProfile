@@ -1,6 +1,6 @@
-import FramerWrapper from "@/components/animation/FramerWrapper";
-import Heading from "@/components/Heading";
-import { Badge } from "@/components/ui/badge";
+import FramerWrapper from "@/shared/components/animations/FramerWrapper";
+import Heading from "@/features/about/components/Heading";
+import { Badge } from "@/shared/components/ui/badge";
 import { Briefcase } from "lucide-react";
 
 const educationPage = () => {

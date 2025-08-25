@@ -1,14 +1,14 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import Link from "next/link";
-import { buttonVariants } from "./ui/button";
+import { buttonVariants } from "@/shared/components/ui/button";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import FramerWrapper from "./animation/FramerWrapper";
+} from "@/shared/components/ui/card";
+import FramerWrapper from "@/shared/components/animations/FramerWrapper";
 import { ArrowUpRight } from "lucide-react";
 
 interface projectcardprops {

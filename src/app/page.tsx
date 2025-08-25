@@ -1,12 +1,12 @@
 
 
-import SocialLinks from "@/components/SocialLinks";
-import HeroTexts from "@/components/HeroTexts";
-import HeroImage from "@/components/HeroImage";
-import GithubBtn from "@/components/animation/GithubBtn";
-import DarkModeButton from "@/components/DarkModeButton";
-import FramerWrapper from "@/components/animation/FramerWrapper";
-import TotalRecall from "@/components/TotalRecall";
+import SocialLinks from "@/shared/components/navigation/SocialLinks";
+import HeroTexts from "@/features/hero/components/HeroTexts";
+import HeroImage from "@/features/hero/components/HeroImage";
+import GithubBtn from "@/shared/components/animations/GithubBtn";
+import DarkModeButton from "@/shared/components/navigation/DarkModeButton";
+import FramerWrapper from "@/shared/components/animations/FramerWrapper";
+import TotalRecall from "@/features/education/components/TotalRecall";
 
 export const siteConfig = {
   name: "Akim the Dream",

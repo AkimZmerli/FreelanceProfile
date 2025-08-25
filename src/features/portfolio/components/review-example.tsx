@@ -3,11 +3,11 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import ReviewCard from "./review-card"
-import ScrambleButton from "./ScrambleButton"
+import ScrambleButton from "@/shared/components/animations/ScrambleButton"
 import Image from "next/image"
-import valentin from '../../public/valentin.png'
-import alan from '../../public/alan.png'
-import jeff from '../../public/jeff.png'
+import valentin from '../../../../../public/valentin.png'
+import alan from '../../../../../public/alan.png'
+import jeff from '../../../../../public/jeff.png'
 
 export default function ReviewExample() {
   const [isVisible, setIsVisible] = useState(false)

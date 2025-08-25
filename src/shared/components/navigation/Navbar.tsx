@@ -1,11 +1,11 @@
 "use client"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/shared/lib/utils"
 import { SunMoon } from "lucide-react"
 
 import { Rocket, Factory, Tent, Send, Atom } from "lucide-react"
 
-import { Dock, DockIcon, DockItem } from "@/components/animation/DockAnimation"
+import { Dock, DockIcon, DockItem } from "@/shared/components/animations/DockAnimation"
 
 import Link from "next/link"
 import { useEffect, useState } from "react"

@@ -1,6 +1,6 @@
 import TextRotator from "./TextRotator";
 import './HeroText.css';
-import SocialLinks from "./SocialLinks";
+import SocialLinks from "@/shared/components/navigation/SocialLinks";
 
 const HeroTexts = () => {
   return (

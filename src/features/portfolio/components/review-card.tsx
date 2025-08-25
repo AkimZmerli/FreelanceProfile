@@ -1,6 +1,6 @@
 import { Star } from "lucide-react"
-import { cn } from "@/lib/utils"
-import { Card, CardHeader, CardTitle, CardContent } from "./ui/card"
+import { cn } from "@/shared/lib/utils"
+import { Card, CardHeader, CardTitle, CardContent } from "@/shared/components/ui/card"
 import Image from "next/image"
 import { motion } from "framer-motion"
 
