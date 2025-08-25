@@ -26,7 +26,7 @@ const ProjectsPage = () => {
       description:
         "You need a new business card that explores creative paths? Then you are in the right place!",
       tags: ["Nextjs", "Typescript", "Shadcn Ui"],
-      link: "https://www.youtube.com/watch?v=o-YBDTqX_ZU",
+      link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1",
     },
     {
       title: "Eisdiele Pfeiffer",

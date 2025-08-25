@@ -18,21 +18,17 @@ const Navbar = () => {
       icon: <Tent className="h-full w-full" />,
       href: "/",
     },
-    {
-      title: "Über mich",
-      icon: <Atom className="h-full w-full" />,
-      href: "/about",
-    },
+
     {
       title: "Skillset",
       icon: <Rocket className="h-full w-full" />,
       href: "/skills",
     },
-    // {
-    //   title: "Projekte",
-    //   icon: <Factory className="h-full w-full" />,
-    //   href: "/projects",
-    // },
+    {
+      title: "Projekte",
+      icon: <Factory className="h-full w-full" />,
+      href: "/projects",
+    },
     {
       title: "Kontakt",
       icon: <Send className="h-full w-full" />,
