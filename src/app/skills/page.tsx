@@ -1,7 +1,7 @@
 "use client"
-import Heading from "@/components/Heading";
-import SkillsFooter from "@/components/SkillsFooter";
-import { Badge } from "@/components/ui/badge";
+import Heading from "@/features/about/components/Heading";
+import SkillsFooter from "@/features/about/components/SkillsFooter";
+import { Badge } from "@/shared/components/ui/badge";
 import { Lightbulb } from "lucide-react";
 import html from '../../../public/html.png'
 import css from '../../../public/css.png'
@@ -18,10 +18,10 @@ import tailwind from '../../../public/tailwindcss.png'
 import payload from '../../../public/payload.png'
 import github from '../../../public/github.png'
 import vscode from '../../../public/vscode.png'
-import FramerWrapper from "@/components/animation/FramerWrapper";
-import ScrambleButton from "@/components/ScrambleButton";
+import FramerWrapper from "@/shared/components/animations/FramerWrapper";
+import ScrambleButton from "@/shared/components/animations/ScrambleButton";
 import { useRef } from "react";
-import AnimatedSkills, { AnimatedSkillsRef } from "@/components/AnimatedSkills";
+import AnimatedSkills, { AnimatedSkillsRef } from "@/features/skills/components/AnimatedSkills";
 import { useState } from "react";
 
 

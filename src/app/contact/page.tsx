@@ -1,7 +1,7 @@
-import ContactForm from "@/components/ContactForm";
-import FramerWrapper from "@/components/animation/FramerWrapper";
-import Heading from "@/components/Heading";
-import { Badge } from "@/components/ui/badge";
+import ContactForm from "@/features/contact/components/ContactForm";
+import FramerWrapper from "@/shared/components/animations/FramerWrapper";
+import Heading from "@/features/about/components/Heading";
+import { Badge } from "@/shared/components/ui/badge";
 import { Mail, Phone } from "lucide-react";
 
 

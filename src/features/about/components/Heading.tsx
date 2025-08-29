@@ -1,4 +1,4 @@
-import FramerWrapper from "./animation/FramerWrapper";
+import FramerWrapper from "@/shared/components/animations/FramerWrapper";
 
 const Heading = ({ children }: { children: React.ReactNode }) => {
   // CUSTOM HEADING FOR ALL PAGE

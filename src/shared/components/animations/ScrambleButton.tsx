@@ -1,7 +1,7 @@
 "use client"
-import { cn } from '@/lib/utils'
+import { cn } from '@/shared/lib/utils'
 import React, { useState, useEffect, useRef } from 'react';
-import { Button } from './ui/button';
+import { Button } from '@/shared/components/ui/button';
 
 interface ScrambleButtonProps {
     text: string;
