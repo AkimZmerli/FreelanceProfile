@@ -19,7 +19,7 @@ const ProjectsPage = () => {
       description:
         "Discover the powerful photographic art of a rising artist from Chemnitz. His visual language leaves all amateurs speechless.",
       tags: ["Nextjs", "Typescript", "Shadcn Ui"],
-      link: "https://www.instagram.com/valentinmici/",
+      link: "https://www.valentinmici.com/",
     },
     {
       title: "ProjektmanagerIn meets Tanz",
