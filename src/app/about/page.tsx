@@ -1,9 +1,9 @@
-import Aboutfooter from "@/components/Aboutfooter";
-import FramerWrapper from "@/components/animation/FramerWrapper";
-import Heading from "@/components/Heading";
-import { Badge } from "@/components/ui/badge";
+import Aboutfooter from "@/features/about/components/Aboutfooter";
+import FramerWrapper from "@/shared/components/animations/FramerWrapper";
+import Heading from "@/features/about/components/Heading";
+import { Badge } from "@/shared/components/ui/badge";
 import { Circle, Heart, User2 } from "lucide-react";
-import TotalRecall from "@/components/TotalRecall";
+import TotalRecall from "@/features/education/components/TotalRecall";
 
 
 const page = () => {

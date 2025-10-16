@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import {  Poppins, Rubik } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
-import Navbar from "@/components/Navbar";
+import { cn } from "@/shared/lib/utils";
+import Navbar from "@/shared/components/navigation/Navbar";
 import { siteConfig } from "./page"
-import BotpressInitializer from "@/components/BotpressInitializer";
+import BotpressInitializer from "@/shared/components/BotpressInitializer";
 
 
 const poppins = Poppins({

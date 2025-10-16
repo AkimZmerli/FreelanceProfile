@@ -1,13 +1,13 @@
 "use client"
-import FramerWrapper from "@/components/animation/FramerWrapper";
-import Heading from "@/components/Heading";
-import ProjectCards from "@/components/ProjectsCard";
-import ScrambleButton from "@/components/ScrambleButton";
-import { Badge } from "@/components/ui/badge";
+import FramerWrapper from "@/shared/components/animations/FramerWrapper";
+import Heading from "@/features/about/components/Heading";
+import ProjectCards from "@/features/portfolio/components/ProjectsCard";
+import ScrambleButton from "@/shared/components/animations/ScrambleButton";
+import { Badge } from "@/shared/components/ui/badge";
 import { Layers } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import ReviewCard from "@/components/review-card";
+import ReviewCard from "@/features/portfolio/components/review-card";
 
 const ProjectsPage = () => {
   const [isVisible, setIsVisible] = useState(false);

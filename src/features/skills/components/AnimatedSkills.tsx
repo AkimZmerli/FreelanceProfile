@@ -3,7 +3,7 @@
 import { animate, createScope, type Scope as AnimeScope, createSpring } from "animejs"
 import { useEffect, useRef, useState, forwardRef, useCallback } from "react"
 import Image from "next/image"
-import type { MyComponentProps } from "./SkillsFooter"
+import type { MyComponentProps } from "@/features/about/components/SkillsFooter"
 
 interface AnimationConfig {
   scale: number
@@ -46,7 +46,9 @@ const AnimatedSkills = forwardRef<AnimatedSkillsRef, MyComponentProps & { animat
       const scopeInstance = createScope({ root: root.current })
       scope.current = scopeInstance
 
-      scopeInstance.add((scope: AnimeScope) => {
+      scopeInstance.add((scope) => {
+        if (!scope) return
+        
         animate(".skill-item", {
           scale: [
             { to: animationConfig.scale, ease: "inOut(3)", duration: animationConfig.duration || 200 },

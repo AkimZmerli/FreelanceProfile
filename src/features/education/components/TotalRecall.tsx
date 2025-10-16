@@ -1,7 +1,7 @@
 "use client"
-import { cn } from '@/lib/utils'
+import { cn } from '@/shared/lib/utils'
 import React, { useState, useEffect } from 'react';
-import HackerBtn from './animation/HackerBtn'
+import HackerBtn from '@/shared/components/animations/HackerBtn'
 
 function TotalRecall() {
   const [isChaosModeActive, setIsChaosModeActive] = useState(false);
