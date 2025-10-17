@@ -26,7 +26,7 @@ const ProjectsPage = () => {
       description:
         "Visit a Case Study in which I transformed an enterprise atomic structured codebase to vertical slice architecture",
       tags: ["Architecture Performance", "UX Improvements", "Code Refactoring"],
-      link: "https://www.webdev4life.com/case-study",
+      link: "/case-study",
     },
     {
       title: "Open Source 3D Flipbook",
