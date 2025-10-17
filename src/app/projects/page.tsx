@@ -15,25 +15,25 @@ const ProjectsPage = () => {
   // PROJECTS DATA
   const Projects = [
     {
-      title: "Lichtbildnerei Valentin ",
+      title: "Cinematic Portfolio Page",
       description:
         "Discover the powerful photographic art of a rising artist from Chemnitz. His visual language leaves all amateurs speechless.",
-      tags: ["Nextjs", "Typescript", "Shadcn Ui"],
+      tags: ["Immersive UX", "3D Gallery", "Video Streaming"],
       link: "https://www.valentinmici.com/",
     },
     {
-      title: "ProjektmanagerIn meets Tanz",
+      title: "Frontend Architecture Refactoring ",
       description:
-        "You need a new business card that explores creative paths? Then you are in the right place!",
-      tags: ["Nextjs", "Typescript", "Shadcn Ui"],
-      link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1",
+        "Visit a Case Study in which I transformed an enterprise atomic structured codebase to vertical slice architecture",
+      tags: ["Architecture Performance", "UX Improvements", "Code Refactoring"],
+      link: "https://www.webdev4life.com/case-study",
     },
     {
-      title: "Eisdiele Pfeiffer",
+      title: "Open Source 3D Flipbook",
       description:
-        `Your favorite ice cream parlor, Pfeiffer, has a new online presence. Here you'll find everything about the tastiest ice cream in the Südvorstadt neighborhood`,
-      tags: ["Typescript", "Shadcn Ui", "Nextjs"],
-      link: "https://www.leipzig-leben.de/eisdiele-pfeifer-leipzig/",
+        `A modern, framework-agnostic flipbook library that is build for developers who need customizable, high-performance digital flipbook experiences.`,
+      tags: ["Framework Agnostic", "Modern Architecture"],
+      link: "https://github.com/AkimZmerli/3D-Flipbook",
     }
    
 
@@ -94,7 +94,7 @@ const ProjectsPage = () => {
         </FramerWrapper>
       </div>
 
-      <div className="w-full flex flex-row flex-wrap gap-6 max-lg:flex-col">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl auto-rows-fr">
         {Projects.map((val, indx) => {
           return <ProjectCards key={indx} value={val} num={indx} />;
         })}
