@@ -36,7 +36,14 @@ const CaseStudyPage = () => {
   ];
 
   return (
-    <div className="min-h-screen w-full relative flex flex-col items-start gap-8 overflow-hidden">
+    <div className="min-h-screen w-full relative flex flex-col items-start gap-8 overflow-hidden pt-20">
+      {/* Construction Notice */}
+      <div className="w-full bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-3 mb-4">
+        <p className="text-yellow-200 text-sm text-center">
+          🚧 This page is under construction - Content and features are being actively developed
+        </p>
+      </div>
+
       {/* Header */}
       <Badge className="gap-2">
         <GitBranch className="h-5 w-5" />
