@@ -1,5 +1,5 @@
 import { cn } from "@/shared/lib/utils";
-import { Facebook, Linkedin, Twitter, ExternalLink } from "lucide-react";
+import { Linkedin, Github, ExternalLink } from "lucide-react";
 import { buttonVariants } from "@/shared/components/ui/button";
 import Link from "next/link";
 import FramerWrapper from "@/shared/components/animations/FramerWrapper";
@@ -8,7 +8,7 @@ import { FaDiscord } from "react-icons/fa";
 const SocialLinks = () => {
   const links = [
     { name: "Discord", link: "https://discord.com/channels/665641579368677395/1019670950297485343", icon: <FaDiscord className="h-5 w-5"/> },
-    { name: "Twitter", link: "https://x.com/AkimZmerli", icon: <Twitter /> },
+    { name: "Github", link: "https://github.com/akimzmerli", icon: <Github /> },
     { name: "Linkedin", link: "https://www.linkedin.com/in/akim-zmerli-785215196/", icon: <Linkedin /> },
     
   ];

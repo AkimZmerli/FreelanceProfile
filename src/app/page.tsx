@@ -3,7 +3,6 @@
 import SocialLinks from "@/shared/components/navigation/SocialLinks";
 import HeroTexts from "@/features/hero/components/HeroTexts";
 import HeroImage from "@/features/hero/components/HeroImage";
-import GithubBtn from "@/shared/components/animations/GithubBtn";
 import DarkModeButton from "@/shared/components/navigation/DarkModeButton";
 import FramerWrapper from "@/shared/components/animations/FramerWrapper";
 import TotalRecall from "@/features/education/components/TotalRecall";
@@ -18,7 +17,7 @@ export default function Home() {
   return (
    <>
       {/* LEFT SIDE  */}
-      <FramerWrapper className="  flex flex-col justify-start gap-5" y={0} x={-90}>
+      <FramerWrapper className="flex flex-col justify-start gap-5 w-full lg:w-auto items-start" y={0} x={-90}>
         <HeroTexts />
         
 
@@ -26,7 +25,7 @@ export default function Home() {
       </FramerWrapper>
       {/* RIGHT SIDE image  */}
       
-      <FramerWrapper className="h-[70%] w-[47%] relative block   max-lg:hidden" y={0} x={100}>
+      <FramerWrapper className="h-[40%] w-full md:h-[60%] md:w-[45%] lg:h-[70%] lg:w-[47%] relative block mt-8 lg:mt-0" y={0} x={100}>
       
       
       {/* IMAGE  */}
@@ -35,9 +34,6 @@ export default function Home() {
         
       </FramerWrapper>
      
-      {/* GITHUB BUTTON  */}
-      
-      <GithubBtn/>
       
       
       </>
