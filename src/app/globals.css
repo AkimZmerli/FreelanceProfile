@@ -37,6 +37,9 @@
     --border:#862c2c;  /* Very light gray for borders */
     /* Hex: #d9d9d9 - A very light grey */
 
+    --muted-foreground: #737373; /* Muted text color for light mode */
+    /* Hex: #737373 - A medium grey */
+
     --ring: #a6a6a6;    /* Medium gray for focus rings */
     /* Hex: #a6a6a6 - A medium grey */
   }
@@ -69,6 +72,9 @@
 
     --border: #4d4d4d ;  /* Darker gray for borders in dark mode */
     /* Hex: #4d4d4d - A medium-dark grey */
+
+    --muted-foreground: #a3a3a3; /* Muted text color for dark mode */
+    /* Hex: #a3a3a3 - A light grey */
 
     --ring: #a6a6a6;    /* Lighter gray for focus rings in dark mode */
     /* Hex: #a6a6a6 - A medium grey */
