@@ -51,7 +51,7 @@ const SkillPage = () => {
             <div className="space-y-4 p-6 border rounded-lg bg-secondary/10">
               <h3 className="text-xl font-semibold text-primary">Custom Platform Solutions</h3>
               <p className="text-muted-foreground leading-relaxed max-sm:text-sm">
-                Need something that doesn't exist in the market? I build bespoke platforms tailored to your exact requirements.
+                Need something that doesn&apos;t exist in the market? I build bespoke platforms tailored to your exact requirements.
               </p>
               <p className="text-primary font-medium max-sm:text-sm">
                 Created custom 3D flipbook components, cinematic portfolio experiences, and interactive web applications that stand out from the crowd.
@@ -181,7 +181,7 @@ const SkillPage = () => {
             </div>
             <div className="text-center mt-8">
               <p className="text-lg text-primary font-medium max-sm:text-base">
-                I don't just write code, I solve the underlying problem
+                I don&apos;t just write code, I solve the underlying problem
               </p>
               <p className="text-sm text-muted-foreground mt-2 max-sm:text-xs">
                 Continuous feedback loops ensure the solution evolves with your needs
