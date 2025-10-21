@@ -4,7 +4,7 @@ import './HeroImage.css';
 
 const HeroImage = () => {
   return (
-    <div style={{ position: 'relative', width: '100%', height: 'auto', maxWidth: '100%' }}>
+    <div style={{ position: 'relative', width: '100%', height: 'auto', maxWidth: '100%', zIndex: 10 }}>
       <Image
         src="/Racing-removebg.png"
         alt="logo"

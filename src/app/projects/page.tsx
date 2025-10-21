@@ -82,32 +82,19 @@ const ProjectsPage = () => {
     // Auto-scroll to reviews section when expanding
     if (!isVisible) {
       setTimeout(() => {
-        console.log('Attempting scroll...');
-        console.log('reviewsSectionRef.current:', reviewsSectionRef.current);
-        console.log('reviewCardsRef.current:', reviewCardsRef.current);
-        
         const element = reviewsSectionRef.current;
         if (element) {
-          console.log('Element found, getting position...');
           const rect = element.getBoundingClientRect();
           const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          const targetPosition = rect.top + scrollTop - 100;
+          const targetPosition = rect.bottom + scrollTop - window.innerHeight + 50;
           
-          console.log('Current scroll position:', scrollTop);
-          console.log('Target position:', targetPosition);
-          console.log('Element rect:', rect);
-          
-          // Try instant scroll first to test
+          // Smooth scroll to bottom of reviews section
           window.scrollTo({
             top: targetPosition,
-            behavior: 'auto'
+            behavior: 'smooth'
           });
-          
-          console.log('Scroll command executed');
-        } else {
-          console.log('Element not found!');
         }
-      }, 100);
+      }, 500);
     }
   };
 

@@ -3,48 +3,31 @@
 import { useEffect, useState } from "react";
 
 const GlobalLetterRain = () => {
-  const [showRain, setShowRain] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");
 
   useEffect(() => {
-    // Listen for the glitch event - only start rain when triggered
-    const handleGlitchActivated = () => {
-      localStorage.setItem('system-breached', 'true');
-      setShowRain(true);
-    };
-
-    // Listen for cleanup event
-    const handleCleanup = () => {
-      localStorage.removeItem('system-breached');
-      setShowRain(false);
-    };
-
-    window.addEventListener('glitch-activated', handleGlitchActivated);
-    window.addEventListener('cleanup-breach', handleCleanup);
-
-    return () => {
-      window.removeEventListener('glitch-activated', handleGlitchActivated);
-      window.removeEventListener('cleanup-breach', handleCleanup);
-    };
+    setIsClient(true);
   }, []);
 
-  if (!showRain) return null;
-
-  const glitchLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()[]{}?<>".split("");
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <div className="global-letter-rain">
-      {Array.from({ length: 120 }, (_, i) => (
+      {Array.from({ length: 50 }, (_, i) => (
         <span 
           key={i}
           className="global-falling-letter"
           style={{
             left: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 8}s`,
-            animationDuration: `${2 + Math.random() * 3}s`,
-            fontSize: `${14 + Math.random() * 6}px`,
+            animationDelay: `${Math.random() * 20}s`,
+            animationDuration: `${8 + Math.random() * 12}s`,
+            fontSize: `${12 + Math.random() * 4}px`,
           }}
         >
-          {glitchLetters[Math.floor(Math.random() * glitchLetters.length)]}
+          {letters[Math.floor(Math.random() * letters.length)]}
         </span>
       ))}
     </div>
