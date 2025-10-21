@@ -1,6 +1,7 @@
 "use client"
 import Heading from "@/features/about/components/Heading";
 import { Badge } from "@/shared/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui/card";
 import { Lightbulb } from "lucide-react";
 import FramerWrapper from "@/shared/components/animations/FramerWrapper";
 import Image from "next/image";
@@ -21,53 +22,48 @@ const SkillPage = () => {
             <p className="font-poppins text-2xl text-primary max-sm:text-base max-md:text-xl">
               Software architecture • Custom platforms • AI integration
             </p>
-            <div className="p-4 bg-secondary/20 rounded-lg border">
-              <p className="text-sm text-muted-foreground">
-                <span className="font-semibold text-primary">Currently:</span> Frontend Engineer at r3leaf GmbH
-              </p>
-            </div>
-            <p className="text-lg text-muted-foreground max-sm:text-base">
-              Every problem has a solution - I find the optimal path forward
-            </p>
           </div>
         </FramerWrapper>
 
         {/* Problem-Solving Domains */}
         <FramerWrapper y={100} delay={0.2} className="block">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 w-full">
             
             {/* Software Architecture */}
-            <div className="space-y-4 p-6 border rounded-lg bg-secondary/10">
-              <h3 className="text-xl font-semibold text-primary">Software Architecture</h3>
-              <p className="text-muted-foreground leading-relaxed max-sm:text-sm">
-                Legacy codebases choking your development velocity? I specialize in refactoring enterprise applications with modern architectural patterns.
-              </p>
-              <p className="text-primary font-medium max-sm:text-sm">
-                Recently refactored an entire enterprise frontend using vertical slice architecture, dramatically improving maintainability and developer experience.
-              </p>
-            </div>
+            <Card className="max-w-sm">
+              <CardHeader>
+                <CardTitle className="text-lg">Software Architecture</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-primary leading-relaxed max-sm:text-sm">
+                  Legacy codebases choking your development velocity? I specialize in refactoring enterprise applications with modern architectural patterns.
+                </p>
+              </CardContent>
+            </Card>
 
             {/* Custom Platform Solutions */}
-            <div className="space-y-4 p-6 border rounded-lg bg-secondary/10">
-              <h3 className="text-xl font-semibold text-primary">Custom Platform Solutions</h3>
-              <p className="text-muted-foreground leading-relaxed max-sm:text-sm">
-                Need something that doesn&apos;t exist in the market? I build bespoke platforms tailored to your exact requirements.
-              </p>
-              <p className="text-primary font-medium max-sm:text-sm">
-                Created custom 3D flipbook components, cinematic portfolio experiences, and interactive web applications that stand out from the crowd.
-              </p>
-            </div>
+            <Card className="max-w-sm">
+              <CardHeader>
+                <CardTitle className="text-lg">Custom Platform Solutions</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-primary leading-relaxed max-sm:text-sm">
+                  Need something that doesn&apos;t exist in the market? I build bespoke platforms tailored to your exact requirements.
+                </p>
+              </CardContent>
+            </Card>
 
             {/* AI Integration */}
-            <div className="space-y-4 p-6 border rounded-lg bg-secondary/10">
-              <h3 className="text-xl font-semibold text-primary">AI Integration</h3>
-              <p className="text-muted-foreground leading-relaxed max-sm:text-sm">
-                Looking to leverage AI in your applications? I integrate modern AI tools and APIs to enhance user experiences and automate workflows.
-              </p>
-              <p className="text-primary font-medium max-sm:text-sm">
-                Implemented RAG capabilities, conversational chatbots, and AI-powered development workflows using cutting-edge tools like Claude Code.
-              </p>
-            </div>
+            <Card className="max-w-sm">
+              <CardHeader>
+                <CardTitle className="text-lg">AI Integration</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-primary leading-relaxed max-sm:text-sm">
+                  Looking to leverage AI in your applications? I integrate modern AI tools and APIs to enhance user experiences and automate workflows.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </FramerWrapper>
 
@@ -75,120 +71,61 @@ const SkillPage = () => {
         <FramerWrapper y={100} delay={0.4} className="block">
           <div className="flex flex-col gap-6">
             <h2 className="text-2xl font-semibold text-primary max-sm:text-xl">Technologies I Use</h2>
-            <p className="text-muted-foreground max-w-3xl max-sm:text-sm">
-              I choose tools that solve real problems, not just trendy ones. Each technology in my stack serves a specific purpose in delivering quality solutions.
+            <p className="text-primary max-w-3xl max-sm:text-sm">
+              I work with cutting-edge technologies to ensure high performance, scalability, and seamless integration. 
             </p>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 mt-8">
-              <div className="flex flex-col items-center gap-2 group cursor-pointer">
-                <div className="w-16 h-16 p-3 border rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
-                  <Image src="/ts.png" alt="TypeScript" width={40} height={40} className="w-full h-full object-contain" />
+            <div className="mt-2 py-8">
+              <div className="overflow-hidden relative">
+                <div className="flex gap-12 animate-scroll">
+                  {/* First set */}
+                  <Image src="/ts.png" alt="TypeScript" width={48} height={48} className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity" />
+                  <Image src="/react.png" alt="React" width={48} height={48} className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity" />
+                  <Image src="/nextjs.jpeg" alt="Next.js" width={48} height={48} className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity" />
+                  <Image src="/tailwindcss.png" alt="Tailwind CSS" width={48} height={48} className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity" />
+                  <Image src="/docker.png" alt="Docker" width={48} height={48} className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity" />
+                  <Image src="/postgress.png" alt="PostgreSQL" width={48} height={48} className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity" />
+                  <Image src="/Git-Logo.png" alt="Git" width={48} height={48} className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity" />
+                  <Image src="/Anthropic.png" alt="Claude Code" width={48} height={48} className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity" />
+                  <Image src="/figma.png" alt="Figma" width={48} height={48} className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity" />
+                  <Image src="/payload.png" alt="Payload CMS" width={48} height={48} className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity" />
+                  
+                  {/* Duplicate set for seamless loop */}
+                  <Image src="/ts.png" alt="TypeScript" width={48} height={48} className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity" />
+                  <Image src="/react.png" alt="React" width={48} height={48} className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity" />
+                  <Image src="/nextjs.jpeg" alt="Next.js" width={48} height={48} className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity" />
+                  <Image src="/tailwindcss.png" alt="Tailwind CSS" width={48} height={48} className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity" />
+                  <Image src="/docker.png" alt="Docker" width={48} height={48} className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity" />
+                  <Image src="/postgress.png" alt="PostgreSQL" width={48} height={48} className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity" />
+                  <Image src="/Git-Logo.png" alt="Git" width={48} height={48} className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity" />
+                  <Image src="/Anthropic.png" alt="Claude Code" width={48} height={48} className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity" />
+                  <Image src="/figma.png" alt="Figma" width={48} height={48} className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity" />
+                  <Image src="/payload.png" alt="Payload CMS" width={48} height={48} className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity" />
                 </div>
-                <span className="text-sm text-muted-foreground">TypeScript</span>
-              </div>
-              
-              <div className="flex flex-col items-center gap-2 group cursor-pointer">
-                <div className="w-16 h-16 p-3 border rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
-                  <Image src="/react.png" alt="React" width={40} height={40} className="w-full h-full object-contain" />
-                </div>
-                <span className="text-sm text-muted-foreground">React</span>
-              </div>
-              
-              <div className="flex flex-col items-center gap-2 group cursor-pointer">
-                <div className="w-16 h-16 p-3 border rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
-                  <Image src="/nextjs.jpeg" alt="Next.js" width={40} height={40} className="w-full h-full object-contain" />
-                </div>
-                <span className="text-sm text-muted-foreground">Next.js</span>
-              </div>
-              
-              <div className="flex flex-col items-center gap-2 group cursor-pointer">
-                <div className="w-16 h-16 p-3 border rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
-                  <Image src="/tailwindcss.png" alt="Tailwind CSS" width={40} height={40} className="w-full h-full object-contain" />
-                </div>
-                <span className="text-sm text-muted-foreground">Tailwind</span>
-              </div>
-              
-              <div className="flex flex-col items-center gap-2 group cursor-pointer">
-                <div className="w-16 h-16 p-3 border rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
-                  <Image src="/docker.png" alt="Docker" width={40} height={40} className="w-full h-full object-contain" />
-                </div>
-                <span className="text-sm text-muted-foreground">Docker</span>
-              </div>
-              
-              <div className="flex flex-col items-center gap-2 group cursor-pointer">
-                <div className="w-16 h-16 p-3 border rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
-                  <Image src="/postgresql.png" alt="PostgreSQL" width={40} height={40} className="w-full h-full object-contain" />
-                </div>
-                <span className="text-sm text-muted-foreground">PostgreSQL</span>
-              </div>
-              
-              <div className="flex flex-col items-center gap-2 group cursor-pointer">
-                <div className="w-16 h-16 p-3 border rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
-                  <Image src="/Git-Logo.png" alt="Git" width={40} height={40} className="w-full h-full object-contain" />
-                </div>
-                <span className="text-sm text-muted-foreground">Git</span>
-              </div>
-              
-              <div className="flex flex-col items-center gap-2 group cursor-pointer">
-                <div className="w-16 h-16 p-3 border rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
-                  <Image src="/Anthropic.png" alt="Claude Code" width={40} height={40} className="w-full h-full object-contain" />
-                </div>
-                <span className="text-sm text-muted-foreground">Claude Code</span>
-              </div>
-              
-              <div className="flex flex-col items-center gap-2 group cursor-pointer">
-                <div className="w-16 h-16 p-3 border rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
-                  <Image src="/figma.png" alt="Figma" width={40} height={40} className="w-full h-full object-contain" />
-                </div>
-                <span className="text-sm text-muted-foreground">Figma</span>
-              </div>
-              
-              <div className="flex flex-col items-center gap-2 group cursor-pointer">
-                <div className="w-16 h-16 p-3 border rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
-                  <Image src="/payload.png" alt="Payload CMS" width={40} height={40} className="w-full h-full object-contain" />
-                </div>
-                <span className="text-sm text-muted-foreground">Payload</span>
               </div>
             </div>
+
+            <style jsx>{`
+              @keyframes scroll {
+                0% {
+                  transform: translateX(0);
+                }
+                100% {
+                  transform: translateX(-50%);
+                }
+              }
+              
+              .animate-scroll {
+                animation: scroll 20s linear infinite;
+              }
+              
+              .animate-scroll:hover {
+                animation-play-state: paused;
+              }
+            `}</style>
           </div>
         </FramerWrapper>
 
-        {/* Solution Methodology */}
-        <FramerWrapper y={100} delay={0.6} className="block">
-          <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-primary max-sm:text-xl">My Approach</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-              <div className="text-center p-4 border rounded-lg bg-secondary/10">
-                <div className="text-lg font-semibold text-primary max-sm:text-base">1. Analyze</div>
-                <p className="text-sm text-muted-foreground max-sm:text-xs">Understand the root problem and requirements</p>
-              </div>
-              <div className="text-center p-4 border rounded-lg bg-secondary/10">
-                <div className="text-lg font-semibold text-primary max-sm:text-base">2. Design</div>
-                <p className="text-sm text-muted-foreground max-sm:text-xs">Plan the optimal solution architecture</p>
-              </div>
-              <div className="text-center p-4 border rounded-lg bg-secondary/10">
-                <div className="text-lg font-semibold text-primary max-sm:text-base">3. Implement</div>
-                <p className="text-sm text-muted-foreground max-sm:text-xs">Build with precision and best practices</p>
-              </div>
-              <div className="text-center p-4 border rounded-lg bg-secondary/10">
-                <div className="text-lg font-semibold text-primary max-sm:text-base">4. Test & Feedback</div>
-                <p className="text-sm text-muted-foreground max-sm:text-xs">Gather insights and iterate quickly</p>
-              </div>
-              <div className="text-center p-4 border rounded-lg bg-secondary/10">
-                <div className="text-lg font-semibold text-primary max-sm:text-base">5. Optimize</div>
-                <p className="text-sm text-muted-foreground max-sm:text-xs">Refine and improve continuously</p>
-              </div>
-            </div>
-            <div className="text-center mt-8">
-              <p className="text-lg text-primary font-medium max-sm:text-base">
-                I don&apos;t just write code, I solve the underlying problem
-              </p>
-              <p className="text-sm text-muted-foreground mt-2 max-sm:text-xs">
-                Continuous feedback loops ensure the solution evolves with your needs
-              </p>
-            </div>
-          </div>
-        </FramerWrapper>
       </div>
     </div>
   );

@@ -42,6 +42,15 @@
 
     --ring: #a6a6a6;    /* Medium gray for focus rings */
     /* Hex: #a6a6a6 - A medium grey */
+
+    --secondary: #e6e6e6; /* Secondary background color for light mode */
+    --secondary-foreground: #4d4d4d; /* Secondary text color for light mode */
+    --accent: #e6e6e6; /* Accent background color for light mode */
+    --accent-foreground: #4d4d4d; /* Accent text color for light mode */
+    --destructive: #ef4444; /* Destructive/error color for light mode */
+    --destructive-foreground: #ffffff; /* Destructive text color for light mode */
+    --muted: #f5f5f5; /* Muted background color for light mode */
+    --input: #ffffff; /* Input background color for light mode */
   }
 
   .dark {
@@ -70,7 +79,7 @@
     --primary-foreground: #ffffff; /* Text color on primary elements in dark mode */
     /* Hex: #ffffff - White */
 
-    --border: #4d4d4d ;  /* Darker gray for borders in dark mode */
+    --border: hsl(210, 20%, 85%);  /* Light gray for borders in dark mode - same as primary */
     /* Hex: #4d4d4d - A medium-dark grey */
 
     --muted-foreground: #a3a3a3; /* Muted text color for dark mode */
@@ -78,6 +87,15 @@
 
     --ring: #a6a6a6;    /* Lighter gray for focus rings in dark mode */
     /* Hex: #a6a6a6 - A medium grey */
+
+    --secondary: #2a2a2a; /* Secondary background color for dark mode */
+    --secondary-foreground: #e6e6e6; /* Secondary text color for dark mode */
+    --accent: #2a2a2a; /* Accent background color for dark mode */
+    --accent-foreground: #e6e6e6; /* Accent text color for dark mode */
+    --destructive: #ef4444; /* Destructive/error color for dark mode */
+    --destructive-foreground: #ffffff; /* Destructive text color for dark mode */
+    --muted: #262626; /* Muted background color for dark mode */
+    --input: #2a2a2a; /* Input background color for dark mode */
   }
 }
 
