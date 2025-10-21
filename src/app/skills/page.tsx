@@ -3,6 +3,7 @@ import Heading from "@/features/about/components/Heading";
 import { Badge } from "@/shared/components/ui/badge";
 import { Lightbulb } from "lucide-react";
 import FramerWrapper from "@/shared/components/animations/FramerWrapper";
+import Image from "next/image";
 
 const SkillPage = () => {
   return (
@@ -78,61 +79,75 @@ const SkillPage = () => {
               I choose tools that solve real problems, not just trendy ones. Each technology in my stack serves a specific purpose in delivering quality solutions.
             </p>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6 mt-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 mt-8">
               <div className="flex flex-col items-center gap-2 group cursor-pointer">
                 <div className="w-16 h-16 p-3 border rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
-                  <img src="/ts.png" alt="TypeScript" className="w-full h-full object-contain" />
+                  <Image src="/ts.png" alt="TypeScript" width={40} height={40} className="w-full h-full object-contain" />
                 </div>
                 <span className="text-sm text-muted-foreground">TypeScript</span>
               </div>
               
               <div className="flex flex-col items-center gap-2 group cursor-pointer">
                 <div className="w-16 h-16 p-3 border rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
-                  <img src="/react.png" alt="React" className="w-full h-full object-contain" />
+                  <Image src="/react.png" alt="React" width={40} height={40} className="w-full h-full object-contain" />
                 </div>
                 <span className="text-sm text-muted-foreground">React</span>
               </div>
               
               <div className="flex flex-col items-center gap-2 group cursor-pointer">
                 <div className="w-16 h-16 p-3 border rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
-                  <img src="/nextjs.jpeg" alt="Next.js" className="w-full h-full object-contain" />
+                  <Image src="/nextjs.jpeg" alt="Next.js" width={40} height={40} className="w-full h-full object-contain" />
                 </div>
                 <span className="text-sm text-muted-foreground">Next.js</span>
               </div>
               
               <div className="flex flex-col items-center gap-2 group cursor-pointer">
                 <div className="w-16 h-16 p-3 border rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
-                  <img src="/tailwindcss.png" alt="Tailwind" className="w-full h-full object-contain" />
+                  <Image src="/tailwindcss.png" alt="Tailwind CSS" width={40} height={40} className="w-full h-full object-contain" />
                 </div>
                 <span className="text-sm text-muted-foreground">Tailwind</span>
               </div>
               
               <div className="flex flex-col items-center gap-2 group cursor-pointer">
                 <div className="w-16 h-16 p-3 border rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
-                  <img src="/docker.png" alt="Docker" className="w-full h-full object-contain" />
+                  <Image src="/docker.png" alt="Docker" width={40} height={40} className="w-full h-full object-contain" />
                 </div>
                 <span className="text-sm text-muted-foreground">Docker</span>
               </div>
               
               <div className="flex flex-col items-center gap-2 group cursor-pointer">
                 <div className="w-16 h-16 p-3 border rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
-                  <img src="/postgresql.png" alt="PostgreSQL" className="w-full h-full object-contain" />
+                  <Image src="/postgresql.png" alt="PostgreSQL" width={40} height={40} className="w-full h-full object-contain" />
                 </div>
                 <span className="text-sm text-muted-foreground">PostgreSQL</span>
               </div>
               
               <div className="flex flex-col items-center gap-2 group cursor-pointer">
                 <div className="w-16 h-16 p-3 border rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
-                  <img src="/Git-Logo.png" alt="GitHub" className="w-full h-full object-contain" />
+                  <Image src="/Git-Logo.png" alt="Git" width={40} height={40} className="w-full h-full object-contain" />
                 </div>
-                <span className="text-sm text-muted-foreground">GitHub</span>
+                <span className="text-sm text-muted-foreground">Git</span>
               </div>
               
               <div className="flex flex-col items-center gap-2 group cursor-pointer">
                 <div className="w-16 h-16 p-3 border rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
-                  <img src="/Anthropic.png" alt="Claude Code" className="w-full h-full object-contain" />
+                  <Image src="/Anthropic.png" alt="Claude Code" width={40} height={40} className="w-full h-full object-contain" />
                 </div>
                 <span className="text-sm text-muted-foreground">Claude Code</span>
+              </div>
+              
+              <div className="flex flex-col items-center gap-2 group cursor-pointer">
+                <div className="w-16 h-16 p-3 border rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
+                  <Image src="/figma.png" alt="Figma" width={40} height={40} className="w-full h-full object-contain" />
+                </div>
+                <span className="text-sm text-muted-foreground">Figma</span>
+              </div>
+              
+              <div className="flex flex-col items-center gap-2 group cursor-pointer">
+                <div className="w-16 h-16 p-3 border rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
+                  <Image src="/payload.png" alt="Payload CMS" width={40} height={40} className="w-full h-full object-contain" />
+                </div>
+                <span className="text-sm text-muted-foreground">Payload</span>
               </div>
             </div>
           </div>

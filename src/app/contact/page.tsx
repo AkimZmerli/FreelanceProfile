@@ -17,16 +17,14 @@ const contactPage = () => {
         Contact
       </Badge>
       <div className="flex flex-col gap-3 w-full">
-        <Heading>Is there something <br /> on your mind? </Heading>
+        <Heading>Ready to start <br /> your next project? </Heading>
         <div className="h-auto w-full flex justify-center items-center">
           <FramerWrapper y={0} scale={0.8}>
-
-        <ContactForm/>
+            <ContactForm/>
           </FramerWrapper>
         </div>
         <p className=" font-poppins text-lg w-full text-primary max-sm:text-base"></p>
       </div>
-   
     </div>
   );
 };

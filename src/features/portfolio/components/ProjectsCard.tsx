@@ -47,13 +47,13 @@ const getTagStyle = (tag: string): string => {
 const ProjectCards: React.FC<ProjectCardProps> = ({ value, num }) => {
   return (
     <FramerWrapper 
-      className="w-full max-w-sm mx-auto md:max-w-none" 
+      className="w-full h-full" 
       y={0} 
       scale={0.9} 
       delay={num * 0.15} 
       duration={0.6}
     >
-      <Card className="group relative w-full h-full flex flex-col overflow-hidden border-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md hover:from-white/15 hover:to-white/10 transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-black/20">
+      <Card className="group relative w-full h-full min-h-[280px] sm:min-h-[290px] md:min-h-[300px] lg:min-h-[310px] xl:min-h-[320px] max-w-[340px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[460px] xl:max-w-[500px] mx-auto flex flex-col overflow-hidden border-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md hover:from-white/15 hover:to-white/10 transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-black/20">
         {/* Glassmorphism border */}
         <div className="absolute inset-0 rounded-lg border border-white/20 group-hover:border-white/30 transition-colors duration-300" />
         
