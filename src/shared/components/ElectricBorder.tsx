@@ -92,7 +92,7 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
 
   useEffect(() => {
     updateAnim();
-  }, [speed, chaos]);
+  }, [speed, chaos, updateAnim]);
 
   useLayoutEffect(() => {
     if (!rootRef.current) return;
@@ -100,7 +100,7 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
     ro.observe(rootRef.current);
     updateAnim();
     return () => ro.disconnect();
-  }, []);
+  }, [updateAnim]);
 
   const inheritRadius: CSSProperties = {
     borderRadius: style?.borderRadius ?? 'inherit'
