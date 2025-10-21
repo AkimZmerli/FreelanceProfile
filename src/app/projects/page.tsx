@@ -5,12 +5,14 @@ import ProjectCards from "@/features/portfolio/components/ProjectsCard";
 import ScrambleButton from "@/shared/components/animations/ScrambleButton";
 import { Badge } from "@/shared/components/ui/badge";
 import { Layers } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import ReviewCard from "@/features/portfolio/components/review-card";
 
 const ProjectsPage = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const reviewsSectionRef = useRef<HTMLDivElement>(null);
+  const reviewCardsRef = useRef<HTMLDivElement>(null);
 
   // PROJECTS DATA
   const Projects = [
@@ -76,11 +78,42 @@ const ProjectsPage = () => {
 
   const toggleReviews = () => {
     setIsVisible(!isVisible);
+    
+    // Auto-scroll to reviews section when expanding
+    if (!isVisible) {
+      setTimeout(() => {
+        console.log('Attempting scroll...');
+        console.log('reviewsSectionRef.current:', reviewsSectionRef.current);
+        console.log('reviewCardsRef.current:', reviewCardsRef.current);
+        
+        const element = reviewsSectionRef.current;
+        if (element) {
+          console.log('Element found, getting position...');
+          const rect = element.getBoundingClientRect();
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const targetPosition = rect.top + scrollTop - 100;
+          
+          console.log('Current scroll position:', scrollTop);
+          console.log('Target position:', targetPosition);
+          console.log('Element rect:', rect);
+          
+          // Try instant scroll first to test
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'auto'
+          });
+          
+          console.log('Scroll command executed');
+        } else {
+          console.log('Element not found!');
+        }
+      }, 100);
+    }
   };
 
   return (
     // PROJECT PAGE
-    <div className="h-full w-full relative flex flex-col items-start gap-5 overflow-hidden">
+    <div className="h-full w-full relative flex flex-col items-start gap-5">
       <Badge className="gap-2">
         <Layers className="h-5 w-5" />
         Projects
@@ -94,44 +127,93 @@ const ProjectsPage = () => {
         </FramerWrapper>
       </div>
 
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl auto-rows-fr">
+      {/* Projects Grid */}
+      <div className="w-full grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-6 max-w-[1600px] mx-auto justify-items-center">
         {Projects.map((val, indx) => {
           return <ProjectCards key={indx} value={val} num={indx} />;
         })}
       </div>
 
-      <FramerWrapper y={0} x={-100}>
-      <div className="flex items-center w-full m-8">
-        <ScrambleButton 
-          text="Show Reviews"
-          toggledText="Hide Reviews"
-          onClick={toggleReviews}
-          className="w-fit"
-          isActive={isVisible}
-        />
-      </div>
-      </FramerWrapper>
+      {/* Reviews Section */}
+      <div ref={reviewsSectionRef} className="w-full mt-16">
+        {/* Section Header */}
+        <FramerWrapper y={0} x={-100}>
+          <div className="flex flex-col gap-4 mb-8">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-2xl font-rubik font-bold text-primary">
+                  Client Reviews
+                </h2>
+                <p className="text-primary/70 text-sm mt-1">
+                  {reviews.length} reviews from satisfied clients
+                </p>
+              </div>
+              <ScrambleButton 
+                text={`Show Reviews (${reviews.length})`}
+                toggledText="Hide Reviews"
+                onClick={toggleReviews}
+                className="w-fit"
+                isActive={isVisible}
+              />
+            </div>
+            
+            {/* Visual Separator */}
+            <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+          </div>
+        </FramerWrapper>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 w-full">
-        {reviews.map((review, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 100 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
-            transition={{
-              duration: 0.8,
-              delay: index * 0.2,
-              ease: "easeOut",
-            }}
+        {/* Placeholder when collapsed */}
+        {!isVisible && (
+          <motion.div 
+            className="flex items-center justify-center py-8 text-primary/50 text-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
           >
-            <ReviewCard
-              reviewerName={review.reviewerName}
-              reviewerImage={review.reviewerImage}
-              rating={review.rating}
-              reviewText={review.reviewText}
-            />
+            Click &quot;Show Reviews&quot; above to see what clients say about my work
           </motion.div>
-        ))}
+        )}
+
+        {/* Reviews Grid with improved animation */}
+        <motion.div 
+          className="w-full overflow-hidden"
+          initial={false}
+          animate={{ height: isVisible ? "auto" : 0 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+        >
+          <div ref={reviewCardsRef} className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 w-full pb-6">
+            {reviews.map((review, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={isVisible ? { 
+                  opacity: 1, 
+                  scale: 1,
+                  transition: {
+                    duration: 0.4,
+                    delay: index * 0.1,
+                    ease: "easeOut"
+                  }
+                } : { 
+                  opacity: 0, 
+                  scale: 0.9,
+                  transition: {
+                    duration: 0.3,
+                    delay: (reviews.length - index - 1) * 0.05,
+                    ease: "easeIn"
+                  }
+                }}
+              >
+                <ReviewCard
+                  reviewerName={review.reviewerName}
+                  reviewerImage={review.reviewerImage}
+                  rating={review.rating}
+                  reviewText={review.reviewText}
+                />
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </div>
   );

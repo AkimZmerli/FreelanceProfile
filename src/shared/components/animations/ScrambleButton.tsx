@@ -74,7 +74,7 @@ const ScrambleButton: React.FC<ScrambleButtonProps> = ({
           } transition-all duration-300`}
         onClick={handleClick}
         onMouseEnter={handleMouseEnter}
-        disabled={disabled || isScrambling}
+        disabled={disabled}
     >
         {currentText}
     </button>

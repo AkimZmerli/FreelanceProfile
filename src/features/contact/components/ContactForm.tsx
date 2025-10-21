@@ -2,7 +2,6 @@
 
 import { Input } from "@/shared/components/ui/input";
 import { Label } from "@/shared/components/ui/label";
-import { Alert } from "@/shared/components/ui/alert"
 
 
 import {
@@ -15,12 +14,17 @@ import {
 } from "@/shared/components/ui/card";
 import { Button } from "@/shared/components/ui/button";
 import { SendEmail } from "../actions/SendEmail";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import ElectricBorder from "@/shared/components/ElectricBorder";
 
 
 
 const ContactForm = () => {
+  const [isCountingDown, setIsCountingDown] = useState(false);
+  const [countdown, setCountdown] = useState(10);
+  const [milliseconds, setMilliseconds] = useState(0);
+  const [showGlitch, setShowGlitch] = useState(false);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -28,8 +32,6 @@ const ContactForm = () => {
     script.async = true;
     document.body.appendChild(script);
   }, []);
-
-  const [showAlert, setShowAlert] = useState(false);
 
 
 
@@ -45,10 +47,23 @@ const ContactForm = () => {
         try {
           await SendEmail(formData);
           (event.target as HTMLFormElement).reset();
-          setShowAlert(true);
-          setTimeout(() => {
-            setShowAlert(false);
-          }, 4000);
+          setIsCountingDown(true);
+          
+          // Start countdown with milliseconds
+          let totalMs = 10000; // 10 seconds in milliseconds
+          intervalRef.current = setInterval(() => {
+            totalMs -= 10;
+            const seconds = Math.floor(totalMs / 1000);
+            const ms = Math.floor((totalMs % 1000) / 10);
+            
+            setCountdown(seconds);
+            setMilliseconds(ms);
+            
+            if (totalMs <= 0) {
+              clearInterval(intervalRef.current!);
+              handleCountdownComplete();
+            }
+          }, 10);
         } catch (error) {
           console.error('Error sending email:', error);
           alert('An error occurred while sending the email. Please try again later.');
@@ -57,6 +72,58 @@ const ContactForm = () => {
     });
   };
 
+  const handleCountdownComplete = () => {
+    // Page shake animation
+    document.body.style.animation = 'shake 0.5s ease-in-out 3';
+    
+    // Show glitch effect after shake animation completes
+    setTimeout(() => {
+      setShowGlitch(true);
+      // Dispatch event to trigger letter rain
+      window.dispatchEvent(new CustomEvent('glitch-activated'));
+      // Reset states
+      setIsCountingDown(false);
+      setCountdown(10);
+      setMilliseconds(0);
+    }, 1500);
+  };
+
+  // Cleanup interval on unmount
+  useEffect(() => {
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, []);
+
+  if (showGlitch) {
+    return (
+        <ElectricBorder 
+          color='#E91E63'
+          speed={1}
+          chaos={0.5}
+          thickness={2}
+          style={{ borderRadius: 16 }}
+        >
+        <Card className="bg-transparent border-none">
+          <CardHeader className="glitch-header">
+            <CardTitle className="glitch-title">SYSTEM BREACH</CardTitle>
+            <CardDescription className="glitch-description">Unauthorized access detected...</CardDescription>
+          </CardHeader>
+          <CardContent className="glitch-content-area">
+            <div className="glitch-text">INITIATING COUNTERMEASURES</div>
+            <div className="glitch-text">FIREWALL STATUS: COMPROMISED</div>
+            <div className="glitch-text">ACTIVATING DEFENSE PROTOCOLS</div>
+          </CardContent>
+          <CardFooter className="glitch-footer">
+            <div className="glitch-text">TRACING INTRUSION SOURCE...</div>
+          </CardFooter>
+        </Card>
+        </ElectricBorder>
+    );
+  }
+
   return (
     <Card>
        
@@ -64,7 +131,14 @@ const ContactForm = () => {
         <CardHeader>
           <CardTitle className="icon_underline">Leave me a message!</CardTitle>
           <CardDescription>
-after sending, you will have 30 secs to leave the page          </CardDescription>
+            after sending, you will have {isCountingDown ? (
+              <span className={`font-bold inline-block w-16 text-center ${countdown <= 5 ? 'text-red-500 animate-pulse' : ''}`}>
+                {countdown}.{milliseconds.toString().padStart(2, '0')}
+              </span>
+            ) : (
+              <span className="font-bold inline-block w-16 text-center">10<span className="invisible">.00</span></span>
+            )} secs to leave the page
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid w-full max-w-sm items-center gap-1.5 mt-4">
@@ -93,15 +167,6 @@ after sending, you will have 30 secs to leave the page          </CardDescriptio
               required
               className=" resize-none flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
             ></textarea>
-             {showAlert && (
-    <Alert
-      variant="default"
-      className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-full max-w-sm shadow-lg"
-      style={{ backgroundColor: '#f0f4f8', color: '#333' }}
-    >
-      <p>Your message has been sent successfully!</p>
-    </Alert>
-  )}
           </div>
         </CardContent>
         <CardFooter>
