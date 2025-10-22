@@ -1,4 +1,4 @@
-import React, { CSSProperties, PropsWithChildren, useEffect, useId, useLayoutEffect, useRef } from 'react';
+import React, { CSSProperties, PropsWithChildren, useCallback, useEffect, useId, useLayoutEffect, useRef } from 'react';
 
 type ElectricBorderProps = PropsWithChildren<{
   color?: string;
@@ -40,7 +40,7 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
   const rootRef = useRef<HTMLDivElement | null>(null);
   const strokeRef = useRef<HTMLDivElement | null>(null);
 
-  const updateAnim = () => {
+  const updateAnim = useCallback(() => {
     const svg = svgRef.current;
     const host = rootRef.current;
     if (!svg || !host) return;
@@ -88,7 +88,7 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
         }
       });
     });
-  };
+  }, [filterId, speed, chaos]);
 
   useEffect(() => {
     updateAnim();

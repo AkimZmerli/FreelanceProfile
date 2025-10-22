@@ -92,11 +92,8 @@ const SkillPage = () => {
   };
 
   return (
-    <div className="h-full w-full relative flex flex-col items-start gap-10 overflow-hidden">
-      <Badge className="gap-2">
-        <Lightbulb className="h-5 w-6" />
-        Problem Solver
-      </Badge>
+    <div className="h-full w-full relative flex flex-col mt-10 items-start gap-10 overflow-hidden">
+
       
       <div className="flex flex-col gap-8">
         <Heading>Problem Solver</Heading>
