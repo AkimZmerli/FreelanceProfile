@@ -13,7 +13,7 @@ import {
   CardTitle,
 } from "@/shared/components/ui/card";
 import { Button } from "@/shared/components/ui/button";
-import { SendEmail } from "../actions/SendEmail";
+// import { SendEmail } from "../actions/SendEmail"; // Temporarily disabled server action
 import { useEffect, useState, useRef } from "react";
 import ElectricBorder from "@/shared/components/ElectricBorder";
 
@@ -24,7 +24,9 @@ const ContactForm = () => {
   const [countdown, setCountdown] = useState(10);
   const [milliseconds, setMilliseconds] = useState(0);
   const [showGlitch, setShowGlitch] = useState(false);
+  const [progressBar, setProgressBar] = useState('');
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const progressRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -38,38 +40,64 @@ const ContactForm = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    grecaptcha.ready(() => {
-      grecaptcha.execute('6LeA3NoqAAAAAEguX1FK3SzG8-WtM9Tp42kTXuHx', { action: 'submit' }).then(async (token: string) => {
-        const formData = new FormData(event.target as HTMLFormElement);
-        formData.append('g-recaptcha-response', token);
+    try {
+      // Check if grecaptcha is available
+      if (typeof grecaptcha === 'undefined') {
+        throw new Error('reCAPTCHA is not loaded. Please refresh the page and try again.');
+      }
 
-        // Call SendEmail with formData
-        try {
-          await SendEmail(formData);
-          (event.target as HTMLFormElement).reset();
-          setIsCountingDown(true);
-          
-          // Start countdown with milliseconds
-          let totalMs = 10000; // 10 seconds in milliseconds
-          intervalRef.current = setInterval(() => {
-            totalMs -= 10;
-            const seconds = Math.floor(totalMs / 1000);
-            const ms = Math.floor((totalMs % 1000) / 10);
-            
-            setCountdown(seconds);
-            setMilliseconds(ms);
-            
-            if (totalMs <= 0) {
-              clearInterval(intervalRef.current!);
-              handleCountdownComplete();
-            }
-          }, 10);
-        } catch (error) {
-          console.error('Error sending email:', error);
-          alert('An error occurred while sending the email. Please try again later.');
-        }
+      // Wrap grecaptcha calls in promise for better error handling
+      const executeRecaptcha = (): Promise<string> => {
+        return new Promise((resolve, reject) => {
+          try {
+            grecaptcha.ready(() => {
+              grecaptcha.execute('6LeA3NoqAAAAAEguX1FK3SzG8-WtM9Tp42kTXuHx', { action: 'submit' })
+                .then((token: string) => resolve(token))
+                .catch((error: any) => reject(new Error('reCAPTCHA verification failed')));
+            });
+          } catch (error) {
+            reject(new Error('reCAPTCHA is not available'));
+          }
+        });
+      };
+
+      const token = await executeRecaptcha();
+      const formData = new FormData(event.target as HTMLFormElement);
+      formData.append('g-recaptcha-response', token);
+
+      // Call API route instead of server action
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        body: formData,
       });
-    });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to send email');
+      }
+      (event.target as HTMLFormElement).reset();
+      setIsCountingDown(true);
+      
+      // Start countdown with milliseconds
+      let totalMs = 10000; // 10 seconds in milliseconds
+      intervalRef.current = setInterval(() => {
+        totalMs -= 10;
+        const seconds = Math.floor(totalMs / 1000);
+        const ms = Math.floor((totalMs % 1000) / 10);
+        
+        setCountdown(seconds);
+        setMilliseconds(ms);
+        
+        if (totalMs <= 0) {
+          clearInterval(intervalRef.current!);
+          handleCountdownComplete();
+        }
+      }, 10);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      const errorMessage = error instanceof Error ? error.message : 'An error occurred while sending the email. Please try again later.';
+      alert(errorMessage);
+    }
   };
 
   const handleCountdownComplete = () => {
@@ -81,6 +109,21 @@ const ContactForm = () => {
       setShowGlitch(true);
       // Dispatch event to trigger letter rain
       window.dispatchEvent(new CustomEvent('glitch-activated'));
+      
+      // Start progress bar animation
+      let progress = 0;
+      progressRef.current = setInterval(() => {
+        progress += 1;
+        const hashes = '#'.repeat(Math.floor(progress / 2));
+        const spaces = ' '.repeat(50 - Math.floor(progress / 2));
+        setProgressBar(`[${hashes}${spaces}] ${progress}%`);
+        
+        if (progress >= 100) {
+          clearInterval(progressRef.current!);
+          setProgressBar('[##################################################] COMPLETE');
+        }
+      }, 80);
+      
       // Reset states
       setIsCountingDown(false);
       setCountdown(10);
@@ -88,11 +131,14 @@ const ContactForm = () => {
     }, 1500);
   };
 
-  // Cleanup interval on unmount
+  // Cleanup intervals on unmount
   useEffect(() => {
     return () => {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
+      }
+      if (progressRef.current) {
+        clearInterval(progressRef.current);
       }
     };
   }, []);
@@ -100,24 +146,34 @@ const ContactForm = () => {
   if (showGlitch) {
     return (
         <ElectricBorder 
-          color='#E91E63'
-          speed={1}
-          chaos={0.5}
-          thickness={2}
+          color='#ec4899'
+          speed={1.5}
+          chaos={0.8}
+          thickness={3}
           style={{ borderRadius: 16 }}
+          className="w-full max-w-2xl"
         >
-        <Card className="bg-transparent border-none">
-          <CardHeader className="glitch-header">
-            <CardTitle className="glitch-title">SYSTEM BREACH</CardTitle>
-            <CardDescription className="glitch-description">Unauthorized access detected...</CardDescription>
+        <Card className="bg-transparent border-none min-h-[400px]">
+          <CardHeader className="glitch-header pb-6">
+            <CardTitle className="glitch-title text-3xl">SYSTEM BREACH</CardTitle>
+            <CardDescription className="glitch-description text-lg">Unauthorized access detected...</CardDescription>
           </CardHeader>
-          <CardContent className="glitch-content-area">
-            <div className="glitch-text">INITIATING COUNTERMEASURES</div>
-            <div className="glitch-text">FIREWALL STATUS: COMPROMISED</div>
-            <div className="glitch-text">ACTIVATING DEFENSE PROTOCOLS</div>
+          <CardContent className="glitch-content-area space-y-4 pb-6">
+            <div className="glitch-text text-lg">INITIATING COUNTERMEASURES</div>
+            <div className="glitch-text text-lg">FIREWALL STATUS: COMPROMISED</div>
+            <div className="glitch-text text-lg">ACTIVATING DEFENSE PROTOCOLS</div>
+            <div className="glitch-text text-lg">SCANNING NETWORK TOPOLOGY</div>
+            <div className="glitch-text text-lg">DEPLOYING HONEYPOTS</div>
           </CardContent>
-          <CardFooter className="glitch-footer">
-            <div className="glitch-text">TRACING INTRUSION SOURCE...</div>
+          <CardFooter className="glitch-footer flex-col justify-center space-y-4">
+            <div className="glitch-text text-lg">TRACING INTRUSION SOURCE...</div>
+            <div className="w-full">
+              <div className="glitch-text text-sm font-mono text-pink-400 bg-black/20 p-3 rounded border border-pink-500/30 min-h-[2rem] flex items-center">
+                <span className="font-mono whitespace-pre">
+                  {progressBar || '[                                                  ]   0%'}
+                </span>
+              </div>
+            </div>
           </CardFooter>
         </Card>
         </ElectricBorder>

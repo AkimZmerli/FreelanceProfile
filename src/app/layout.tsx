@@ -6,6 +6,7 @@ import Navbar from "@/shared/components/navigation/Navbar";
 import { siteConfig } from "./page"
 import BotpressInitializer from "@/shared/components/BotpressInitializer";
 import GlobalLetterRain from "@/shared/components/GlobalLetterRain";
+import ErrorBoundary from "@/shared/components/ErrorBoundary";
 
 
 const poppins = Poppins({
@@ -107,8 +108,10 @@ export default function RootLayout({
           )}
         >          
           <Navbar />
-
-          {children}
+          
+          <ErrorBoundary>
+            {children}
+          </ErrorBoundary>
         </main>
         <div className="absolute bottom-10 right-10">
           <BotpressInitializer />

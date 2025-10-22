@@ -283,12 +283,18 @@
   font-family: 'Courier New', monospace;
   font-size: 16px;
   font-weight: bold;
-  color: rgba(236, 72, 153, 0.7); /* pink-500 with higher opacity */
+  color: rgb(236, 72, 153); /* Pink-500 for default mode */
   animation: global-fall linear infinite;
-  opacity: 0.9;
-  text-shadow: 0 0 10px rgba(236, 72, 153, 0.9);
+  opacity: 0.8;
+  text-shadow: 0 0 5px rgba(236, 72, 153, 0.5);
   line-height: 1;
   white-space: nowrap;
+}
+
+.global-falling-letter.intense-rain {
+  color: rgb(236, 72, 153) !important; /* Pink-500 for intense mode */
+  text-shadow: 0 0 10px rgba(236, 72, 153, 0.9) !important;
+  opacity: 0.9 !important;
 }
 
 @keyframes global-fall {
