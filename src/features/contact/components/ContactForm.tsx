@@ -13,7 +13,7 @@ import {
   CardTitle,
 } from "@/shared/components/ui/card";
 import { Button } from "@/shared/components/ui/button";
-// import { SendEmail } from "../actions/SendEmail"; // Temporarily disabled server action
+import { SendEmail } from "../actions/SendEmail";
 import { useEffect, useState, useRef } from "react";
 import ElectricBorder from "@/shared/components/ElectricBorder";
 
@@ -65,16 +65,8 @@ const ContactForm = () => {
       const formData = new FormData(event.target as HTMLFormElement);
       formData.append('g-recaptcha-response', token);
 
-      // Call API route instead of server action
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to send email');
-      }
+      // Call server action
+      await SendEmail(formData);
       (event.target as HTMLFormElement).reset();
       setIsCountingDown(true);
       
