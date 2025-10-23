@@ -5,11 +5,23 @@ import { useEffect, useState } from "react";
 const GlobalLetterRain = () => {
   const [isClient, setIsClient] = useState(false);
   const [isIntense, setIsIntense] = useState(false);
-  const normalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");
+  const [showNormalRain, setShowNormalRain] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
+  const normalLetters = "<>0123456789".split("");
   const intenseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()".split("");
 
   useEffect(() => {
     setIsClient(true);
+    
+    // Start fade out after 18 seconds (2 seconds fade duration)
+    const fadeOutTimer = setTimeout(() => {
+      setFadeOut(true);
+    }, 18000);
+    
+    // Completely hide normal rain after 20 seconds
+    const hideTimer = setTimeout(() => {
+      setShowNormalRain(false);
+    }, 20000);
     
     // Listen for the glitch-activated event to intensify
     const handleGlitchActivated = () => {
@@ -19,7 +31,12 @@ const GlobalLetterRain = () => {
     };
 
     window.addEventListener('glitch-activated', handleGlitchActivated);
-    return () => window.removeEventListener('glitch-activated', handleGlitchActivated);
+    
+    return () => {
+      window.removeEventListener('glitch-activated', handleGlitchActivated);
+      clearTimeout(fadeOutTimer);
+      clearTimeout(hideTimer);
+    };
   }, []);
 
   if (!isClient) {
@@ -32,7 +49,14 @@ const GlobalLetterRain = () => {
   const letters = isIntense ? intenseLetters : normalLetters;
 
   return (
-    <div className="global-letter-rain">
+    <div 
+      className="global-letter-rain"
+      style={{
+        opacity: isIntense ? 1 : (fadeOut ? 0 : 1),
+        transition: isIntense ? 'none' : 'opacity 2s ease-out',
+        display: (!showNormalRain && !isIntense) ? 'none' : 'block'
+      }}
+    >
       {Array.from({ length: letterCount }, (_, i) => (
         <span 
           key={i}

@@ -177,14 +177,14 @@ const ContactForm = () => {
        
       <form onSubmit={handleSubmit}>
         <CardHeader>
-          <CardTitle className="icon_underline">Leave me a message!</CardTitle>
+          <CardTitle className="icon_underline mb-2">Drop me a message!</CardTitle>
           <CardDescription>
             after sending, you will have {isCountingDown ? (
-              <span className={`font-bold inline-block w-16 text-center ${countdown <= 5 ? 'text-red-500 animate-pulse' : ''}`}>
+              <span className={`font-bold inline-block w-10 text-center ${countdown <= 5 ? 'text-red-500 animate-pulse' : ''}`}>
                 {countdown}.{milliseconds.toString().padStart(2, '0')}
               </span>
             ) : (
-              <span className="font-bold inline-block w-16 text-center">10<span className="invisible">.00</span></span>
+              <span className="font-bold inline-block text-center">10.00</span>
             )} secs to leave the page
           </CardDescription>
         </CardHeader>

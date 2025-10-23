@@ -3,8 +3,6 @@ import FramerWrapper from "@/shared/components/animations/FramerWrapper";
 import Heading from "@/features/about/components/Heading";
 import ProjectCards from "@/features/portfolio/components/ProjectsCard";
 import ScrambleButton from "@/shared/components/animations/ScrambleButton";
-import { Badge } from "@/shared/components/ui/badge";
-import { Layers } from "lucide-react";
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import ReviewCard from "@/features/portfolio/components/review-card";
@@ -100,11 +98,7 @@ const ProjectsPage = () => {
 
   return (
     // PROJECT PAGE
-    <div className="h-full w-full relative flex flex-col items-start gap-5">
-      <Badge className="gap-2">
-        <Layers className="h-5 w-5" />
-        Projects
-      </Badge>
+    <div className="h-full w-full relative flex flex-col items-start gap-5 m-8">
       <div className="flex flex-col gap-8">
         <Heading>My Projects</Heading>
         <FramerWrapper y={0} x={200}>

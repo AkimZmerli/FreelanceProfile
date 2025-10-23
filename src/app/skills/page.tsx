@@ -1,9 +1,7 @@
 "use client"
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import Heading from "@/features/about/components/Heading";
-import { Badge } from "@/shared/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui/card";
-import { Lightbulb } from "lucide-react";
 import FramerWrapper from "@/shared/components/animations/FramerWrapper";
 import Image from "next/image";
 
@@ -21,6 +19,8 @@ const SkillPage = () => {
     { src: "/react.png", alt: "React", width: 68, height: 48, description: "React: Component-based UI library with excellent performance and developer experience" },
     { src: "/nextjs.jpeg", alt: "Next.js", width: 68, height: 48, description: "Next.js: Full-stack React framework with SSR, routing, and optimization out of the box" },
     { src: "/tailwindcss.png", alt: "Tailwind CSS", width: 88, height: 48, description: "Tailwind CSS: Utility-first CSS framework for rapid UI development without custom CSS" },
+    { src: "/python.png", alt: "Python", width: 68, height: 48, description: "Python: Versatile programming language perfect for automation, data analysis, and backend development" },
+    { src: "/django.png", alt: "Django", width: 68, height: 48, description: "Django: High-level Python web framework that encourages rapid development and clean design" },
     { src: "/docker.png", alt: "Docker", width: 68, height: 48, description: "Docker: Containerization platform ensuring consistent environments across development and production" },
     { src: "/postgress.png", alt: "PostgreSQL", width: 68, height: 48, description: "PostgreSQL: Robust relational database with excellent performance and ACID compliance" },
     { src: "/Git-Logo.png", alt: "Git", width: 158, height: 48, description: "Git: Industry-standard version control for tracking changes and collaboration" },
@@ -92,11 +92,7 @@ const SkillPage = () => {
   };
 
   return (
-    <div className="h-full w-full relative flex flex-col items-start gap-10 overflow-hidden">
-      <Badge className="gap-2">
-        <Lightbulb className="h-5 w-6" />
-        Problem Solver
-      </Badge>
+    <div className="h-full w-full relative flex flex-col items-start gap-10 overflow-hidden m-8">
       
       <div className="flex flex-col gap-8">
         <Heading>Problem Solver</Heading>
@@ -111,39 +107,63 @@ const SkillPage = () => {
 
         {/* Problem-Solving Domains */}
         <FramerWrapper y={100} delay={0.2} className="block">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mb-8 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 w-full max-w-6xl p-2">
             
             {/* Software Architecture */}
-            <Card className="max-w-sm">
-              <CardHeader>
-                <CardTitle className="text-lg">Software Architecture</CardTitle>
+            <Card className="group relative w-full h-full min-h-[200px] flex flex-col overflow-hidden border-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md hover:from-white/15 hover:to-white/10 transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-black/20">
+              {/* Glassmorphism border */}
+              <div className="absolute inset-0 rounded-lg border border-white/20 group-hover:border-white/30 transition-colors duration-300" />
+              
+              {/* Subtle gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <CardHeader className="relative z-10 pb-3">
+                <CardTitle className="text-xl font-semibold text-white/90 group-hover:text-white transition-colors duration-300 leading-tight">
+                  Software Architecture
+                </CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-primary leading-relaxed max-sm:text-sm">
+              <CardContent className="relative z-10 flex-1">
+                <p className="text-sm leading-relaxed text-white/70 group-hover:text-white/80 transition-colors duration-300 font-light">
                   Legacy codebases choking your development velocity? I specialize in refactoring enterprise applications with modern architectural patterns.
                 </p>
               </CardContent>
             </Card>
 
             {/* AI Integration */}
-            <Card className="max-w-sm">
-              <CardHeader>
-                <CardTitle className="text-lg">AI Integration</CardTitle>
+            <Card className="group relative w-full h-full min-h-[200px] flex flex-col overflow-hidden border-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md hover:from-white/15 hover:to-white/10 transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-black/20">
+              {/* Glassmorphism border */}
+              <div className="absolute inset-0 rounded-lg border border-white/20 group-hover:border-white/30 transition-colors duration-300" />
+              
+              {/* Subtle gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <CardHeader className="relative z-10 pb-3">
+                <CardTitle className="text-xl font-semibold text-white/90 group-hover:text-white transition-colors duration-300 leading-tight">
+                  AI Integration
+                </CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-primary leading-relaxed max-sm:text-sm">
+              <CardContent className="relative z-10 flex-1">
+                <p className="text-sm leading-relaxed text-white/70 group-hover:text-white/80 transition-colors duration-300 font-light">
                   Looking to leverage AI in your applications? I integrate modern AI tools with RAG models and other SDKs to enhance user experiences and automate workflows.
                 </p>
               </CardContent>
             </Card>
 
             {/* Custom Platform Solutions */}
-            <Card className="max-w-sm">
-              <CardHeader>
-                <CardTitle className="text-lg">Custom Platform Solutions</CardTitle>
+            <Card className="group relative w-full h-full min-h-[200px] flex flex-col overflow-hidden border-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md hover:from-white/15 hover:to-white/10 transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-black/20">
+              {/* Glassmorphism border */}
+              <div className="absolute inset-0 rounded-lg border border-white/20 group-hover:border-white/30 transition-colors duration-300" />
+              
+              {/* Subtle gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <CardHeader className="relative z-10 pb-3">
+                <CardTitle className="text-xl font-semibold text-white/90 group-hover:text-white transition-colors duration-300 leading-tight">
+                  Custom Platform Solutions
+                </CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-primary leading-relaxed max-sm:text-sm">
+              <CardContent className="relative z-10 flex-1">
+                <p className="text-sm leading-relaxed text-white/70 group-hover:text-white/80 transition-colors duration-300 font-light">
                   Need something that doesn&apos;t exist in the market? I build bespoke platforms tailored to your exact requirements.
                 </p>
               </CardContent>
@@ -154,13 +174,13 @@ const SkillPage = () => {
 
         {/* Tech Stack Icons */}
         <FramerWrapper y={100} delay={0.4} className="block">
-          <div className="flex flex-col gap-6">
-            <h2 className="text-2xl font-semibold text-primary max-sm:text-xl mt-6">Technologies I Use</h2>
-            <p className="text-primary max-w-3xl mb-6 max-sm:text-sm">
-              I work with cutting-edge technologies to ensure high performance, scalability, and seamless integration. 
+          <div className="flex flex-col gap-3">
+            <h2 className="text-2xl font-semibold text-primary max-sm:text-xl ">Technologies I Use</h2>
+            <p className="text-primary max-w-4xl mb-1 max-sm:text-sm text-lg">
+              I work with cutting-edge technologies to ensure high performance, scalability, and seamless integration. Each tool is carefully selected to solve specific challenges and deliver exceptional user experiences.
             </p>
             
-            <div className="mt-6‚ py-10">
+            <div className="mt-10">
               <div 
                 ref={containerRef}
                 className="overflow-hidden relative"
