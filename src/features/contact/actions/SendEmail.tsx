@@ -14,7 +14,7 @@ export async function SendEmail(formData: FormData) {
   const name = formData.get('name');
 
   if (!senderEmail || !message || !name) {
-    throw new Error('Missing required fields');
+    return { success: false, error: 'Missing required fields' };
   }
 
   try {
@@ -32,12 +32,12 @@ export async function SendEmail(formData: FormData) {
     
     if (data.error) {
       console.error('Resend API Error:', data.error);
-      throw new Error(`Resend API Error: ${JSON.stringify(data.error)}`);
+      return { success: false, error: `Email service error: ${JSON.stringify(data.error)}` };
     }
 
     return { success: true, data };
   } catch (error: any) {
     console.error('Error details:', error);
-    throw new Error(error?.message || 'Failed to send email. Please try again later.');
+    return { success: false, error: error?.message || 'Failed to send email. Please try again later.' };
   }
 }
