@@ -3,39 +3,32 @@
 import SocialLinks from "@/shared/components/navigation/SocialLinks";
 import HeroTexts from "@/features/hero/components/HeroTexts";
 import HeroImage from "@/features/hero/components/HeroImage";
-import DarkModeButton from "@/shared/components/navigation/DarkModeButton";
 import FramerWrapper from "@/shared/components/animations/FramerWrapper";
-import TotalRecall from "@/features/education/components/TotalRecall";
+
 
 export const siteConfig = {
-  name: "Akim the Dream",
-  description: "Freelance Web Dev",
-  url: "https://freelance-portfolio.vercel.app",
+  name: "WebDev4Life",
+  description: "Software Engineer for Hire",
+  url: "https://webdev4life.com",
 
 }
 export default function Home() {
   return (
    <>
-      {/* LEFT SIDE  */}
-      <FramerWrapper className="flex flex-col justify-start gap-5 w-full lg:w-auto items-start" y={0} x={-90}>
+      {/* LEFT SIDE - Original desktop layout, mobile optimized */}
+      <FramerWrapper className="flex flex-col justify-start gap-3 sm:gap-5 lg:gap-5 w-full lg:w-auto items-center lg:items-start pt-16 lg:pt-0" y={0} x={-90}>
         <HeroTexts />
-        
-
-       
       </FramerWrapper>
-      {/* RIGHT SIDE image  */}
       
-      <FramerWrapper className="h-[40%] w-full md:h-[60%] md:w-[45%] lg:h-[70%] lg:w-[47%] relative block mt-8 lg:mt-0" y={0} x={100}>
-      
-      
-      {/* IMAGE  */}
-     
-          <HeroImage />
-        
+      {/* RIGHT SIDE image - Original desktop layout, mobile repositioned */}
+      <FramerWrapper className="
+        absolute bottom-3 left-4 h-[20%] w-[50%] 
+        lg:relative lg:bottom-auto lg:left-auto lg:h-[75%] lg:w-[47%] lg:mt-0
+        xl:h-[70%] xl:w-[47%]
+        block
+      " y={0} x={100}>
+        <HeroImage />
       </FramerWrapper>
-     
-      
-      
-      </>
+   </>
   );
 }
