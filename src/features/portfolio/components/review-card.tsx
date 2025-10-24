@@ -24,7 +24,7 @@ export default function ReviewCard({
   return (
     <Card className={cn("max-w-md w-full", className)}>
       <CardHeader className="flex flex-col items-center text-center">
-        <div className="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-gray-100">
+        <div className="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-card-foreground/20">
           <Image 
               src={reviewerImage?.img} 
               alt={reviewerImage?.alt || reviewerName} 
@@ -47,7 +47,7 @@ export default function ReviewCard({
       </CardHeader>
 
       <CardContent>
-        <p className="text-[#e6e6e6] text-center">{reviewText}</p>
+        <p className="text-card-foreground text-center">{reviewText}</p>
       </CardContent>
     </Card>
   )

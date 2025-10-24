@@ -104,7 +104,7 @@ export default function RootLayout({
         
         <main
           className={cn(
-            "flex relative break-words h-full min-h-screen items-center pb-10 justify-between pt-2 px-20 max-md:p-4 bg-sky-50 dark:bg-gray-900 max-sm:pt-20 bg-[radial-gradient(#FF34B3_1px,transparent_1px)] dark:bg-[radial-gradient(#06b6d4_1px,transparent_1px)] [background-size:16px_16px] [background-position:0_0]",
+            "flex relative break-words min-h-screen items-center pb-10 justify-between pt-2 px-20 max-md:p-4 bg-sky-50 dark:bg-gray-900 max-sm:pt-20 bg-[radial-gradient(#FF34B3_1px,transparent_1px)] dark:bg-[radial-gradient(#06b6d4_1px,transparent_1px)] [background-size:16px_16px] [background-position:0_0]",
           )}
         >          
           <Navbar />

@@ -180,9 +180,9 @@ const SkillPage = () => {
       {/* Tech Stack Icons */}
         <FramerWrapper y={100} delay={0.4} className="block">
           <div className="flex flex-col gap-3">
-            <div className="w-full max-w-[1900px] mx-auto px-0">
+            <div className="w-full mx-auto px-0">
               <h2 className="text-2xl font-semibold text-primary max-sm:text-xl ">Technologies I Use</h2>
-              <p className="text-primary max-w-4xl mb-1 max-sm:text-sm text-lg">
+              <p className="text-primary max-w-4xl mb-1 max-sm:text-sm max-sm:mb-4 text-lg">
                 I work with cutting-edge technologies to ensure high performance, scalability, and seamless integration. Each tool is carefully selected to solve specific challenges and deliver exceptional user experiences.
               </p>
             </div>
