@@ -96,25 +96,25 @@ const Navbar = () => {
         <div className="width-full" onMouseLeave={() => setHoverEnabled(false)}>
           <Dock
             enableHover={hoverEnabled}
-            className="items-end pb-3 rounded-full border border-sky-300 dark:border-neutral-600 bg-sky-100"
+            className="items-end pb-3 rounded-full border border-primary/30 dark:border-neutral-600 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md"
           >
             {data.map((item, idx) =>
               item.href ? (
                 <Link href={item.href} key={idx}>
                   <DockItem
                     className={cn(
-                      "aspect-square rounded-full bg-zinc-200 border border-zinc-500  dark:bg-neutral-600",
-                      pathname === item.href && "bg-gray-100 border nav-border",
+                      "aspect-square rounded-full bg-white/60 border border-primary/20 text-primary dark:bg-neutral-600 dark:border-neutral-500 dark:text-white",
+                      pathname === item.href && "bg-pink-50 border-pink-300 text-pink-600 dark:bg-neutral-500 dark:border-pink-400",
                     )}
                   >
-                    <DockIcon className={cn(pathname === item.href && "text-cyan-500 dark:text-pink-500 ")}>
+                    <DockIcon className={cn(pathname === item.href && "text-pink-600 dark:text-pink-400")}>
                       {item.icon}
                     </DockIcon>
                   </DockItem>
                 </Link>
               ) : (
                 <div onClick={item.action === "toggleTheme" ? toggleTheme : undefined} key={idx}>
-                  <DockItem className="aspect-square rounded-full border border-zinc-400 bg-zinc-200 dark:border-neutral-700 dark:bg-neutral-700">
+                  <DockItem className="aspect-square rounded-full bg-white/60 border border-primary/20 text-primary dark:bg-neutral-600 dark:border-neutral-500 dark:text-white">
                     <DockIcon
                       className={
                         item.action === "toggleTheme" ? (theme === "dark" ? "text-[#f2f2f2]" : "text-[#404040]") : ""

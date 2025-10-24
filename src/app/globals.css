@@ -51,6 +51,14 @@
     --destructive-foreground: #ffffff; /* Destructive text color for light mode */
     --muted: #f5f5f5; /* Muted background color for light mode */
     --input: #ffffff; /* Input background color for light mode */
+    
+    /* Glassmorphism card colors for light mode */
+    --glass-card: rgba(255, 255, 255, 0.8); /* Semi-transparent white with good visibility */
+    --glass-card-secondary: rgba(240, 240, 240, 0.7); /* Subtle gray tint for gradient */
+    --glass-card-hover: rgba(255, 255, 255, 0.95); /* Nearly opaque on hover */
+    --glass-card-hover-secondary: rgba(245, 245, 245, 0.9); /* Light hover gradient */
+    --glass-border: rgba(77, 77, 77, 0.2); /* Defined border using primary text color */
+    --glass-border-hover: rgba(236, 72, 153, 0.4); /* Pink accent on hover */
   }
 
   .dark {
@@ -96,6 +104,14 @@
     --destructive-foreground: #ffffff; /* Destructive text color for dark mode */
     --muted: #262626; /* Muted background color for dark mode */
     --input: #2a2a2a; /* Input background color for dark mode */
+    
+    /* Glassmorphism card colors for dark mode */
+    --glass-card: rgba(255, 255, 255, 0.1); /* Semi-transparent white for dark mode */
+    --glass-card-secondary: rgba(255, 255, 255, 0.05); /* Lighter glass for gradient */
+    --glass-card-hover: rgba(255, 255, 255, 0.15); /* Brighter on hover */
+    --glass-card-hover-secondary: rgba(255, 255, 255, 0.1); /* Lighter hover for gradient */
+    --glass-border: rgba(255, 255, 255, 0.2); /* Glass border for dark mode */
+    --glass-border-hover: rgba(255, 255, 255, 0.3); /* Glass border hover for dark mode */
   }
 }
 

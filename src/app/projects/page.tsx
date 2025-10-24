@@ -98,7 +98,7 @@ const ProjectsPage = () => {
 
   return (
     // PROJECT PAGE
-    <div className="h-full w-full relative flex flex-col items-start gap-5 m-8">
+    <div className="h-full w-full relative flex flex-col items-start gap-5 px-4 py-8 sm:px-6 md:px-8">
       <div className="flex flex-col gap-8">
         <Heading>My Projects</Heading>
         <FramerWrapper y={0} x={200}>

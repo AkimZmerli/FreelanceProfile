@@ -92,7 +92,7 @@ const SkillPage = () => {
   };
 
   return (
-    <div className="h-full w-full relative flex flex-col items-start gap-10 overflow-hidden m-8">
+    <div className="h-full w-full relative flex flex-col items-start gap-10 overflow-hidden px-4 py-8 sm:px-6 md:px-8">
       
       <div className="flex flex-col gap-8">
         <Heading>Problem Solver</Heading>
@@ -105,80 +105,87 @@ const SkillPage = () => {
           </div>
         </FramerWrapper>
 
-        {/* Problem-Solving Domains */}
-        <FramerWrapper y={100} delay={0.2} className="block">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 w-full max-w-6xl p-2">
+      </div>
+
+      {/* Problem-Solving Domains */}
+      <div className="w-full grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-6 max-w-[1600px] mx-auto justify-items-center">
             
-            {/* Software Architecture */}
-            <Card className="group relative w-full h-full min-h-[200px] flex flex-col overflow-hidden border-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md hover:from-white/15 hover:to-white/10 transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-black/20">
+        {/* Software Architecture */}
+        <FramerWrapper className="w-full h-full" y={0} scale={0.9} delay={0 * 0.15} duration={0.6}>
+          <Card className="group relative w-full h-48 max-w-[340px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[460px] xl:max-w-[500px] mx-auto flex flex-col overflow-hidden border-0 bg-gradient-to-br from-glass-card to-glass-card-secondary backdrop-blur-md hover:from-glass-card-hover hover:to-glass-card-hover-secondary transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-black/20">
               {/* Glassmorphism border */}
-              <div className="absolute inset-0 rounded-lg border border-white/20 group-hover:border-white/30 transition-colors duration-300" />
+              <div className="absolute inset-0 rounded-lg border border-glass-border group-hover:border-glass-border-hover transition-colors duration-300" />
               
               {/* Subtle gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <CardHeader className="relative z-10 pb-3">
-                <CardTitle className="text-xl font-semibold text-white/90 group-hover:text-white transition-colors duration-300 leading-tight">
+                <CardTitle className="text-xl font-semibold text-primary dark:text-white/90 group-hover:text-primary dark:group-hover:text-white transition-colors duration-300 leading-tight">
                   Software Architecture
                 </CardTitle>
               </CardHeader>
               <CardContent className="relative z-10 flex-1">
-                <p className="text-sm leading-relaxed text-white/70 group-hover:text-white/80 transition-colors duration-300 font-light">
+                <p className="text-sm leading-relaxed text-primary/80 dark:text-white/70 group-hover:text-primary dark:group-hover:text-white/80 transition-colors duration-300 font-light">
                   Legacy codebases choking your development velocity? I specialize in refactoring enterprise applications with modern architectural patterns.
                 </p>
               </CardContent>
             </Card>
+        </FramerWrapper>
 
-            {/* AI Integration */}
-            <Card className="group relative w-full h-full min-h-[200px] flex flex-col overflow-hidden border-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md hover:from-white/15 hover:to-white/10 transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-black/20">
+        {/* AI Integration */}
+        <FramerWrapper className="w-full h-full" y={0} scale={0.9} delay={1 * 0.15} duration={0.6}>
+          <Card className="group relative w-full h-48 max-w-[340px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[460px] xl:max-w-[500px] mx-auto flex flex-col overflow-hidden border-0 bg-gradient-to-br from-glass-card to-glass-card-secondary backdrop-blur-md hover:from-glass-card-hover hover:to-glass-card-hover-secondary transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-black/20">
               {/* Glassmorphism border */}
-              <div className="absolute inset-0 rounded-lg border border-white/20 group-hover:border-white/30 transition-colors duration-300" />
+              <div className="absolute inset-0 rounded-lg border border-glass-border group-hover:border-glass-border-hover transition-colors duration-300" />
               
               {/* Subtle gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <CardHeader className="relative z-10 pb-3">
-                <CardTitle className="text-xl font-semibold text-white/90 group-hover:text-white transition-colors duration-300 leading-tight">
+                <CardTitle className="text-xl font-semibold text-primary dark:text-white/90 group-hover:text-primary dark:group-hover:text-white transition-colors duration-300 leading-tight">
                   AI Integration
                 </CardTitle>
               </CardHeader>
               <CardContent className="relative z-10 flex-1">
-                <p className="text-sm leading-relaxed text-white/70 group-hover:text-white/80 transition-colors duration-300 font-light">
+                <p className="text-sm leading-relaxed text-primary/80 dark:text-white/70 group-hover:text-primary dark:group-hover:text-white/80 transition-colors duration-300 font-light">
                   Looking to leverage AI in your applications? I integrate modern AI tools with RAG models and other SDKs to enhance user experiences and automate workflows.
                 </p>
               </CardContent>
             </Card>
+        </FramerWrapper>
 
-            {/* Custom Platform Solutions */}
-            <Card className="group relative w-full h-full min-h-[200px] flex flex-col overflow-hidden border-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md hover:from-white/15 hover:to-white/10 transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-black/20">
+        {/* Custom Platform Solutions */}
+        <FramerWrapper className="w-full h-full" y={0} scale={0.9} delay={2 * 0.15} duration={0.6}>
+          <Card className="group relative w-full h-48 max-w-[340px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[460px] xl:max-w-[500px] mx-auto flex flex-col overflow-hidden border-0 bg-gradient-to-br from-glass-card to-glass-card-secondary backdrop-blur-md hover:from-glass-card-hover hover:to-glass-card-hover-secondary transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-black/20">
               {/* Glassmorphism border */}
-              <div className="absolute inset-0 rounded-lg border border-white/20 group-hover:border-white/30 transition-colors duration-300" />
+              <div className="absolute inset-0 rounded-lg border border-glass-border group-hover:border-glass-border-hover transition-colors duration-300" />
               
               {/* Subtle gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <CardHeader className="relative z-10 pb-3">
-                <CardTitle className="text-xl font-semibold text-white/90 group-hover:text-white transition-colors duration-300 leading-tight">
+                <CardTitle className="text-xl font-semibold text-primary dark:text-white/90 group-hover:text-primary dark:group-hover:text-white transition-colors duration-300 leading-tight">
                   Custom Platform Solutions
                 </CardTitle>
               </CardHeader>
               <CardContent className="relative z-10 flex-1">
-                <p className="text-sm leading-relaxed text-white/70 group-hover:text-white/80 transition-colors duration-300 font-light">
+                <p className="text-sm leading-relaxed text-primary/80 dark:text-white/70 group-hover:text-primary dark:group-hover:text-white/80 transition-colors duration-300 font-light">
                   Need something that doesn&apos;t exist in the market? I build bespoke platforms tailored to your exact requirements.
                 </p>
               </CardContent>
             </Card>
-
-          </div>
         </FramerWrapper>
+      </div>
 
-        {/* Tech Stack Icons */}
+      {/* Tech Stack Icons */}
         <FramerWrapper y={100} delay={0.4} className="block">
           <div className="flex flex-col gap-3">
-            <h2 className="text-2xl font-semibold text-primary max-sm:text-xl ">Technologies I Use</h2>
-            <p className="text-primary max-w-4xl mb-1 max-sm:text-sm text-lg">
-              I work with cutting-edge technologies to ensure high performance, scalability, and seamless integration. Each tool is carefully selected to solve specific challenges and deliver exceptional user experiences.
-            </p>
+            <div className="w-full max-w-[1900px] mx-auto px-0">
+              <h2 className="text-2xl font-semibold text-primary max-sm:text-xl ">Technologies I Use</h2>
+              <p className="text-primary max-w-4xl mb-1 max-sm:text-sm text-lg">
+                I work with cutting-edge technologies to ensure high performance, scalability, and seamless integration. Each tool is carefully selected to solve specific challenges and deliver exceptional user experiences.
+              </p>
+            </div>
             
             <div className="mt-10">
               <div 
@@ -219,7 +226,6 @@ const SkillPage = () => {
 
           </div>
         </FramerWrapper>
-      </div>
 
       {/* Tooltip */}
       {tooltip && (
