@@ -2,11 +2,9 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 
-export interface MyComponentProps{
-    items:Array<{ alt: string; img: any; description: string; link: string}>
-}
+import { SkillGridProps } from "@/shared/types/components";
 
-const SkillsFooter:React.FC<MyComponentProps> = ({items}) => {
+const SkillGrid:React.FC<SkillGridProps> = ({items}) => {
   return (
     <>
       { items && items.map((val, indx) => {
@@ -31,4 +29,4 @@ const SkillsFooter:React.FC<MyComponentProps> = ({items}) => {
   );
 };
 
-export default SkillsFooter;
+export default SkillGrid;

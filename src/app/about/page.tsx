@@ -1,9 +1,9 @@
-import Aboutfooter from "@/features/about/components/Aboutfooter";
+import ProcessSteps from "@/shared/components/ui/ProcessSteps";
 import FramerWrapper from "@/shared/components/animations/FramerWrapper";
-import Heading from "@/features/about/components/Heading";
+import Heading from "@/shared/components/ui/Heading";
 import { Badge } from "@/shared/components/ui/badge";
 import { Circle, Heart, User2 } from "lucide-react";
-import TotalRecall from "@/features/education/components/TotalRecall";
+import TotalRecall from "@/app/education/TotalRecall";
 
 
 const page = () => {
@@ -33,7 +33,7 @@ const page = () => {
         
       </div>
       <FramerWrapper className="w-full flex flex-row justify-between max-lg:flex-col " y={100} delay={0.30}>
-        <Aboutfooter  />
+        <ProcessSteps  />
       </FramerWrapper>
       <FramerWrapper className="block" y={100} delay={0.31}>
         {/* <h1 className="gap-2 text-3xl font-poppins text-primary font-semibold flex icon_underline relative max-sm:text-2xl">

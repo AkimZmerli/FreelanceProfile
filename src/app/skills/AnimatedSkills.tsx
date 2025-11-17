@@ -3,7 +3,7 @@
 import { animate, createScope, type Scope as AnimeScope, createSpring } from "animejs"
 import { useEffect, useRef, useState, forwardRef, useCallback } from "react"
 import Image from "next/image"
-import type { MyComponentProps } from "@/features/about/components/SkillsFooter"
+import type { SkillGridProps } from "@/shared/types/components"
 
 interface AnimationConfig {
   scale: number
@@ -15,7 +15,7 @@ export interface AnimatedSkillsRef {
   rotate: () => void
 }
 
-const AnimatedSkills = forwardRef<AnimatedSkillsRef, MyComponentProps & { animationConfig?: AnimationConfig }>(
+const AnimatedSkills = forwardRef<AnimatedSkillsRef, SkillGridProps & { animationConfig?: AnimationConfig }>(
     (props, ref) => {
       const { items, animationConfig = { scale: 1.25, duration: 200, delay: 250 } } = props
       const root = useRef<HTMLDivElement>(null)

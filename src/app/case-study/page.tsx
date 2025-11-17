@@ -1,6 +1,6 @@
 "use client"
 import FramerWrapper from "@/shared/components/animations/FramerWrapper";
-import Heading from "@/features/about/components/Heading";
+import Heading from "@/shared/components/ui/Heading";
 import { Badge } from "@/shared/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui/card";
 import { Play, GitBranch, FileCode, TrendingUp, Users, Zap, ArrowRight } from "lucide-react";

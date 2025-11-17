@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect, useRef, useMemo } from "react";
-import Heading from "@/features/about/components/Heading";
+import Heading from "@/shared/components/ui/Heading";
 import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui/card";
 import FramerWrapper from "@/shared/components/animations/FramerWrapper";
 import Image from "next/image";

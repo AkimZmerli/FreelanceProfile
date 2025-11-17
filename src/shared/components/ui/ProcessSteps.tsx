@@ -1,6 +1,6 @@
 import {Circle, Dna, Globe2, Heart, Languages, MessagesSquare, GitPullRequestCreateArrow} from "lucide-react"
 
-const Aboutfooter = () => {
+const ProcessSteps = () => {
 
 
     const items = [
@@ -29,4 +29,4 @@ const Aboutfooter = () => {
     )
 }
 
-export default Aboutfooter
+export default ProcessSteps

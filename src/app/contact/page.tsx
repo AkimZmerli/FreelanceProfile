@@ -1,6 +1,6 @@
-import ContactForm from "@/features/contact/components/ContactForm";
+import ContactForm from "./ContactForm";
 import FramerWrapper from "@/shared/components/animations/FramerWrapper";
-import Heading from "@/features/about/components/Heading";
+import Heading from "@/shared/components/ui/Heading";
 
 
 

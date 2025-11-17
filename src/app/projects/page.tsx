@@ -1,11 +1,11 @@
 "use client"
 import FramerWrapper from "@/shared/components/animations/FramerWrapper";
-import Heading from "@/features/about/components/Heading";
-import ProjectCards from "@/features/portfolio/components/ProjectsCard";
+import Heading from "@/shared/components/ui/Heading";
+import ProjectCards from "./ProjectsCard";
 import ScrambleButton from "@/shared/components/animations/ScrambleButton";
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import ReviewCard from "@/features/portfolio/components/review-card";
+import ReviewCard from "./ReviewCard";
 
 const ProjectsPage = () => {
   const [isVisible, setIsVisible] = useState(false);

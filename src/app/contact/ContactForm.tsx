@@ -13,7 +13,7 @@ import {
   CardTitle,
 } from "@/shared/components/ui/card";
 import { Button } from "@/shared/components/ui/button";
-import { SendEmail } from "../actions/SendEmail";
+import { SendEmail } from "./SendEmail";
 import { useEffect, useState, useRef } from "react";
 import ElectricBorder from "@/shared/components/ElectricBorder";
 

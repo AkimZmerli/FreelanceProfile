@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import ReviewCard from "./review-card"
+import ReviewCard from "./ReviewCard"
 import ScrambleButton from "@/shared/components/animations/ScrambleButton"
 import Image from "next/image"
 import valentin from '../../../../../public/valentin.png'
