@@ -114,25 +114,29 @@ return (
   useEffect(() => {
     if (isPlaying && currentStep < demoSteps.length) {
       const stepDuration = demoSteps[currentStep].duration;
-      let elapsed = 0;
+      const startTime = Date.now();
       
       progressInterval.current = setInterval(() => {
-        elapsed += 50;
-        const newProgress = (elapsed / stepDuration) * 100;
+        const elapsed = Date.now() - startTime;
+        const newProgress = Math.min((elapsed / stepDuration) * 100, 100);
         
         if (newProgress >= 100) {
-          setProgress(0);
-          if (currentStep < demoSteps.length - 1) {
-            setCurrentStep(prev => prev + 1);
-          } else {
-            setIsPlaying(false);
-            setCurrentStep(0);
-          }
+          setProgress(100);
           if (progressInterval.current) clearInterval(progressInterval.current);
+          
+          setTimeout(() => {
+            setProgress(0);
+            if (currentStep < demoSteps.length - 1) {
+              setCurrentStep(prev => prev + 1);
+            } else {
+              setIsPlaying(false);
+              setCurrentStep(0);
+            }
+          }, 100);
         } else {
           setProgress(newProgress);
         }
-      }, 50);
+      }, 100);
 
       return () => {
         if (progressInterval.current) clearInterval(progressInterval.current);

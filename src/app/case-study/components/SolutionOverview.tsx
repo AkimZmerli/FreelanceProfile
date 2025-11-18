@@ -1,12 +1,12 @@
 "use client"
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui/card";
-import { Lightbulb, Layers, FolderTree, ArrowRight, Check, Sparkles, Cpu } from "lucide-react";
+import { Lightbulb, Layers, FolderTree, Check, Sparkles } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
 import { useState } from "react";
 
 const SolutionOverview = () => {
-  const [activeTab, setActiveTab] = useState("vertical");
+  const [activeTab, setActiveTab] = useState<"traditional" | "vertical">("vertical");
 
   const architectureComparison = {
     traditional: {
@@ -47,38 +47,7 @@ const SolutionOverview = () => {
     }
   };
 
-  const implementationStrategy = [
-    {
-      phase: "Phase 1",
-      title: "Portfolio Feature Refactoring",
-      description: "Started with the most problematic area",
-      metrics: "2000+ lines → modular structure",
-      status: "completed"
-    },
-    {
-      phase: "Phase 2",
-      title: "Property Feature Transformation",
-      description: "Applied patterns to second major feature",
-      metrics: "Dramatic before/after comparison",
-      status: "completed"
-    },
-    {
-      phase: "Phase 3",
-      title: "Global Pattern Application",
-      description: "Rolled out architecture across entire app",
-      metrics: "208 files restructured",
-      status: "completed"
-    }
-  ];
-
-  const keyImprovements = [
-    { label: "Separation of Concerns", description: "Data, UI, and business logic cleanly separated" },
-    { label: "Testability", description: "Each layer can be unit tested independently" },
-    { label: "Maintainability", description: "Features are self-contained and easy to modify" },
-    { label: "Developer Experience", description: "Clear file organization and predictable structure" },
-    { label: "UX Consistency", description: "Standardized components eliminate visual inconsistencies" },
-    { label: "Accessibility", description: "Proper ARIA patterns and keyboard navigation" }
-  ];
+ 
 
   return (
     <div className="w-full space-y-8">
@@ -96,7 +65,7 @@ const SolutionOverview = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-white">
           Vertical Slice Architecture
         </h2>
-        <p className="text-lg text-white/70 max-w-3xl mx-auto">
+        <p className="text-lg text-white/85 max-w-3xl mx-auto">
           A fundamental shift from organizing code by technical layer to organizing by feature, 
           creating self-contained modules with clear boundaries
         </p>
@@ -227,76 +196,65 @@ const SolutionOverview = () => {
         </Card>
       </motion.div>
 
-      {/* Implementation Strategy */}
-      <div className="space-y-4">
-        <h3 className="text-2xl font-bold text-white text-center">Implementation Strategy</h3>
+      {/* VSA Benefits Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.5 }}
+        className="mt-12"
+      >
+        <div className="text-center mb-8">
+          <h3 className="text-2xl font-bold text-white mb-3">
+            Architecture Benefits
+          </h3>
+          <p className="text-white/85 max-w-2xl mx-auto">
+            Key advantages that vertical slice architecture brings to development teams
+          </p>
+        </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {implementationStrategy.map((phase, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            {
+              title: "Feature Isolation",
+              description: "Each feature is now completely self-contained with its own components, hooks, and utilities",
+              impact: "Independent development and testing"
+            },
+            {
+              title: "Scalable Foundation", 
+              description: "New features follow established patterns, making the codebase predictable and maintainable",
+              impact: "Consistent architecture across teams"
+            },
+            {
+              title: "Modern Standards",
+              description: "Full TypeScript coverage with strong typing, modern React patterns, and best practices",
+              impact: "Future-proof technology stack"
+            },
+            {
+              title: "AI-Ready Structure",
+              description: "Well-organized code that AI tools can better understand and work with",
+              impact: "Enhanced AI development capabilities"
+            }
+          ].map((benefit, index) => (
             <motion.div
-              key={phase.phase}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 + index * 0.1 }}
+              key={benefit.title}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5 + index * 0.1 }}
             >
-              <Card className="group h-full relative overflow-hidden border-white/10 bg-gradient-to-br from-white/5 to-white/2 hover:from-white/10 hover:to-white/5 transition-all duration-300">
-                <div className="absolute top-3 right-3">
-                  <Badge className="bg-green-500/20 text-green-400 border-green-500/30">
-                    <Check className="h-3 w-3 mr-1" />
-                    Completed
-                  </Badge>
-                </div>
-                
-                <CardContent className="p-6 pt-12">
-                  <div className="space-y-3">
-                    <div className="text-cyan-400 font-semibold">{phase.phase}</div>
-                    <h4 className="text-lg font-semibold text-white">{phase.title}</h4>
-                    <p className="text-sm text-white/70">{phase.description}</p>
-                    <div className="pt-3 border-t border-white/10">
-                      <div className="flex items-center gap-2">
-                        <ArrowRight className="h-4 w-4 text-green-400" />
-                        <span className="text-xs text-white/60">{phase.metrics}</span>
-                      </div>
-                    </div>
+              <Card className="h-full group relative overflow-hidden border-white/10 bg-gradient-to-br from-white/5 to-white/2 hover:from-white/10 hover:to-white/5 transition-all duration-300">
+                <CardContent className="p-6">
+                  <h4 className="text-lg font-semibold text-cyan-400 mb-2">{benefit.title}</h4>
+                  <p className="text-sm text-white/70 mb-3">{benefit.description}</p>
+                  <div className="flex items-center gap-2 text-xs">
+                    <Check className="h-4 w-4 text-green-400" />
+                    <span className="text-green-400 font-medium">Impact:</span>
+                    <span className="text-white/60">{benefit.impact}</span>
                   </div>
                 </CardContent>
               </Card>
             </motion.div>
           ))}
         </div>
-      </div>
-
-      {/* Key Improvements Grid */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8 }}
-      >
-        <Card className="relative overflow-hidden border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-blue-500/5">
-          <CardHeader>
-            <CardTitle className="text-xl text-white flex items-center gap-3">
-              <Cpu className="h-5 w-5 text-cyan-400" />
-              Key Improvements Delivered
-            </CardTitle>
-          </CardHeader>
-          
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {keyImprovements.map((improvement, index) => (
-                <motion.div
-                  key={improvement.label}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.9 + index * 0.05 }}
-                  className="p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors"
-                >
-                  <h4 className="font-semibold text-cyan-400 mb-1">{improvement.label}</h4>
-                  <p className="text-xs text-white/60">{improvement.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
       </motion.div>
     </div>
   );

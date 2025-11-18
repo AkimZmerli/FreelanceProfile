@@ -166,7 +166,7 @@ const ProcessTimeline = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-white">
           Two-Week Transformation Timeline
         </h2>
-        <p className="text-lg text-white/70 max-w-3xl mx-auto">
+        <p className="text-lg text-white/85 max-w-3xl mx-auto">
           Step-by-step journey from identifying problems to production deployment
         </p>
       </motion.div>
@@ -266,59 +266,9 @@ const ProcessTimeline = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1 }}
       >
-        <Card className="relative overflow-hidden border-purple-500/20 bg-gradient-to-br from-purple-500/5 to-pink-500/5">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-pink-500/10" />
-          
-          <CardContent className="p-8 relative z-10">
-            <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold text-white mb-2">AI-Powered Development</h3>
-              <p className="text-white/70">How Claude Code accelerated the refactoring process</p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {aiTools.map((tool, index) => (
-                <motion.div
-                  key={tool.tool}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1.2 + index * 0.1 }}
-                  className="text-center space-y-3"
-                >
-                  <div className="mx-auto w-16 h-16 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
-                    <tool.icon className="h-8 w-8 text-purple-400" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-white">{tool.tool}</h4>
-                    <p className="text-sm text-purple-300">{tool.role}</p>
-                  </div>
-                  <p className="text-xs text-white/60">{tool.impact}</p>
-                </motion.div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+        
       </motion.div>
 
-      {/* Summary Stats */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1.4 }}
-        className="grid grid-cols-2 md:grid-cols-4 gap-4"
-      >
-        {[
-          { label: "Total Duration", value: "14 days", icon: "📅" },
-          { label: "Files Changed", value: "208", icon: "📁" },
-          { label: "Performance Gain", value: "70%", icon: "⚡" },
-          { label: "Team Velocity", value: "+50%", icon: "🚀" }
-        ].map((stat) => (
-          <Card key={stat.label} className="text-center p-6 bg-gradient-to-br from-white/5 to-white/2 border-white/10">
-            <div className="text-3xl mb-2">{stat.icon}</div>
-            <div className="text-2xl font-bold text-cyan-400">{stat.value}</div>
-            <div className="text-sm text-white/60">{stat.label}</div>
-          </Card>
-        ))}
-      </motion.div>
     </div>
   );
 };

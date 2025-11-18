@@ -13,10 +13,10 @@ const HeroSection = () => {
   const isInView = useInView(ref, { once: true });
 
   const metricsConfig = [
-    { value: 208, duration: 2000, delay: 0, suffix: " files" },
-    { value: 7700, duration: 2500, delay: 200, suffix: "+", prefix: "" },
-    { value: 4800, duration: 2500, delay: 400, suffix: "+", prefix: "" },
-    { value: 238, duration: 2000, delay: 600, suffix: " KB" },
+    { value: 208, duration: 1200, delay: 0, suffix: " files" },
+    { value: 7700, duration: 1500, delay: 100, suffix: "+", prefix: "" },
+    { value: 4800, duration: 1500, delay: 200, suffix: "+", prefix: "" },
+    { value: 238, duration: 1200, delay: 300, suffix: " KB" },
   ];
 
   const animatedMetrics = useAnimatedCounters(metricsConfig, isInView);
@@ -68,13 +68,13 @@ const HeroSection = () => {
           className="space-y-4"
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-            From Prototype Chaos to
+            From Prototype Debt to
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
               Production-Ready Architecture
             </span>
           </h1>
           
-          <p className="text-lg md:text-xl text-white/70 max-w-3xl">
+          <p className="text-lg md:text-xl text-white/90 max-w-3xl">
             A comprehensive two-week refactoring initiative that transformed a scattered 
             prototype codebase using <span className="text-cyan-400 font-semibold">vertical slice architecture</span> and 
             <span className="text-purple-400 font-semibold"> AI-assisted development</span> with Claude Code.

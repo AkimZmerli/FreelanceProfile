@@ -4,7 +4,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui
 import { Badge } from "@/shared/components/ui/badge";
 import { 
   TrendingUp, 
-  Package, 
   Clock, 
   Users, 
   Code2,
@@ -23,16 +22,6 @@ const ResultsShowcase = () => {
   const isInView = useInView(ref, { once: true });
 
   const performanceMetrics = [
-    {
-      category: "Bundle Size",
-      icon: Package,
-      metrics: [
-        { route: "/portfolio/[id]", before: "727 KB", after: "489 KB", change: "-238 KB", improvement: 33 },
-        { route: "/property/[id]", before: "657 KB", after: "661 KB", change: "+4 KB", improvement: -0.6 },
-        { route: "/chat/[id]", before: "60.1 KB", after: "64.3 KB", change: "+4.2 KB", improvement: -7 },
-        { route: "/report/[id]", before: "58.8 KB", after: "57.4 KB", change: "-1.4 KB", improvement: 2.4 }
-      ]
-    },
     {
       category: "Load Time",
       icon: Clock,
@@ -83,28 +72,6 @@ const ResultsShowcase = () => {
     }
   ];
 
-  const architectureBenefits = [
-    {
-      title: "Feature Isolation",
-      description: "Each feature is now completely self-contained with its own components, hooks, and utilities",
-      impact: "Independent development and testing"
-    },
-    {
-      title: "Scalable Foundation",
-      description: "New features follow established patterns, making the codebase predictable and maintainable",
-      impact: "Consistent architecture across teams"
-    },
-    {
-      title: "Modern Standards",
-      description: "Full TypeScript coverage with strong typing, modern React patterns, and best practices",
-      impact: "Future-proof technology stack"
-    },
-    {
-      title: "AI-Ready Structure",
-      description: "Well-organized code that AI tools can better understand and work with",
-      impact: "Enhanced AI development capabilities"
-    }
-  ];
 
   const animatedMetrics = useAnimatedCounters([
     { value: 87, duration: 2000, delay: 0, suffix: "%" },
@@ -129,13 +96,55 @@ const ResultsShowcase = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-white">
           Measurable Outcomes
         </h2>
-        <p className="text-lg text-white/70 max-w-3xl mx-auto">
+        <p className="text-lg text-white/85 max-w-3xl mx-auto">
           Quantifiable improvements in performance, code quality, and developer experience
         </p>
       </motion.div>
 
+      {/* Impact Metrics */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.2 }}
+      >
+        <Card className="relative overflow-hidden border-white/10 bg-gradient-to-br from-white/5 to-white/2">
+          <CardHeader>
+            <CardTitle className="text-xl text-white">Impact Metrics</CardTitle>
+          </CardHeader>
+          
+          <CardContent>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { label: "Lines of Code", before: "2000+", after: "185", improvement: "91%" },
+                { label: "Complexity", before: "High", after: "Low", improvement: "Simplified" },
+                { label: "Test Coverage", before: "0%", after: "87%", improvement: "+87%" },
+                { label: "Bundle Size", before: "727 KB", after: "489 KB", improvement: "-33%" }
+              ].map((metric, index) => (
+                <motion.div
+                  key={metric.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
+                  className="text-center p-4 bg-white/5 rounded-lg"
+                >
+                  <div className="text-xs text-white/60 mb-2">{metric.label}</div>
+                  <div className="flex items-center justify-center gap-2 mb-2">
+                    <span className="text-red-400 font-mono text-sm">{metric.before}</span>
+                    <span className="text-white/40">→</span>
+                    <span className="text-green-400 font-mono text-sm">{metric.after}</span>
+                  </div>
+                  <Badge className="bg-green-500/20 text-green-400 border-green-500/30 text-xs">
+                    {metric.improvement}
+                  </Badge>
+                </motion.div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
+
       {/* Performance Metrics */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-6">
         {performanceMetrics.map((category, categoryIndex) => (
           <motion.div
             key={category.category}
@@ -193,49 +202,6 @@ const ResultsShowcase = () => {
         ))}
       </div>
 
-      {/* Code Quality Metrics */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-      >
-        <Card className="relative overflow-hidden border-white/10 bg-gradient-to-br from-cyan-500/5 to-blue-500/5">
-          <CardHeader>
-            <CardTitle className="text-xl text-white">Code Quality Improvements</CardTitle>
-          </CardHeader>
-          
-          <CardContent>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {codeQualityMetrics.map((metric, index) => (
-                <motion.div
-                  key={metric.label}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.6 + index * 0.1 }}
-                  className="text-center space-y-2"
-                >
-                  <div className="mx-auto w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-                    <metric.icon className="h-6 w-6 text-cyan-400" />
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-white">
-                      {animatedMetrics[index]?.displayValue || `0${metric.unit}`}
-                    </div>
-                    <div className="text-xs text-white/60">{metric.label}</div>
-                  </div>
-                  <Badge className={`text-xs ${
-                    metric.change.startsWith('+') 
-                      ? 'bg-green-500/20 text-green-400 border-green-500/30'
-                      : 'bg-red-500/20 text-red-400 border-red-500/30'
-                  }`}>
-                    {metric.change}
-                  </Badge>
-                </motion.div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      </motion.div>
 
       {/* Developer Experience */}
       <motion.div
@@ -285,29 +251,6 @@ const ResultsShowcase = () => {
         </Card>
       </motion.div>
 
-      {/* Architecture Benefits */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {architectureBenefits.map((benefit, index) => (
-          <motion.div
-            key={benefit.title}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1.2 + index * 0.1 }}
-          >
-            <Card className="h-full group relative overflow-hidden border-white/10 bg-gradient-to-br from-white/5 to-white/2 hover:from-white/10 hover:to-white/5 transition-all duration-300">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold text-cyan-400 mb-2">{benefit.title}</h3>
-                <p className="text-sm text-white/70 mb-3">{benefit.description}</p>
-                <div className="flex items-center gap-2 text-xs">
-                  <TrendingUp className="h-4 w-4 text-green-400" />
-                  <span className="text-green-400 font-medium">Impact:</span>
-                  <span className="text-white/60">{benefit.impact}</span>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        ))}
-      </div>
 
       {/* Key Achievement Banner */}
       <motion.div

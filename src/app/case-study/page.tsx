@@ -20,7 +20,7 @@ const CaseStudyPage = () => {
         <motion.section
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
         >
           <HeroSection />
         </motion.section>
@@ -29,7 +29,7 @@ const CaseStudyPage = () => {
         <motion.section
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
         >
           <ProblemStatement />
         </motion.section>
@@ -38,7 +38,7 @@ const CaseStudyPage = () => {
         <motion.section
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
         >
           <SolutionOverview />
         </motion.section>
@@ -47,25 +47,16 @@ const CaseStudyPage = () => {
         <motion.section
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
         >
           <CodeComparison />
-        </motion.section>
-
-        {/* Process Timeline Section */}
-        <motion.section
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-        >
-          <ProcessTimeline />
         </motion.section>
 
         {/* Results Showcase Section */}
         <motion.section
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1 }}
+          transition={{ duration: 0.4, delay: 0.4 }}
         >
           <ResultsShowcase />
         </motion.section>
@@ -74,16 +65,25 @@ const CaseStudyPage = () => {
         <motion.section
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
+          transition={{ duration: 0.4, delay: 0.5 }}
         >
           <TechnicalDeepDive />
+        </motion.section>
+
+        {/* Process Timeline Section */}
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.6 }}
+        >
+          <ProcessTimeline />
         </motion.section>
 
         {/* Lessons Learned Section */}
         <motion.section
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.4 }}
+          transition={{ duration: 0.4, delay: 0.7 }}
         >
           <LessonsLearned />
         </motion.section>

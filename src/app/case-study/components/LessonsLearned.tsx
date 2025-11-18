@@ -132,45 +132,7 @@ const LessonsLearned = () => {
     ]
   };
 
-  const unexpectedWins = [
-    {
-      win: "70% Performance Improvement",
-      description: "Better code organization led to more efficient bundling and loading",
-      icon: Zap,
-      metric: "70%"
-    },
-    {
-      win: "AI Development Readiness",
-      description: "Clean architecture makes the codebase perfect for AI-assisted development",
-      icon: Brain,
-      metric: "10x"
-    },
-    {
-      win: "Developer Satisfaction",
-      description: "Team morale improved with cleaner, more maintainable codebase",
-      icon: TrendingUp,
-      metric: "+85%"
-    }
-  ];
-
-  const futureApplications = [
-    {
-      area: "Microservices Migration",
-      description: "Vertical slices map directly to service boundaries"
-    },
-    {
-      area: "Module Federation",
-      description: "Each feature slice can become an independent module"
-    },
-    {
-      area: "Team Autonomy",
-      description: "Features can be owned by different teams without conflicts"
-    },
-    {
-      area: "A/B Testing",
-      description: "Feature isolation enables easier experimentation"
-    }
-  ];
+  
 
   return (
     <div className="w-full space-y-8">
@@ -308,62 +270,7 @@ const LessonsLearned = () => {
         </Card>
       </motion.div>
 
-      {/* Unexpected Wins */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {unexpectedWins.map((win, index) => (
-          <motion.div
-            key={win.win}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.9 + index * 0.1 }}
-          >
-            <Card className="h-full border-yellow-500/20 bg-gradient-to-br from-yellow-500/10 to-orange-500/10">
-              <CardContent className="p-6 text-center">
-                <div className="mx-auto w-16 h-16 rounded-full bg-gradient-to-br from-yellow-500/20 to-orange-500/20 flex items-center justify-center mb-4">
-                  <win.icon className="h-8 w-8 text-yellow-400" />
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{win.win}</h3>
-                <p className="text-sm text-white/70 mb-4">{win.description}</p>
-                <div className="text-3xl font-bold text-yellow-400">{win.metric}</div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Future Applications */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2 }}
-      >
-        <Card className="border-purple-500/20 bg-gradient-to-br from-purple-500/5 to-pink-500/5">
-          <CardHeader>
-            <CardTitle className="text-xl text-white flex items-center gap-2">
-              <Target className="h-5 w-5 text-purple-400" />
-              Future Applications
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {futureApplications.map((application, index) => (
-                <motion.div
-                  key={application.area}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1.3 + index * 0.05 }}
-                  className="p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors"
-                >
-                  <h4 className="text-sm font-semibold text-purple-400 mb-1">
-                    {application.area}
-                  </h4>
-                  <p className="text-xs text-white/60">{application.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      </motion.div>
+     
     </div>
   );
 };

@@ -136,43 +136,7 @@ export default function PropertyPage({
   );
 }`
     },
-    hooks: {
-      title: "Supporting Hook: Clean Data Layer",
-      file: "hooks/use-building-data.ts",
-      code: `// hooks/use-building-data.ts - Separated data concern
-import { useClerkSWR } from "~/lib/axios-instance";
-import { buildingUrl } from "~/url-stubs";
 
-export function useBuildingData(buildingId: string) {
-  const { data, error, isLoading } = useClerkSWR(
-    buildingId ? \`\${buildingUrl}/\${buildingId}\` : null
-  );
-  
-  return {
-    data,
-    error,
-    isLoading,
-    // Computed properties for UI
-    hasCoordinates: Boolean(data?.lat && data?.lon),
-    riskLevel: data?.riskSummary || 0,
-  };
-}
-
-// hooks/use-climate-data.ts - Separated climate concern
-export function useClimateData(buildingId: string) {
-  const { data: metrics } = useClerkSWR(\`/api/metrics/\${buildingId}\`);
-  const { data: measures } = useClerkSWR(\`/api/measures/\${buildingId}\`);
-  
-  return {
-    data: {
-      metrics,
-      measures,
-      risks: metrics?.risks,
-    },
-    isLoading: !metrics || !measures,
-  };
-}`
-    }
   };
 
   const handleCopyCode = (code: string, label: string) => {
@@ -181,12 +145,6 @@ export function useClimateData(buildingId: string) {
     setTimeout(() => setCopiedCode(null), 2000);
   };
 
-  const metrics = [
-    { label: "Lines of Code", before: "2000+", after: "185", improvement: "91%" },
-    { label: "Complexity", before: "High", after: "Low", improvement: "Simplified" },
-    { label: "Test Coverage", before: "0%", after: "87%", improvement: "+87%" },
-    { label: "Bundle Size", before: "727 KB", after: "489 KB", improvement: "-33%" }
-  ];
 
   return (
     <div className="w-full space-y-8">
@@ -204,7 +162,7 @@ export function useClimateData(buildingId: string) {
         <h2 className="text-3xl md:text-4xl font-bold text-white">
           Before & After: Real Code Examples
         </h2>
-        <p className="text-lg text-white/70 max-w-3xl mx-auto">
+        <p className="text-lg text-white/85 max-w-3xl mx-auto">
           See the dramatic transformation from monolithic chaos to clean, maintainable architecture
         </p>
       </motion.div>
@@ -331,80 +289,6 @@ export function useClimateData(buildingId: string) {
         )}
       </div>
 
-      {/* Supporting Hooks Example */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6 }}
-      >
-        <Card className="relative overflow-hidden border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-blue-500/5">
-          <CardHeader className="border-b border-white/10">
-            <div className="flex items-center justify-between">
-              <CardTitle className="text-lg text-white flex items-center gap-2">
-                <Code2 className="h-5 w-5 text-cyan-400" />
-                {codeExamples.hooks.title}
-              </CardTitle>
-              <button
-                onClick={() => handleCopyCode(codeExamples.hooks.code, "hooks")}
-                className="p-2 hover:bg-white/10 rounded-lg transition-colors"
-              >
-                {copiedCode === "hooks" ? (
-                  <CheckCircle className="h-4 w-4 text-green-400" />
-                ) : (
-                  <Copy className="h-4 w-4 text-white/60" />
-                )}
-              </button>
-            </div>
-          </CardHeader>
-          
-          <CardContent className="p-0">
-            <div className="relative max-h-[400px] overflow-auto">
-              <pre className="p-6 text-xs md:text-sm">
-                <code className="language-typescript text-white/80">
-                  {codeExamples.hooks.code}
-                </code>
-              </pre>
-            </div>
-          </CardContent>
-        </Card>
-      </motion.div>
-
-      {/* Metrics Comparison */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.8 }}
-      >
-        <Card className="relative overflow-hidden border-white/10 bg-gradient-to-br from-white/5 to-white/2">
-          <CardHeader>
-            <CardTitle className="text-xl text-white">Impact Metrics</CardTitle>
-          </CardHeader>
-          
-          <CardContent>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {metrics.map((metric, index) => (
-                <motion.div
-                  key={metric.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.9 + index * 0.1 }}
-                  className="text-center p-4 bg-white/5 rounded-lg"
-                >
-                  <div className="text-xs text-white/60 mb-2">{metric.label}</div>
-                  <div className="flex items-center justify-center gap-2 mb-2">
-                    <span className="text-red-400 font-mono text-sm">{metric.before}</span>
-                    <span className="text-white/40">→</span>
-                    <span className="text-green-400 font-mono text-sm">{metric.after}</span>
-                  </div>
-                  <Badge className="bg-green-500/20 text-green-400 border-green-500/30 text-xs">
-                    {metric.improvement}
-                  </Badge>
-                </motion.div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      </motion.div>
     </div>
   );
 };

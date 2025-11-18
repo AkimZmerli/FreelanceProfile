@@ -90,7 +90,7 @@ export default function PortfolioPage({ params }) {
         <h2 className="text-3xl md:text-4xl font-bold text-white">
           Prototype Technical Debt Crisis
         </h2>
-        <p className="text-lg text-white/70 max-w-3xl mx-auto">
+        <p className="text-lg text-white/85 max-w-3xl mx-auto">
           When a critical pain point emerged in the Portfolio feature, it revealed 
           fundamental architectural problems affecting the entire codebase
         </p>
@@ -234,7 +234,7 @@ export default function PortfolioPage({ params }) {
         transition={{ delay: 1, duration: 0.5 }}
         className="text-center"
       >
-        <p className="text-lg text-white/70">
+        <p className="text-lg text-white/85">
           This experience revealed the fundamental architectural problem affecting the{" "}
           <span className="text-red-400 font-semibold">entire codebase</span> and{" "}
           <span className="text-orange-400 font-semibold">user experience</span>.
