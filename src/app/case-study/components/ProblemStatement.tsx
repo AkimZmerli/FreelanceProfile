@@ -4,6 +4,47 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui
 import { AlertTriangle, Code, FileX, Bug, Clock, Users } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
 
+// Monolithic code component with direct color control
+const MonolithicCode = () => (
+  <div className="text-sm font-mono space-y-1">
+    <div className="text-gray-400">// Before: Monolithic Portfolio page.tsx (2k+ lines)</div>
+    <div className="text-white">export default function PortfolioPage({`{ params }`}) {`{`}</div>
+    <div className="text-white">  const {`{ id }`} = use(params);</div>
+    <div className="text-red-400">  const {`{ getToken }`} = useAuth(); <span className="text-red-300">// Auth mixed in</span></div>
+    <div className="text-white mt-2"> </div>
+    <div className="text-blue-400">  // Data fetching mixed with rendering logic</div>
+    <div className="text-blue-300">  const [buildingData, setBuildingData] = useState(null);</div>
+    <div className="text-blue-300">  const [metrics, setMetrics] = useState(null);</div>
+    <div className="text-blue-300">  const [climateData, setClimateData] = useState(null);</div>
+    <div className="text-white mt-2"> </div>
+    <div className="text-blue-400">  useEffect(() => {`{`}</div>
+    <div className="text-red-300">    // Authentication and data fetching all in one place</div>
+    <div className="text-blue-300">    const fetchAllData = async () => {`{`}</div>
+    <div className="text-blue-300">      try {`{`}</div>
+    <div className="text-red-300">        const token = await getToken();</div>
+    <div className="text-blue-300">        // 50+ lines of mixed fetching logic...</div>
+    <div className="text-orange-400">        // Error handling mixed with business logic...</div>
+    <div className="text-blue-300">        // State updates scattered throughout...</div>
+    <div className="text-blue-300">      {`}`} catch (error) {`{`}</div>
+    <div className="text-orange-400">        console.error("Failed:", error);</div>
+    <div className="text-blue-300">      {`}`}</div>
+    <div className="text-blue-300">    {`}`};</div>
+    <div className="text-blue-300">    fetchAllData();</div>
+    <div className="text-blue-400">  {`}`}, [id, getToken]);</div>
+    <div className="text-white mt-2"> </div>
+    <div className="text-green-400">  // 1500+ lines of mixed rendering and business logic...</div>
+    <div className="text-green-300">  return (</div>
+    <div className="text-green-300">    {`<div>`}</div>
+    <div className="text-green-300">      {`{/* Massive JSX with inline business logic */}`}</div>
+    <div className="text-green-300">      {`{buildingData && (`}</div>
+    <div className="text-green-300">        {`// Complex inline rendering logic...`}</div>
+    <div className="text-green-300">      {`)}`}</div>
+    <div className="text-green-300">    {`</div>`}</div>
+    <div className="text-green-300">  );</div>
+    <div className="text-white">{`}`}</div>
+  </div>
+);
+
 const ProblemStatement = () => {
   const challenges = [
     {
@@ -36,43 +77,6 @@ const ProblemStatement = () => {
     },
   ];
 
-  const codeExample = {
-    before: `// Before: Monolithic Portfolio page.tsx (2k+ lines)
-export default function PortfolioPage({ params }) {
-  const { id } = use(params);
-  const { getToken } = useAuth(); // Auth mixed in
-  
-  // Data fetching mixed with rendering logic
-  const [buildingData, setBuildingData] = useState(null);
-  const [metrics, setMetrics] = useState(null);
-  const [climateData, setClimateData] = useState(null);
-  
-  useEffect(() => {
-    // Authentication and data fetching all in one place
-    const fetchAllData = async () => {
-      try {
-        const token = await getToken();
-        // 50+ lines of mixed fetching logic...
-        // Error handling mixed with business logic...
-        // State updates scattered throughout...
-      } catch (error) {
-        console.error("Failed:", error);
-      }
-    };
-    fetchAllData();
-  }, [id, getToken]);
-  
-  // 1500+ lines of mixed rendering and business logic...
-  return (
-    <div>
-      {/* Massive JSX with inline business logic */}
-      {buildingData && (
-        // Complex inline rendering logic...
-      )}
-    </div>
-  );
-}`
-  };
 
   return (
     <div className="w-full space-y-8">
@@ -201,11 +205,9 @@ export default function PortfolioPage({ params }) {
           
           <CardContent className="p-0">
             <div className="relative">
-              <pre className="p-6 text-sm overflow-x-auto">
-                <code className="language-typescript text-white/80">
-                  {codeExample.before}
-                </code>
-              </pre>
+              <div className="p-6 overflow-x-auto">
+                <MonolithicCode />
+              </div>
               
               {/* Issue Indicators */}
               <div className="absolute top-4 right-4 space-y-2">

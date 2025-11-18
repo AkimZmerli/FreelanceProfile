@@ -71,6 +71,42 @@ const SolutionOverview = () => {
         </p>
       </motion.div>
 
+      {/* Text Card below VSA header */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1, duration: 0.6 }}
+      >
+        <Card className="border-white/10 bg-gradient-to-br from-white/5 to-white/2 backdrop-blur-md">
+          <CardContent className="p-8">
+            <div className="space-y-6">
+              <p className="text-lg leading-relaxed text-white/90">
+                Modern web development requires a balance between rapid iteration and long-term maintainability. 
+                This project demonstrates how thoughtful architectural decisions can transform a prototype into 
+                a production-ready application.
+              </p>
+              <p className="text-base leading-relaxed text-white/80">
+                Through systematic refactoring and the application of vertical slice architecture principles, 
+                we&apos;ve created a codebase that not only functions efficiently but remains adaptable to future 
+                requirements and technological shifts.
+              </p>
+              <p className="text-base leading-relaxed text-white/75">
+                The integration of AI-assisted development tools has proven invaluable in maintaining consistency 
+                across components while accelerating the implementation of complex patterns and best practices.
+              </p>
+              
+              {/* Cursive placeholder text */}
+              <div className="mt-8 pt-6 border-t border-white/10">
+                <p className="italic text-white/60 text-center font-light">
+                  &ldquo;Excellence is not a skill, it&apos;s an attitude towards continuous improvement 
+                  and thoughtful craftsmanship in every line of code.&rdquo;
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
+
       {/* Architecture Comparison */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
@@ -196,66 +232,6 @@ const SolutionOverview = () => {
         </Card>
       </motion.div>
 
-      {/* VSA Benefits Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.5 }}
-        className="mt-12"
-      >
-        <div className="text-center mb-8">
-          <h3 className="text-2xl font-bold text-white mb-3">
-            Architecture Benefits
-          </h3>
-          <p className="text-white/85 max-w-2xl mx-auto">
-            Key advantages that vertical slice architecture brings to development teams
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {[
-            {
-              title: "Feature Isolation",
-              description: "Each feature is now completely self-contained with its own components, hooks, and utilities",
-              impact: "Independent development and testing"
-            },
-            {
-              title: "Scalable Foundation", 
-              description: "New features follow established patterns, making the codebase predictable and maintainable",
-              impact: "Consistent architecture across teams"
-            },
-            {
-              title: "Modern Standards",
-              description: "Full TypeScript coverage with strong typing, modern React patterns, and best practices",
-              impact: "Future-proof technology stack"
-            },
-            {
-              title: "AI-Ready Structure",
-              description: "Well-organized code that AI tools can better understand and work with",
-              impact: "Enhanced AI development capabilities"
-            }
-          ].map((benefit, index) => (
-            <motion.div
-              key={benefit.title}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5 + index * 0.1 }}
-            >
-              <Card className="h-full group relative overflow-hidden border-white/10 bg-gradient-to-br from-white/5 to-white/2 hover:from-white/10 hover:to-white/5 transition-all duration-300">
-                <CardContent className="p-6">
-                  <h4 className="text-lg font-semibold text-cyan-400 mb-2">{benefit.title}</h4>
-                  <p className="text-sm text-white/70 mb-3">{benefit.description}</p>
-                  <div className="flex items-center gap-2 text-xs">
-                    <Check className="h-4 w-4 text-green-400" />
-                    <span className="text-green-400 font-medium">Impact:</span>
-                    <span className="text-white/60">{benefit.impact}</span>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
     </div>
   );
 };

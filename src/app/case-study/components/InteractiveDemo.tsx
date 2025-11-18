@@ -15,10 +15,11 @@ import {
 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
+
 interface DemoStep {
   title: string;
   description: string;
-  codeSnippet?: string;
+  codeSnippet?: string | React.ReactNode;
   metrics?: { label: string; value: string; change?: string }[];
   icon: React.ElementType;
   duration: number;
@@ -34,17 +35,20 @@ const InteractiveDemo = () => {
     {
       title: "Initial State: Monolithic Chaos",
       description: "2,000+ lines of mixed concerns in a single file",
-      codeSnippet: `// portfolio/[id]/page.tsx - Everything in one place
-const [data, setData] = useState(null);
-const { getToken } = useAuth();
-// 2000+ lines of mixed logic...`,
+      codeSnippet: `// Initial state analysis
+function PortfolioPage({ params }) {
+  // Mixed concerns everywhere
+  const auth = useAuth();
+  const data = useState(null);
+  // ... 2000+ lines of tangled code
+}`,
       metrics: [
         { label: "Lines of Code", value: "2,147" },
         { label: "Complexity", value: "Very High" },
         { label: "Bundle Size", value: "727 KB" }
       ],
       icon: FileCode,
-      duration: 4000
+      duration: 6000
     },
     {
       title: "Step 1: Identify Coupling Points",
@@ -55,7 +59,7 @@ const { getToken } = useAuth();
         { label: "Mixed Concerns", value: "16" }
       ],
       icon: GitBranch,
-      duration: 3500
+      duration: 5500
     },
     {
       title: "Step 2: Extract Feature Modules",
@@ -69,7 +73,7 @@ const { getToken } = useAuth();
 └── types/
     └── portfolio.types.ts`,
       icon: Package,
-      duration: 4000
+      duration: 6000
     },
     {
       title: "Step 3: Implement Clean Separation",
@@ -85,7 +89,7 @@ return (
   </PortfolioLayout>
 );`,
       icon: Code2,
-      duration: 4000
+      duration: 6000
     },
     {
       title: "Step 4: Optimize & Test",
@@ -96,7 +100,7 @@ return (
         { label: "Test Coverage", value: "87%", change: "+87%" }
       ],
       icon: Zap,
-      duration: 3500
+      duration: 5500
     },
     {
       title: "Final Result: Production Ready",
@@ -107,42 +111,59 @@ return (
         { label: "DX Score", value: "95%", change: "Improved" }
       ],
       icon: CheckCircle,
-      duration: 4000
+      duration: 6000
     }
   ];
 
   useEffect(() => {
-    if (isPlaying && currentStep < demoSteps.length) {
-      const stepDuration = demoSteps[currentStep].duration;
+    // Clear any existing interval when starting new step or stopping
+    if (progressInterval.current) {
+      clearInterval(progressInterval.current);
+      progressInterval.current = null;
+    }
+
+    if (isPlaying) {
+      const totalDuration = demoSteps.reduce((sum, step) => sum + step.duration, 0);
       const startTime = Date.now();
       
       progressInterval.current = setInterval(() => {
         const elapsed = Date.now() - startTime;
-        const newProgress = Math.min((elapsed / stepDuration) * 100, 100);
+        const newProgress = Math.min((elapsed / totalDuration) * 100, 100);
         
-        if (newProgress >= 100) {
-          setProgress(100);
-          if (progressInterval.current) clearInterval(progressInterval.current);
-          
-          setTimeout(() => {
-            setProgress(0);
-            if (currentStep < demoSteps.length - 1) {
-              setCurrentStep(prev => prev + 1);
-            } else {
-              setIsPlaying(false);
-              setCurrentStep(0);
-            }
-          }, 100);
-        } else {
-          setProgress(newProgress);
+        // Calculate which step we should be on based on progress
+        const stepCheckpoints = [16.67, 33.33, 50, 66.67, 83.33, 100];
+        const newStep = stepCheckpoints.findIndex(checkpoint => newProgress <= checkpoint);
+        
+        if (newStep !== currentStep && newStep !== -1) {
+          setCurrentStep(newStep);
         }
-      }, 100);
+        
+        setProgress(newProgress);
+        
+        // Stop when we reach 100%
+        if (newProgress >= 100) {
+          if (progressInterval.current) {
+            clearInterval(progressInterval.current);
+            progressInterval.current = null;
+          }
+          setIsPlaying(false);
+        }
+      }, 50);
 
       return () => {
-        if (progressInterval.current) clearInterval(progressInterval.current);
+        if (progressInterval.current) {
+          clearInterval(progressInterval.current);
+          progressInterval.current = null;
+        }
       };
+    } else if (!isPlaying) {
+      // When paused, keep current progress but clear interval
+      if (progressInterval.current) {
+        clearInterval(progressInterval.current);
+        progressInterval.current = null;
+      }
     }
-  }, [isPlaying, currentStep, demoSteps]);
+  }, [isPlaying]);
 
   const handlePlayPause = () => {
     if (currentStep === demoSteps.length - 1 && !isPlaying) {
@@ -154,9 +175,12 @@ return (
 
   const handleReset = () => {
     setIsPlaying(false);
+    if (progressInterval.current) {
+      clearInterval(progressInterval.current);
+      progressInterval.current = null;
+    }
     setCurrentStep(0);
     setProgress(0);
-    if (progressInterval.current) clearInterval(progressInterval.current);
   };
 
   const currentStepData = demoSteps[currentStep];
@@ -223,9 +247,13 @@ return (
               <motion.button
                 key={index}
                 onClick={() => {
+                  setIsPlaying(false);
+                  if (progressInterval.current) {
+                    clearInterval(progressInterval.current);
+                    progressInterval.current = null;
+                  }
                   setCurrentStep(index);
                   setProgress(0);
-                  setIsPlaying(false);
                 }}
                 whileHover={{ scale: 1.1 }}
                 className={`relative p-3 rounded-full transition-all ${
@@ -264,7 +292,7 @@ return (
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="space-y-6"
+            className="space-y-6 min-h-[400px]"
           >
             {/* Step Header */}
             <div className="flex items-start gap-4">
@@ -284,11 +312,17 @@ return (
             {/* Code Snippet */}
             {currentStepData.codeSnippet && (
               <div className="bg-gray-900/50 rounded-lg p-4 border border-white/10">
-                <pre className="text-sm overflow-x-auto">
-                  <code className="language-typescript text-white/80">
+                {typeof currentStepData.codeSnippet === 'string' ? (
+                  <pre className="text-sm overflow-x-auto">
+                    <code className="language-typescript text-white/80">
+                      {currentStepData.codeSnippet}
+                    </code>
+                  </pre>
+                ) : (
+                  <div className="overflow-x-auto">
                     {currentStepData.codeSnippet}
-                  </code>
-                </pre>
+                  </div>
+                )}
               </div>
             )}
 

@@ -134,6 +134,37 @@ const HeroSection = () => {
         ))}
       </div>
 
+      {/* Technical Debt Impact Text Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6, duration: 0.6 }}
+        className="mb-8"
+      >
+        <Card className="border-white/10 bg-gradient-to-br from-white/5 to-white/2 backdrop-blur-md">
+          <CardContent className="p-8">
+            <div className="space-y-6">
+              <p className="text-base md:text-lg leading-relaxed text-white/80">
+                When codebases lack consistent structure, technical debt compounds quickly: memory leaks, slow 
+                load times, crashes. Developers spend days understanding the system. Simple fixes break unrelated 
+                features. New functionality becomes a minefield. 
+              </p>
+              
+              {/* Quote from known developer */}
+              <div className="mt-6 pt-6 border-t border-white/10">
+                <blockquote className="text-center">
+                  <p className="text-white/90 italic text-xl font-light mb-3">
+                    Ready to see how one architecture decision 
+                changed everything?
+                  </p>
+  
+                </blockquote>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
+
       {/* Interactive Demo Section */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
