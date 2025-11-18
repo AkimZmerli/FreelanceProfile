@@ -310,17 +310,17 @@ return (
             </div>
 
             {/* Code Snippet */}
-            {currentStepData.codeSnippet && (
+            {(currentStepData as DemoStep).codeSnippet && (
               <div className="bg-gray-900/50 rounded-lg p-4 border border-white/10">
-                {typeof currentStepData.codeSnippet === 'string' ? (
+                {typeof (currentStepData as DemoStep).codeSnippet === 'string' ? (
                   <pre className="text-sm overflow-x-auto">
                     <code className="language-typescript text-white/80">
-                      {currentStepData.codeSnippet}
+                      {(currentStepData as DemoStep).codeSnippet}
                     </code>
                   </pre>
                 ) : (
                   <div className="overflow-x-auto">
-                    {currentStepData.codeSnippet}
+                    {(currentStepData as DemoStep).codeSnippet as React.ReactNode}
                   </div>
                 )}
               </div>
@@ -341,7 +341,7 @@ return (
                       {metric.value}
                     </div>
                     <div className="text-xs text-white/60">{metric.label}</div>
-                    {metric.change && (
+                    {'change' in metric && metric.change && (
                       <Badge className={`mt-2 text-xs ${
                         metric.change.startsWith('+') || metric.change.includes('Faster') || metric.change.includes('Improved')
                           ? 'bg-green-500/20 text-green-400 border-green-500/30'

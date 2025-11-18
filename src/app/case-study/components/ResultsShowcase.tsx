@@ -172,7 +172,7 @@ const ResultsShowcase = () => {
                     >
                       <div className="flex-1">
                         <div className="text-sm font-medium text-white/90">
-                          {'route' in metric ? metric.route : metric.metric}
+                          {'route' in metric ? metric.route : (metric as any).metric}
                         </div>
                         <div className="flex items-center gap-2 mt-1">
                           <span className="text-xs text-white/50">{metric.before}</span>

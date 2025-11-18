@@ -7,32 +7,32 @@ import { Badge } from "@/shared/components/ui/badge";
 // Monolithic code component with direct color control
 const MonolithicCode = () => (
   <div className="text-sm font-mono space-y-1">
-    <div className="text-gray-400">// Before: Monolithic Portfolio page.tsx (2k+ lines)</div>
+    <div className="text-gray-400">{`// Before: Monolithic Portfolio page.tsx (2k+ lines)`}</div>
     <div className="text-white">export default function PortfolioPage({`{ params }`}) {`{`}</div>
     <div className="text-white">  const {`{ id }`} = use(params);</div>
-    <div className="text-red-400">  const {`{ getToken }`} = useAuth(); <span className="text-red-300">// Auth mixed in</span></div>
+    <div className="text-red-400">  const {`{ getToken }`} = useAuth(); <span className="text-red-300">{`// Auth mixed in`}</span></div>
     <div className="text-white mt-2"> </div>
-    <div className="text-blue-400">  // Data fetching mixed with rendering logic</div>
+    <div className="text-blue-400">  {`// Data fetching mixed with rendering logic`}</div>
     <div className="text-blue-300">  const [buildingData, setBuildingData] = useState(null);</div>
     <div className="text-blue-300">  const [metrics, setMetrics] = useState(null);</div>
     <div className="text-blue-300">  const [climateData, setClimateData] = useState(null);</div>
     <div className="text-white mt-2"> </div>
     <div className="text-blue-400">  useEffect(() =&gt; {"{"}</div>
-    <div className="text-red-300">    // Authentication and data fetching all in one place</div>
+    <div className="text-red-300">    {`// Authentication and data fetching all in one place`}</div>
     <div className="text-blue-300">    const fetchAllData = async () =&gt; {"{"}</div>
     <div className="text-blue-300">      try {"{"}</div>
     <div className="text-red-300">        const token = await getToken();</div>
-    <div className="text-blue-300">        // 50+ lines of mixed fetching logic...</div>
-    <div className="text-orange-400">        // Error handling mixed with business logic...</div>
-    <div className="text-blue-300">        // State updates scattered throughout...</div>
+    <div className="text-blue-300">        {`// 50+ lines of mixed fetching logic...`}</div>
+    <div className="text-orange-400">        {`// Error handling mixed with business logic...`}</div>
+    <div className="text-blue-300">        {`// State updates scattered throughout...`}</div>
     <div className="text-blue-300">      {"}"} catch (error) {"{"}</div>
-    <div className="text-orange-400">        console.error("Failed:", error);</div>
+    <div className="text-orange-400">        console.error(&quot;Failed:&quot;, error);</div>
     <div className="text-blue-300">      {"}"}</div>
     <div className="text-blue-300">    {"}"};</div>
     <div className="text-blue-300">    fetchAllData();</div>
     <div className="text-blue-400">  {"}"}, [id, getToken]);</div>
     <div className="text-white mt-2"> </div>
-    <div className="text-green-400">  // 1500+ lines of mixed rendering and business logic...</div>
+    <div className="text-green-400">  {`// 1500+ lines of mixed rendering and business logic...`}</div>
     <div className="text-green-300">  return (</div>
     <div className="text-green-300">    {"<div>"}</div>
     <div className="text-green-300">      {"/* Massive JSX with inline business logic */"}</div>
@@ -119,7 +119,7 @@ const ProblemStatement = () => {
           <CardContent className="relative z-10 space-y-6">
             <blockquote className="border-l-4 border-red-400 pl-6 py-2">
               <p className="text-lg text-white/90 italic mb-2">
-                &quot;The Portfolio page had become unmaintainable. 2,000+ lines of tightly coupled code 
+&quot;The Portfolio page had become unmaintainable. 2,000+ lines of tightly coupled code 
                 where authentication, data fetching, and rendering logic fought for dominance. 
                 Adding a simple feature required untangling spaghetti code across dozens of files.&quot;
               </p>

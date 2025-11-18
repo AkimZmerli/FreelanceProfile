@@ -88,11 +88,13 @@ export function useAnimatedCounters(
 
     return () => {
       hasStartedRef.current = false;
-      animationFrameRef.current.forEach(frame => {
+      // Capture the current ref value to avoid the warning
+      const frames = animationFrameRef.current;
+      frames.forEach(frame => {
         if (frame) cancelAnimationFrame(frame);
       });
     };
-  }, [startAnimation]);
+  }, [configs, startAnimation]);
 
   return counters;
 }
