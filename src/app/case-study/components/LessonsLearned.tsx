@@ -151,7 +151,7 @@ const LessonsLearned = () => {
           Key Insights & Takeaways
         </h2>
         <p className="text-lg text-white/70 max-w-3xl mx-auto">
-          What worked, what didn't, and what we'd do differently next time
+          What worked, what didn&apos;t, and what we&apos;d do differently next time
         </p>
       </motion.div>
 
@@ -222,7 +222,7 @@ const LessonsLearned = () => {
               <div className="space-y-4">
                 <h3 className="text-lg font-semibold text-green-400 flex items-center gap-2">
                   <CheckCircle className="h-5 w-5" />
-                  Do's
+                  Do&apos;s
                 </h3>
                 <div className="space-y-3">
                   {dosDonts.dos.map((item, index) => (
@@ -246,7 +246,7 @@ const LessonsLearned = () => {
               <div className="space-y-4">
                 <h3 className="text-lg font-semibold text-red-400 flex items-center gap-2">
                   <XCircle className="h-5 w-5" />
-                  Don'ts
+                  Don&apos;ts
                 </h3>
                 <div className="space-y-3">
                   {dosDonts.donts.map((item, index) => (

@@ -17,31 +17,31 @@ const MonolithicCode = () => (
     <div className="text-blue-300">  const [metrics, setMetrics] = useState(null);</div>
     <div className="text-blue-300">  const [climateData, setClimateData] = useState(null);</div>
     <div className="text-white mt-2"> </div>
-    <div className="text-blue-400">  useEffect(() => {`{`}</div>
+    <div className="text-blue-400">  useEffect(() =&gt; {"{"}</div>
     <div className="text-red-300">    // Authentication and data fetching all in one place</div>
-    <div className="text-blue-300">    const fetchAllData = async () => {`{`}</div>
-    <div className="text-blue-300">      try {`{`}</div>
+    <div className="text-blue-300">    const fetchAllData = async () =&gt; {"{"}</div>
+    <div className="text-blue-300">      try {"{"}</div>
     <div className="text-red-300">        const token = await getToken();</div>
     <div className="text-blue-300">        // 50+ lines of mixed fetching logic...</div>
     <div className="text-orange-400">        // Error handling mixed with business logic...</div>
     <div className="text-blue-300">        // State updates scattered throughout...</div>
-    <div className="text-blue-300">      {`}`} catch (error) {`{`}</div>
+    <div className="text-blue-300">      {"}"} catch (error) {"{"}</div>
     <div className="text-orange-400">        console.error("Failed:", error);</div>
-    <div className="text-blue-300">      {`}`}</div>
-    <div className="text-blue-300">    {`}`};</div>
+    <div className="text-blue-300">      {"}"}</div>
+    <div className="text-blue-300">    {"}"};</div>
     <div className="text-blue-300">    fetchAllData();</div>
-    <div className="text-blue-400">  {`}`}, [id, getToken]);</div>
+    <div className="text-blue-400">  {"}"}, [id, getToken]);</div>
     <div className="text-white mt-2"> </div>
     <div className="text-green-400">  // 1500+ lines of mixed rendering and business logic...</div>
     <div className="text-green-300">  return (</div>
-    <div className="text-green-300">    {`<div>`}</div>
-    <div className="text-green-300">      {`{/* Massive JSX with inline business logic */}`}</div>
-    <div className="text-green-300">      {`{buildingData && (`}</div>
-    <div className="text-green-300">        {`// Complex inline rendering logic...`}</div>
-    <div className="text-green-300">      {`)}`}</div>
-    <div className="text-green-300">    {`</div>`}</div>
+    <div className="text-green-300">    {"<div>"}</div>
+    <div className="text-green-300">      {"/* Massive JSX with inline business logic */"}</div>
+    <div className="text-green-300">      {"{buildingData && ("}</div>
+    <div className="text-green-300">        {"// Complex inline rendering logic..."}</div>
+    <div className="text-green-300">      {")"}</div>
+    <div className="text-green-300">    {"</div>"}</div>
     <div className="text-green-300">  );</div>
-    <div className="text-white">{`}`}</div>
+    <div className="text-white">{"}"}</div>
   </div>
 );
 

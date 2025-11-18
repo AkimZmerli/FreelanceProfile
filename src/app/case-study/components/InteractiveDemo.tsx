@@ -13,7 +13,7 @@ import {
   Zap,
   CheckCircle
 } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 
 
 interface DemoStep {
@@ -31,7 +31,7 @@ const InteractiveDemo = () => {
   const [progress, setProgress] = useState(0);
   const progressInterval = useRef<NodeJS.Timeout | null>(null);
 
-  const demoSteps: DemoStep[] = [
+  const demoSteps = useMemo(() => [
     {
       title: "Initial State: Monolithic Chaos",
       description: "2,000+ lines of mixed concerns in a single file",
@@ -113,7 +113,7 @@ return (
       icon: CheckCircle,
       duration: 6000
     }
-  ];
+  ], []);
 
   useEffect(() => {
     // Clear any existing interval when starting new step or stopping
@@ -163,7 +163,7 @@ return (
         progressInterval.current = null;
       }
     }
-  }, [isPlaying]);
+  }, [isPlaying, currentStep, demoSteps]);
 
   const handlePlayPause = () => {
     if (currentStep === demoSteps.length - 1 && !isPlaying) {

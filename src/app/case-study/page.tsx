@@ -94,7 +94,7 @@ const CaseStudyPage = () => {
                 
                 <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
                   See how vertical slice architecture and AI-assisted development can revolutionize 
-                  your development workflow. Let's build something extraordinary together.
+                  your development workflow. Let&apos;s build something extraordinary together.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
