@@ -94,7 +94,7 @@ export function useAnimatedCounters(
         if (frame) cancelAnimationFrame(frame);
       });
     };
-  }, [startAnimation]);
+  }, [startAnimation]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return counters;
 }

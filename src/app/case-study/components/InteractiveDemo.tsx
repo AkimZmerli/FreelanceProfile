@@ -163,7 +163,7 @@ return (
         progressInterval.current = null;
       }
     }
-  }, [isPlaying, demoSteps]);
+  }, [isPlaying, demoSteps]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handlePlayPause = () => {
     if (currentStep === demoSteps.length - 1 && !isPlaying) {

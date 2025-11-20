@@ -85,7 +85,7 @@ const SolutionOverview = () => {
               <p className="text-base leading-relaxed text-white/80">
                 Vertical slices work great with AI tools. Because each feature is self-contained, AI can understand what it needs to do without getting lost in irrelevant code. This means better suggestions, fewer mistakes, and faster development.              </p>
               <p className="text-base leading-relaxed text-white/80">
-                Teams can work independently on different features without blocking each other. Each team owns their feature completely, so you ship faster, know who's responsible for what, and it's easier to scale as you grow.              </p>
+                Teams can work independently on different features without blocking each other. Each team owns their feature completely, so you ship faster, know who&apos;s responsible for what, and it&apos;s easier to scale as you grow.              </p>
 
               {/* Cursive placeholder text */}
               <div className="mt-8 pt-6 border-t border-white/10">
