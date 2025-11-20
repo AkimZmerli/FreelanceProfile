@@ -21,7 +21,7 @@ export function useAnimatedCounters(
 ): AnimatedCounter[] {
   const [counters, setCounters] = useState<AnimatedCounter[]>(
     configs.map(config => ({
-      displayValue: config.prefix || '' + '0' + (config.suffix || ''),
+      displayValue: (config.prefix || '') + '0' + (config.suffix || ''),
       progress: 0,
       isAnimating: false,
     }))
@@ -94,7 +94,7 @@ export function useAnimatedCounters(
         if (frame) cancelAnimationFrame(frame);
       });
     };
-  }, [configs, startAnimation]);
+  }, [startAnimation]);
 
   return counters;
 }

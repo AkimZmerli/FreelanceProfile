@@ -12,9 +12,12 @@ import {
   FileText,
   ArrowRight,
   CheckCircle,
-  Code2
+  Code2,
+  Copy
 } from "lucide-react";
 import { useState } from "react";
+import BeforeCodeExample from "./BeforeCodeExample";
+import AfterCodeExample from "./AfterCodeExample";
 
 const TechnicalDeepDive = () => {
   const [activeTab, setActiveTab] = useState("architecture");
@@ -85,123 +88,7 @@ const TechnicalDeepDive = () => {
     }
   ];
 
-  const migrationStrategy = {
-    phases: [
-      {
-        phase: "Analysis",
-        description: "Map dependencies and identify coupling points",
-        tasks: ["Dependency graph creation", "Coupling analysis", "Risk assessment"],
-        duration: "2 days"
-      },
-      {
-        phase: "Extraction",
-        description: "Extract features into vertical slices",
-        tasks: ["Component extraction", "Hook creation", "Type definitions"],
-        duration: "5 days"
-      },
-      {
-        phase: "Integration",
-        description: "Connect new architecture with existing code",
-        tasks: ["Import path updates", "Testing", "Performance validation"],
-        duration: "3 days"
-      },
-      {
-        phase: "Optimization",
-        description: "Fine-tune performance and bundle size",
-        tasks: ["Code splitting", "Lazy loading", "Bundle analysis"],
-        duration: "2 days"
-      },
-      {
-        phase: "Documentation",
-        description: "Document patterns and best practices",
-        tasks: ["Architecture guide", "Component docs", "Migration guide"],
-        duration: "2 days"
-      }
-    ]
-  };
 
-  const codePatterns = {
-    before: {
-      title: "Anti-Pattern: Mixed Concerns",
-      code: `// ❌ Everything mixed together
-function PropertyPage() {
-  // Authentication logic
-  const { getToken } = useAuth();
-  const [token, setToken] = useState(null);
-  
-  // Data fetching logic
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
-  
-  // UI state management
-  const [activeTab, setActiveTab] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  
-  // Business logic
-  const calculateRisk = (data) => {
-    // Complex calculations mixed with component
-  };
-  
-  useEffect(() => {
-    // Everything happens here
-    async function fetchEverything() {
-      const token = await getToken();
-      // Multiple API calls...
-      // Error handling...
-      // Data transformation...
-    }
-    fetchEverything();
-  }, []);
-  
-  // Massive render with inline logic
-  return (
-    <div>
-      {/* 1000+ lines of JSX */}
-    </div>
-  );
-}`
-    },
-    after: {
-      title: "Pattern: Clean Separation",
-      code: `// ✅ Clean separation of concerns
-// hooks/use-property-data.ts
-function usePropertyData(id: string) {
-  return useClerkSWR(\`/api/property/\${id}\`);
-}
-
-// hooks/use-property-ui.ts
-function usePropertyUI() {
-  const [activeTab, setActiveTab] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  
-  return {
-    activeTab,
-    setActiveTab,
-    isModalOpen,
-    setIsModalOpen
-  };
-}
-
-// utils/risk-calculations.ts
-export function calculateRisk(data: PropertyData): RiskLevel {
-  // Pure function for business logic
-}
-
-// components/PropertyPage.tsx
-function PropertyPage({ id }: Props) {
-  const propertyData = usePropertyData(id);
-  const uiState = usePropertyUI();
-  const riskLevel = calculateRisk(propertyData.data);
-  
-  return (
-    <PropertyLayout>
-      <PropertyTabs {...uiState} />
-      <RiskDisplay level={riskLevel} />
-    </PropertyLayout>
-  );
-}`
-    }
-  };
 
   return (
     <div className="w-full space-y-8">
@@ -226,7 +113,7 @@ function PropertyPage({ id }: Props) {
 
       {/* Tab Navigation */}
       <div className="flex justify-center gap-2 flex-wrap">
-        {["architecture", "decisions", "patterns", "migration"].map((tab) => (
+        {["architecture", "decisions"].map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
@@ -285,6 +172,64 @@ function PropertyPage({ id }: Props) {
               </div>
             </CardContent>
           </Card>
+
+          {/* Before & After: Real Code Examples */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="space-y-8"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Before Example */}
+              <Card className="border-white/10 bg-gradient-to-br from-white/5 to-white/2">
+                <CardHeader>
+                  <CardTitle className="text-lg text-white flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <FileText className="h-5 w-5 text-white/60" />
+                      Before: Monolithic Property Page
+                    </div>
+                    <button className="p-1.5 bg-white/10 hover:bg-white/20 rounded transition-colors">
+                      <Copy className="h-4 w-4 text-white/60" />
+                    </button>
+                  </CardTitle>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    <Badge variant="outline" className="text-xs bg-red-500/10 border-red-500/30 text-red-400">Auth Logic</Badge>
+                    <Badge variant="outline" className="text-xs bg-blue-500/10 border-blue-500/30 text-blue-400">Data Fetching</Badge>
+                    <Badge variant="outline" className="text-xs bg-orange-500/10 border-orange-500/30 text-orange-400">Error Handling</Badge>
+                    <Badge variant="outline" className="text-xs bg-green-500/10 border-green-500/30 text-green-400">Rendering Logic</Badge>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <BeforeCodeExample />
+                </CardContent>
+              </Card>
+
+              {/* After Example */}
+              <Card className="border-white/10 bg-gradient-to-br from-white/5 to-white/2">
+                <CardHeader>
+                  <CardTitle className="text-lg text-white flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <FileText className="h-5 w-5 text-white/60" />
+                      After: Clean Orchestration
+                    </div>
+                    <button className="p-1.5 bg-white/10 hover:bg-white/20 rounded transition-colors">
+                      <Copy className="h-4 w-4 text-white/60" />
+                    </button>
+                  </CardTitle>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    <Badge variant="outline" className="text-xs bg-cyan-500/10 border-cyan-500/30 text-cyan-400">Data Layer</Badge>
+                    <Badge variant="outline" className="text-xs bg-purple-500/10 border-purple-500/30 text-purple-400">UI Layer</Badge>
+                    <Badge variant="outline" className="text-xs bg-yellow-500/10 border-yellow-500/30 text-yellow-400">Business Logic</Badge>
+                    <Badge variant="outline" className="text-xs bg-blue-500/10 border-blue-500/30 text-blue-400">Component</Badge>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <AfterCodeExample />
+                </CardContent>
+              </Card>
+            </div>
+          </motion.div>
         </motion.div>
       )}
 
@@ -329,111 +274,6 @@ function PropertyPage({ id }: Props) {
         </motion.div>
       )}
 
-      {activeTab === "patterns" && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="space-y-6"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Before Pattern */}
-            <Card className="border-red-500/20 bg-gradient-to-br from-red-500/5 to-orange-500/5">
-              <CardHeader>
-                <CardTitle className="text-lg text-white flex items-center gap-2">
-                  <FileText className="h-5 w-5 text-red-400" />
-                  {codePatterns.before.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="bg-gray-900/50 rounded-lg p-4 border border-white/10 overflow-auto max-h-[500px]">
-                  <pre className="text-xs">
-                    <code className="language-typescript text-white/80">
-                      {codePatterns.before.code}
-                    </code>
-                  </pre>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* After Pattern */}
-            <Card className="border-green-500/20 bg-gradient-to-br from-green-500/5 to-cyan-500/5">
-              <CardHeader>
-                <CardTitle className="text-lg text-white flex items-center gap-2">
-                  <FileText className="h-5 w-5 text-green-400" />
-                  {codePatterns.after.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="bg-gray-900/50 rounded-lg p-4 border border-white/10 overflow-auto max-h-[500px]">
-                  <pre className="text-xs">
-                    <code className="language-typescript text-white/80">
-                      {codePatterns.after.code}
-                    </code>
-                  </pre>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </motion.div>
-      )}
-
-      {activeTab === "migration" && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Card className="border-white/10 bg-gradient-to-br from-white/5 to-white/2">
-            <CardHeader>
-              <CardTitle className="text-xl text-white">Migration Strategy Timeline</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="relative">
-                {/* Timeline Line */}
-                <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500/20 to-purple-500/20" />
-                
-                {/* Timeline Items */}
-                <div className="space-y-8">
-                  {migrationStrategy.phases.map((phase, index) => (
-                    <motion.div
-                      key={phase.phase}
-                      initial={{ opacity: 0, x: -30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      className="relative flex items-start gap-8"
-                    >
-                      {/* Timeline Dot */}
-                      <div className="relative z-10 w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border-2 border-cyan-400 flex items-center justify-center">
-                        <span className="text-cyan-400 font-bold">{index + 1}</span>
-                      </div>
-                      
-                      {/* Content */}
-                      <div className="flex-1 p-6 bg-white/5 rounded-lg">
-                        <div className="flex items-center justify-between mb-2">
-                          <h3 className="text-lg font-semibold text-white">{phase.phase}</h3>
-                          <Badge className="bg-cyan-500/20 text-cyan-400 border-cyan-500/30">
-                            {phase.duration}
-                          </Badge>
-                        </div>
-                        <p className="text-white/70 mb-4">{phase.description}</p>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-                          {phase.tasks.map((task) => (
-                            <div key={task} className="flex items-center gap-2">
-                              <ArrowRight className="h-3 w-3 text-green-400" />
-                              <span className="text-sm text-white/60">{task}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-      )}
     </div>
   );
 };

@@ -251,28 +251,6 @@ const ResultsShowcase = () => {
         </Card>
       </motion.div>
 
-
-      {/* Key Achievement Banner */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1.6 }}
-      >
-        <Card className="relative overflow-hidden border-green-500/20 bg-gradient-to-br from-green-500/10 to-cyan-500/10">
-          <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 via-transparent to-cyan-500/20" />
-          
-          <CardContent className="p-8 relative z-10 text-center">
-            <Trophy className="h-12 w-12 text-yellow-400 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-white mb-2">Mission Accomplished</h3>
-            <p className="text-lg text-white/80 max-w-2xl mx-auto">
-              Successfully transformed a prototype codebase into a{" "}
-              <span className="text-green-400 font-semibold">production-ready architecture</span> that supports{" "}
-              <span className="text-cyan-400 font-semibold">rapid feature development</span> while maintaining{" "}
-              <span className="text-purple-400 font-semibold">code quality and performance standards</span>.
-            </p>
-          </CardContent>
-        </Card>
-      </motion.div>
     </div>
   );
 };

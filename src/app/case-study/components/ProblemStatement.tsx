@@ -87,17 +87,14 @@ const ProblemStatement = () => {
         transition={{ duration: 0.6 }}
         className="text-center space-y-4"
       >
-        <Badge className="gap-2" variant="destructive">
+        <Badge className="gap-2" variant="default">
           <AlertTriangle className="h-4 w-4" />
           The Challenge
         </Badge>
         <h2 className="text-3xl md:text-4xl font-bold text-white">
           Prototype Technical Debt Crisis
         </h2>
-        <p className="text-lg text-white/85 max-w-3xl mx-auto">
-          When a critical pain point emerged in the Portfolio feature, it revealed 
-          fundamental architectural problems affecting the entire codebase
-        </p>
+
       </motion.div>
 
       {/* The Story Card */}
@@ -108,19 +105,19 @@ const ProblemStatement = () => {
       >
         <Card className="relative overflow-hidden border-red-500/20 bg-gradient-to-br from-red-500/5 to-orange-500/5">
           <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-transparent to-orange-500/10" />
-          
+
           <CardHeader className="relative z-10">
             <CardTitle className="text-2xl text-white flex items-center gap-3">
               <AlertTriangle className="h-6 w-6 text-red-400" />
               The Breaking Point
             </CardTitle>
           </CardHeader>
-          
+
           <CardContent className="relative z-10 space-y-6">
             <blockquote className="border-l-4 border-red-400 pl-6 py-2">
               <p className="text-lg text-white/90 italic mb-2">
-&quot;The Portfolio page had become unmaintainable. 2,000+ lines of tightly coupled code 
-                where authentication, data fetching, and rendering logic fought for dominance. 
+                &quot;The Portfolio page had become unmaintainable. 2,000+ lines of tightly coupled code
+                where authentication, data fetching, and rendering logic fought for dominance.
                 Adding a simple feature required untangling spaghetti code across dozens of files.&quot;
               </p>
               <footer className="text-sm text-white/60">
@@ -168,7 +165,7 @@ const ProblemStatement = () => {
           >
             <Card className="group h-full relative overflow-hidden border-white/10 bg-gradient-to-br from-white/5 to-white/2 hover:from-white/10 hover:to-white/5 transition-all duration-300">
               <div className={`absolute inset-0 bg-gradient-to-br ${challenge.color} opacity-50 group-hover:opacity-70 transition-opacity duration-300`} />
-              
+
               <CardContent className="p-6 relative z-10">
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-white/10 rounded-lg">
@@ -189,59 +186,8 @@ const ProblemStatement = () => {
         ))}
       </div>
 
-      {/* Code Example */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8, duration: 0.5 }}
-      >
-        <Card className="relative overflow-hidden border-red-500/20 bg-gradient-to-br from-gray-900/50 to-black/50">
-          <CardHeader className="border-b border-white/10">
-            <CardTitle className="text-xl text-white flex items-center gap-3">
-              <Code className="h-5 w-5 text-red-400" />
-              The Monolithic Nightmare
-            </CardTitle>
-          </CardHeader>
-          
-          <CardContent className="p-0">
-            <div className="relative">
-              <div className="p-6 overflow-x-auto">
-                <MonolithicCode />
-              </div>
-              
-              {/* Issue Indicators */}
-              <div className="absolute top-4 right-4 space-y-2">
-                <Badge variant="destructive" className="text-xs">
-                  <AlertTriangle className="h-3 w-3 mr-1" />
-                  2000+ lines
-                </Badge>
-                <Badge variant="destructive" className="text-xs">
-                  <Bug className="h-3 w-3 mr-1" />
-                  Mixed concerns
-                </Badge>
-                <Badge variant="destructive" className="text-xs">
-                  <Users className="h-3 w-3 mr-1" />
-                  Poor DX
-                </Badge>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </motion.div>
 
-      {/* Bottom CTA */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.5 }}
-        className="text-center"
-      >
-        <p className="text-lg text-white/85">
-          This experience revealed the fundamental architectural problem affecting the{" "}
-          <span className="text-red-400 font-semibold">entire codebase</span> and{" "}
-          <span className="text-orange-400 font-semibold">user experience</span>.
-        </p>
-      </motion.div>
+
     </div>
   );
 };

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import Heading from "@/shared/components/ui/Heading";
 import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui/card";

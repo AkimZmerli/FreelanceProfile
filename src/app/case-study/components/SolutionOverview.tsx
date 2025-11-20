@@ -47,7 +47,7 @@ const SolutionOverview = () => {
     }
   };
 
- 
+
 
   return (
     <div className="w-full space-y-8">
@@ -66,7 +66,7 @@ const SolutionOverview = () => {
           Vertical Slice Architecture
         </h2>
         <p className="text-lg text-white/85 max-w-3xl mx-auto">
-          A fundamental shift from organizing code by technical layer to organizing by feature, 
+          A fundamental shift from organizing code by technical layer to organizing by feature,
           creating self-contained modules with clear boundaries
         </p>
       </motion.div>
@@ -80,26 +80,17 @@ const SolutionOverview = () => {
         <Card className="border-white/10 bg-gradient-to-br from-white/5 to-white/2 backdrop-blur-md">
           <CardContent className="p-8">
             <div className="space-y-6">
-              <p className="text-lg leading-relaxed text-white/90">
-                Modern web development requires a balance between rapid iteration and long-term maintainability. 
-                This project demonstrates how thoughtful architectural decisions can transform a prototype into 
-                a production-ready application.
-              </p>
               <p className="text-base leading-relaxed text-white/80">
-                Through systematic refactoring and the application of vertical slice architecture principles, 
-                we&apos;ve created a codebase that not only functions efficiently but remains adaptable to future 
-                requirements and technological shifts.
-              </p>
-              <p className="text-base leading-relaxed text-white/75">
-                The integration of AI-assisted development tools has proven invaluable in maintaining consistency 
-                across components while accelerating the implementation of complex patterns and best practices.
-              </p>
-              
+                Vertical Slice Architecture means organizing your code by features instead of by technology type. Rather than separating all your databases in one folder, all your UI code in another, and all your business logic in a third, you group everything needed for one feature together.               </p>
+              <p className="text-base leading-relaxed text-white/80">
+                Vertical slices work great with AI tools. Because each feature is self-contained, AI can understand what it needs to do without getting lost in irrelevant code. This means better suggestions, fewer mistakes, and faster development.              </p>
+              <p className="text-base leading-relaxed text-white/80">
+                Teams can work independently on different features without blocking each other. Each team owns their feature completely, so you ship faster, know who's responsible for what, and it's easier to scale as you grow.              </p>
+
               {/* Cursive placeholder text */}
               <div className="mt-8 pt-6 border-t border-white/10">
-                <p className="italic text-white/60 text-center font-light">
-                  &ldquo;Excellence is not a skill, it&apos;s an attitude towards continuous improvement 
-                  and thoughtful craftsmanship in every line of code.&rdquo;
+                <p className="italic text-cyan-400 text-center font-medium text-xl">
+                  &ldquo;It&apos;s not just a folder structure, it&apos;s a scalable blueprint for modern, AI-ready web applications.&rdquo;
                 </p>
               </div>
             </div>
@@ -120,28 +111,26 @@ const SolutionOverview = () => {
               <div className="flex gap-2">
                 <button
                   onClick={() => setActiveTab("traditional")}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                    activeTab === "traditional"
-                      ? "bg-red-500/20 text-red-400 border border-red-500/30"
-                      : "bg-white/5 text-white/60 hover:bg-white/10"
-                  }`}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === "traditional"
+                    ? "bg-red-500/20 text-red-400 border border-red-500/30"
+                    : "bg-white/5 text-white/60 hover:bg-white/10"
+                    }`}
                 >
                   Traditional
                 </button>
                 <button
                   onClick={() => setActiveTab("vertical")}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                    activeTab === "vertical"
-                      ? "bg-cyan-500/20 text-cyan-400 border border-cyan-500/30"
-                      : "bg-white/5 text-white/60 hover:bg-white/10"
-                  }`}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === "vertical"
+                    ? "bg-cyan-500/20 text-cyan-400 border border-cyan-500/30"
+                    : "bg-white/5 text-white/60 hover:bg-white/10"
+                    }`}
                 >
                   Vertical Slice
                 </button>
               </div>
             </div>
           </CardHeader>
-          
+
           <CardContent>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Structure Visualization */}
@@ -156,7 +145,7 @@ const SolutionOverview = () => {
                     {architectureComparison[activeTab].title}
                   </h3>
                 </div>
-                
+
                 <div className={`p-4 rounded-lg bg-gradient-to-br ${architectureComparison[activeTab].color}`}>
                   <div className="space-y-3 font-mono text-sm">
                     {architectureComparison[activeTab].structure.map((item, index) => (
@@ -186,10 +175,10 @@ const SolutionOverview = () => {
                 <h3 className="text-lg font-semibold text-white">
                   {activeTab === "traditional" ? "Problems" : "Benefits"}
                 </h3>
-                
+
                 <div className="space-y-3">
-                  {(activeTab === "traditional" 
-                    ? architectureComparison.traditional.problems 
+                  {(activeTab === "traditional"
+                    ? architectureComparison.traditional.problems
                     : architectureComparison.vertical.benefits
                   ).map((item, index) => (
                     <motion.div
@@ -199,11 +188,10 @@ const SolutionOverview = () => {
                       transition={{ delay: index * 0.1 }}
                       className="flex items-start gap-3"
                     >
-                      <div className={`mt-1 ${
-                        activeTab === "traditional" 
-                          ? "text-red-400" 
-                          : "text-green-400"
-                      }`}>
+                      <div className={`mt-1 ${activeTab === "traditional"
+                        ? "text-red-400"
+                        : "text-green-400"
+                        }`}>
                         {activeTab === "traditional" ? "✗" : <Check className="h-4 w-4" />}
                       </div>
                       <span className="text-sm text-white/80">{item}</span>
@@ -218,7 +206,7 @@ const SolutionOverview = () => {
                     <div className="space-y-2">
                       <p className="text-sm font-medium text-white/90">Think of it like a library</p>
                       <p className="text-xs text-white/60">
-                        {activeTab === "traditional" 
+                        {activeTab === "traditional"
                           ? "Traditional: Books organized by size and color - looks neat but finding related topics requires searching multiple shelves."
                           : "Vertical Slice: Books organized by topic - everything about one subject is together, making research fast and intuitive."
                         }

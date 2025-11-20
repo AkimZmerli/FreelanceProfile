@@ -7,8 +7,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/shared/components/ui/card";
-import FramerWrapper from "@/shared/components/animations/FramerWrapper";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowUpRight, ExternalLink, Sparkles } from "lucide-react";
+import { Badge } from "@/shared/components/ui/badge";
 
 interface ProjectData {
   title: string;
@@ -46,63 +47,60 @@ const getTagStyle = (tag: string): string => {
 };
 const ProjectCards: React.FC<ProjectCardProps> = ({ value, num }) => {
   return (
-    <FramerWrapper 
-      className="w-full h-full" 
-      y={0} 
-      scale={0.9} 
-      delay={num * 0.15} 
-      duration={0.6}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ 
+        duration: 0.6, 
+        delay: num * 0.15,
+        ease: [0.22, 1, 0.36, 1]
+      }}
+      whileHover={{ y: -5 }}
+      className="w-full h-full"
     >
-      <Card className="group relative w-full h-full min-h-[280px] sm:min-h-[290px] md:min-h-[300px] lg:min-h-[310px] xl:min-h-[320px] max-w-[340px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[460px] xl:max-w-[500px] mx-auto flex flex-col overflow-hidden border-0 bg-gradient-to-br from-glass-card to-glass-card-secondary backdrop-blur-md hover:from-glass-card-hover hover:to-glass-card-hover-secondary transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-2xl hover:shadow-black/20">
-        {/* Glassmorphism border */}
-        <div className="absolute inset-0 rounded-lg border border-glass-border group-hover:border-glass-border-hover transition-colors duration-300" />
+      <Card className="group relative w-full h-full min-h-[320px] flex flex-col overflow-hidden border border-white/10 bg-gradient-to-br from-white/5 to-white/2 backdrop-blur-md hover:from-white/8 hover:to-white/4 transition-all duration-500">
+        {/* Gradient overlay on hover */}
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 via-blue-500/0 to-purple-500/0 group-hover:from-cyan-500/10 group-hover:via-blue-500/10 group-hover:to-purple-500/10 transition-all duration-500" />
         
-        {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        
-        <CardHeader className="relative z-10 pb-3">
-          <CardTitle className="text-xl font-semibold text-primary dark:text-white/90 group-hover:text-primary dark:group-hover:text-white transition-colors duration-300 leading-tight">
+        <CardHeader className="relative z-10 pb-4">
+          <CardTitle className="text-2xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent group-hover:from-cyan-400 group-hover:via-blue-400 group-hover:to-purple-400 transition-all duration-300">
             {value.title}
           </CardTitle>
         </CardHeader>
         
-        <CardContent className="relative z-10 flex-1 flex flex-col space-y-3 pb-4">
-          <p className="text-sm leading-relaxed text-primary/80 dark:text-white/70 group-hover:text-primary dark:group-hover:text-white/80 transition-colors duration-300 font-light">
+        <CardContent className="relative z-10 flex-1 flex flex-col space-y-4 px-6">
+          <p className="text-base leading-relaxed text-white/60 group-hover:text-white/80 transition-colors duration-300">
             {value.description}
           </p>
           
-          <div className="flex flex-wrap gap-2 pt-2 mt-auto min-h-[2.5rem] items-start justify-center">
+          <div className="flex flex-wrap gap-2 pt-2 mt-auto">
             {value.tags.map((tag: string, index: number) => (
-              <span
+              <Badge
                 key={index}
-                className={cn(
-                  "inline-flex items-center px-3 py-1 text-xs font-medium rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-105 whitespace-nowrap",
-                  getTagStyle(tag)
-                )}
-                role="badge"
-                aria-label={`Technology: ${tag}`}
+                variant="secondary"
+                className="px-3 py-1 text-xs font-medium bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border-cyan-500/20 text-cyan-300 hover:from-cyan-500/20 hover:to-blue-500/20 transition-all duration-300"
               >
                 {tag}
-              </span>
+              </Badge>
             ))}
           </div>
         </CardContent>
         
-        <CardFooter className="relative z-10 pt-2 pb-4">
+        <CardFooter className="relative z-10 pt-4 pb-6 px-6">
           <Link
             href={value.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group/link w-full inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-primary dark:text-white/90 bg-primary/10 dark:bg-white/10 backdrop-blur-sm border border-primary/20 dark:border-white/20 rounded-lg hover:bg-primary/20 dark:hover:bg-white/20 hover:border-primary/30 dark:hover:border-white/30 hover:text-primary dark:hover:text-white transition-all duration-300 hover:shadow-lg hover:shadow-black/10"
+            target={value.link.startsWith('/') ? '_self' : '_blank'}
+            rel={value.link.startsWith('/') ? undefined : "noopener noreferrer"}
+            className="group/link w-full inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium rounded-xl bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 text-cyan-300 hover:from-cyan-500/30 hover:to-blue-500/30 hover:border-cyan-500/40 transition-all duration-300 backdrop-blur-sm"
             aria-label={`Visit ${value.title} project`}
           >
-            <ExternalLink className="h-4 w-4 transition-transform duration-300 group-hover/link:scale-110" />
-            Visit Project
+            <Sparkles className="h-4 w-4 transition-all duration-300 group-hover/link:rotate-12" />
+            <span className="font-semibold">Explore Project</span>
             <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
           </Link>
         </CardFooter>
       </Card>
-    </FramerWrapper>
+    </motion.div>
   );
 };
 

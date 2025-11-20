@@ -163,7 +163,7 @@ return (
         progressInterval.current = null;
       }
     }
-  }, [isPlaying, currentStep, demoSteps]);
+  }, [isPlaying, demoSteps]);
 
   const handlePlayPause = () => {
     if (currentStep === demoSteps.length - 1 && !isPlaying) {
