@@ -1,272 +1,340 @@
 "use client"
-import FramerWrapper from "@/shared/components/animations/FramerWrapper";
-import Heading from "@/features/about/components/Heading";
-import { Badge } from "@/shared/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui/card";
-import { Play, GitBranch, FileCode, TrendingUp, Users, Zap, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { X } from "lucide-react";
+import HeroSection from "./components/HeroSection";
+import ProblemStatement from "./components/ProblemStatement";
+import SolutionOverview from "./components/SolutionOverview";
+import NarrativeBridge from "./components/NarrativeBridge";
+import CodeComparison from "./components/CodeComparison";
+import ProcessTimeline from "./components/ProcessTimeline";
+import ResultsShowcase from "./components/ResultsShowcase";
+import TechnicalDeepDive from "./components/TechnicalDeepDive";
+import LessonsLearned from "./components/LessonsLearned";
+import { ChevronDown, Code2, BookOpen, ArrowLeft, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/shared/components/ui/card";
+import { Input } from "@/shared/components/ui/input";
+import { Label } from "@/shared/components/ui/label";
+import { Button } from "@/shared/components/ui/button";
+import { SendEmail } from "../contact/SendEmail";
 
 const CaseStudyPage = () => {
-  const stats = [
-    { label: "Files Changed", value: "208", icon: FileCode },
-    { label: "Lines Added", value: "7,700+", icon: TrendingUp },
-    { label: "Lines Removed", value: "4,803", icon: GitBranch },
-    { label: "Performance Gain", value: "70%", icon: Zap },
-  ];
-
-  const architectureFeatures = [
-    {
-      title: "Vertical Slice Architecture",
-      description: "Transformed monolithic structure into feature-based vertical slices",
-      impact: "90% faster bug location",
-      color: "from-cyan-500/20 to-blue-500/20"
-    },
-    {
-      title: "Component Optimization", 
-      description: "Eliminated unnecessary re-renders through strategic component design",
-      impact: "70% reduction in re-renders",
-      color: "from-purple-500/20 to-pink-500/20"
-    },
-    {
-      title: "Developer Experience",
-      description: "Improved team velocity with better code organization and tooling",
-      impact: "50% faster feature development",
-      color: "from-emerald-500/20 to-green-500/20"
-    }
-  ];
-
+  const [showTechnicalDetails, setShowTechnicalDetails] = useState(false);
+  const [showContactForm, setShowContactForm] = useState(false);
   return (
-    <div className="min-h-screen w-full relative flex flex-col items-start gap-8 overflow-hidden pt-20">
-      {/* Construction Notice */}
-      <div className="w-full bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-3 mb-4">
-        <p className="text-yellow-200 text-sm text-center">
-          🚧 This page is under construction - Content and features are being actively developed
-        </p>
-      </div>
+    <div className="min-h-screen w-full relative flex flex-col items-start gap-16 overflow-hidden pt-20 pb-20">
 
-      {/* Header */}
-      <Badge className="gap-2">
-        <GitBranch className="h-5 w-5" />
-        Case Study
-      </Badge>
+      {/* Container wrapper for consistent spacing */}
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-6 lg:px-8 space-y-20">
 
-      <div className="flex flex-col gap-4">
-        <Heading>Frontend Architecture Refactoring</Heading>
-        <FramerWrapper y={0} x={200}>
-          <p className="font-poppins text-lg w-full text-primary/80 max-sm:text-base max-w-3xl">
-            How I transformed an enterprise monolithic codebase into a scalable vertical slice architecture, 
-            improving performance by 70% and developer velocity by 50%.
-          </p>
-        </FramerWrapper>
-      </div>
+        {/* Hero Section with Metrics */}
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4 }}
+        >
+          <HeroSection />
+        </motion.section>
 
-      {/* Hero Video Section */}
-      <FramerWrapper className="w-full" y={0} scale={0.95} delay={0.2}>
-        <Card className="group relative w-full overflow-hidden border-0 bg-gradient-to-br from-white/5 to-white/2 backdrop-blur-md">
-          <div className="absolute inset-0 rounded-lg border border-white/10 group-hover:border-white/20 transition-colors duration-300" />
-          
-          {/* Floating Stats */}
-          <div className="absolute top-4 right-4 flex gap-2 z-20">
-            {stats.map((stat, index) => (
+        {/* Problem Statement Section */}
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+        >
+          <ProblemStatement />
+        </motion.section>
+
+        {/* Solution Overview Section */}
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+        >
+          <SolutionOverview />
+        </motion.section>
+
+        {/* Narrative Bridge Section - Text cards between metrics and code transformation */}
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.25 }}
+        >
+          <NarrativeBridge />
+        </motion.section>
+
+        {/* Code Comparison Section */}
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+        >
+          <CodeComparison />
+        </motion.section>
+
+        {/* Results Showcase Section */}
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.4 }}
+        >
+          <ResultsShowcase />
+        </motion.section>
+
+        {/* Prominent CTA Section */}
+        <motion.section
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.45 }}
+          className="relative"
+        >
+          <div className="relative overflow-hidden rounded-2xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10 backdrop-blur-md">
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20" />
+
+            <div className="relative z-10 p-12 text-center">
               <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: -20 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 + 0.5 }}
-                className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg px-3 py-2 text-xs"
+                transition={{ delay: 0.6, duration: 0.6 }}
+                className="space-y-6"
               >
-                <div className="flex items-center gap-1 text-white/90">
-                  <stat.icon className="h-3 w-3" />
-                  <span className="font-semibold">{stat.value}</span>
-                </div>
-                <div className="text-white/60 text-[10px]">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
+                <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  Ready to Transform Your Codebase?
+                </h2>
 
-          <CardContent className="relative p-8">
-            {/* Video Placeholder */}
-            <div className="relative aspect-video bg-gradient-to-br from-gray-900 to-black rounded-lg overflow-hidden group/video">
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-              
-              {/* Play Button */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full p-6 hover:bg-white/30 transition-all duration-300 group-hover/video:shadow-2xl group-hover/video:shadow-cyan-500/20"
-                >
-                  <Play className="h-8 w-8 text-white ml-1" fill="currentColor" />
-                </motion.button>
-              </div>
+                <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+                  See how vertical slice architecture and AI-assisted development can revolutionize
+                  your development workflow. Let&apos;s build something extraordinary together.
+                </p>
 
-              {/* Video Info Overlay */}
-              <div className="absolute bottom-4 left-4 text-white">
-                <h3 className="text-lg font-semibold">Architecture Transformation Demo</h3>
-                <p className="text-sm text-white/80">From monolith to vertical slices • 5:42</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </FramerWrapper>
-
-      {/* Interactive Architecture Cards */}
-      <FramerWrapper className="w-full" y={0} delay={0.4}>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {architectureFeatures.map((feature, index) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 + 0.6 }}
-            >
-              <Card className="group relative h-full overflow-hidden border-0 bg-gradient-to-br from-white/5 to-white/2 backdrop-blur-md hover:from-white/10 hover:to-white/5 transition-all duration-500 hover:scale-[1.02]">
-                <div className="absolute inset-0 rounded-lg border border-white/10 group-hover:border-white/20 transition-colors duration-300" />
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                
-                <CardHeader className="relative z-10">
-                  <CardTitle className="text-lg text-white/90 group-hover:text-white transition-colors duration-300">
-                    {feature.title}
-                  </CardTitle>
-                </CardHeader>
-                
-                <CardContent className="relative z-10 space-y-4">
-                  <p className="text-sm text-white/70 group-hover:text-white/80 transition-colors duration-300">
-                    {feature.description}
-                  </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
+                  <motion.button
+                    onClick={() => setShowContactForm(true)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-12 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 text-lg"
+                  >
+                    Start Your Project
+                  </motion.button>
                   
-                  <div className="flex items-center gap-2 text-cyan-400 group-hover:text-cyan-300 transition-colors duration-300">
-                    <TrendingUp className="h-4 w-4" />
-                    <span className="text-sm font-semibold">{feature.impact}</span>
+                  <Link href="/projects">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg backdrop-blur-sm hover:bg-white/10 transition-all duration-300 flex items-center gap-2"
+                    >
+                      Back to Projects
+                      <ArrowUpRight className="w-4 h-4" />
+                    </motion.button>
+                  </Link>
+                </div>
+
+                <div className="flex items-center justify-center gap-6 mt-8 text-sm text-white/60">
+                  <span className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                    Available for Projects
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                    Remote Friendly
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                    AI-Powered Development
+                  </span>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Optional Technical Deep Dive Toggle */}
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.5 }}
+          className="mt-32"
+        >
+          <div className="text-center">
+            <motion.button
+              onClick={() => setShowTechnicalDetails(!showTechnicalDetails)}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="group relative overflow-hidden rounded-xl border border-slate-700/50 bg-slate-900/50 backdrop-blur-md px-8 py-6 transition-all duration-300 hover:border-slate-600/50 hover:bg-slate-800/50"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+              <div className="relative z-10 flex items-center justify-center gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-indigo-500/20 border border-indigo-500/30">
+                    {showTechnicalDetails ? <BookOpen className="w-5 h-5 text-indigo-400" /> : <Code2 className="w-5 h-5 text-indigo-400" />}
                   </div>
-                </CardContent>
+                  <div className="text-left">
+                    <h3 className="text-lg font-semibold text-white group-hover:text-indigo-200 transition-colors">
+                      {showTechnicalDetails ? 'Hide Technical Details' : 'Explore Technical Implementation'}
+                    </h3>
+                    <p className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors">
+                      {showTechnicalDetails
+                        ? 'Collapse the detailed technical breakdown'
+                        : 'Deep dive into architecture patterns, code examples, and implementation details'
+                      }
+                    </p>
+                  </div>
+                </div>
+
+                <motion.div
+                  animate={{ rotate: showTechnicalDetails ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="ml-4"
+                >
+                  <ChevronDown className="w-6 h-6 text-slate-400 group-hover:text-indigo-400 transition-colors" />
+                </motion.div>
+              </div>
+            </motion.button>
+          </div>
+        </motion.section>
+
+        {/* Expandable Technical Content */}
+        <AnimatePresence>
+          {showTechnicalDetails && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="overflow-hidden"
+            >
+              <div className="space-y-20">
+                {/* Technical Deep Dive Section */}
+                <motion.section
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
+                >
+                  <TechnicalDeepDive />
+                </motion.section>
+
+                {/* Process Timeline Section */}
+                <motion.section
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ duration: 0.4, delay: 0.2 }}
+                >
+                  <ProcessTimeline />
+                </motion.section>
+
+                {/* Lessons Learned Section */}
+                <motion.section
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ duration: 0.4, delay: 0.3 }}
+                >
+                  <LessonsLearned />
+                </motion.section>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+      </div>
+
+      {/* Contact Form Modal */}
+      <AnimatePresence>
+        {showContactForm && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={() => setShowContactForm(false)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              className="w-full max-w-md"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Card className="border-white/10 bg-slate-900/95 backdrop-blur-md">
+                <form onSubmit={async (e) => {
+                  e.preventDefault();
+                  try {
+                    const formData = new FormData(e.target as HTMLFormElement);
+                    await SendEmail(formData);
+                    (e.target as HTMLFormElement).reset();
+                    setShowContactForm(false);
+                    alert("Message sent successfully!");
+                  } catch (error) {
+                    alert("Error sending message. Please try again.");
+                  }
+                }}>
+                  <CardHeader>
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <CardTitle className="text-white">Start Your Project</CardTitle>
+                        <CardDescription className="text-slate-400">
+                          Let's discuss how we can work together
+                        </CardDescription>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setShowContactForm(false)}
+                        className="text-slate-400 hover:text-white transition-colors"
+                      >
+                        <X className="w-5 h-5" />
+                      </button>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div>
+                      <Label htmlFor="name" className="text-white">Name</Label>
+                      <Input
+                        type="text"
+                        name="name"
+                        required
+                        className="bg-slate-800 border-slate-700 text-white"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="email" className="text-white">Email</Label>
+                      <Input
+                        type="email"
+                        name="SenderEmail"
+                        required
+                        className="bg-slate-800 border-slate-700 text-white"
+                        placeholder="your@email.com"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="message" className="text-white">Message</Label>
+                      <textarea
+                        placeholder="Tell me about your project..."
+                        name="message"
+                        required
+                        className="resize-none flex min-h-[100px] w-full rounded-md border border-slate-700 bg-slate-800 px-3 py-2 text-sm text-white placeholder:text-slate-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+                      />
+                    </div>
+                  </CardContent>
+                  <CardFooter>
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white"
+                    >
+                      Send Message
+                    </Button>
+                  </CardFooter>
+                </form>
               </Card>
             </motion.div>
-          ))}
-        </div>
-      </FramerWrapper>
-
-      {/* Technical Specifications Section */}
-      <FramerWrapper className="w-full" y={0} delay={0.8}>
-        <Card className="w-full border-0 bg-gradient-to-br from-white/5 to-white/2 backdrop-blur-md">
-          <div className="absolute inset-0 rounded-lg border border-white/10" />
-          
-          <CardHeader>
-            <CardTitle className="text-2xl text-white/90 flex items-center gap-3">
-              <FileCode className="h-6 w-6 text-cyan-400" />
-              Technical Deep Dive
-            </CardTitle>
-          </CardHeader>
-          
-          <CardContent className="space-y-8">
-            {/* Architecture Transformation */}
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-white/90 flex items-center gap-2">
-                <GitBranch className="h-5 w-5 text-purple-400" />
-                Architecture Transformation
-              </h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-3">
-                  <h4 className="text-lg font-medium text-white/80">Before: Monolithic Structure</h4>
-                  <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-4 font-mono text-sm text-white/70">
-                    <div>📁 src/</div>
-                    <div className="ml-4">📁 components/ (mixed concerns)</div>
-                    <div className="ml-4">📁 utils/ (scattered logic)</div>
-                    <div className="ml-4">📁 styles/ (global overrides)</div>
-                    <div className="ml-4">📄 App.tsx (massive file)</div>
-                  </div>
-                </div>
-                
-                <div className="space-y-3">
-                  <h4 className="text-lg font-medium text-white/80">After: Vertical Slice Architecture</h4>
-                  <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4 font-mono text-sm text-white/70">
-                    <div>📁 src/features/</div>
-                    <div className="ml-4">📁 buildings/ (complete feature)</div>
-                    <div className="ml-4">📁 chat/ (isolated module)</div>
-                    <div className="ml-4">📁 property/ (self-contained)</div>
-                    <div className="ml-4">📁 shared/ (common utilities)</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Performance Metrics */}
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-white/90 flex items-center gap-2">
-                <Zap className="h-5 w-5 text-yellow-400" />
-                Performance Impact
-              </h3>
-              
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {[
-                  { metric: "Bundle Size", before: "2.1MB", after: "1.3MB", improvement: "38%" },
-                  { metric: "First Load", before: "3.2s", after: "1.8s", improvement: "44%" },
-                  { metric: "Re-renders", before: "847/page", after: "254/page", improvement: "70%" },
-                  { metric: "Dev Build", before: "45s", after: "18s", improvement: "60%" }
-                ].map((metric) => (
-                  <div key={metric.metric} className="bg-white/5 rounded-lg p-4 text-center">
-                    <div className="text-xs text-white/60 mb-1">{metric.metric}</div>
-                    <div className="text-lg font-semibold text-green-400">-{metric.improvement}</div>
-                    <div className="text-xs text-white/50">{metric.before} → {metric.after}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Implementation Details */}
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-white/90 flex items-center gap-2">
-                <Users className="h-5 w-5 text-blue-400" />
-                Implementation Strategy
-              </h3>
-              
-              <div className="prose prose-invert max-w-none">
-                <div className="bg-white/5 rounded-lg p-6 space-y-4">
-                  <div>
-                    <h4 className="text-lg font-medium text-white/90 mb-2">Phase 1: Feature Extraction</h4>
-                    <p className="text-white/70 text-sm">
-                      Identified cohesive feature boundaries and extracted them into self-contained modules.
-                      Each feature includes its own components, hooks, services, and types.
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-lg font-medium text-white/90 mb-2">Phase 2: Dependency Optimization</h4>
-                    <p className="text-white/70 text-sm">
-                      Eliminated circular dependencies and reduced inter-feature coupling through shared abstractions
-                      and well-defined interfaces.
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-lg font-medium text-white/90 mb-2">Phase 3: Performance Tuning</h4>
-                    <p className="text-white/70 text-sm">
-                      Implemented lazy loading, code splitting, and optimized rendering patterns.
-                      Reduced bundle size through tree shaking and dynamic imports.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Call to Action */}
-            <div className="flex justify-center pt-6">
-              <motion.a
-                href="https://www.webdev4life.com/case-study"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-lg text-white/90 hover:text-white hover:border-cyan-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20"
-              >
-                <span className="font-medium">View Full Case Study</span>
-                <ArrowRight className="h-5 w-5" />
-              </motion.a>
-            </div>
-          </CardContent>
-        </Card>
-      </FramerWrapper>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
