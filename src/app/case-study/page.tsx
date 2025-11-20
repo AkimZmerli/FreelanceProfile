@@ -278,7 +278,7 @@ const CaseStudyPage = () => {
                       <div>
                         <CardTitle className="text-white">Start Your Project</CardTitle>
                         <CardDescription className="text-slate-400">
-                          Let's discuss how we can work together
+                          Let&apos;s discuss how we can work together
                         </CardDescription>
                       </div>
                       <button
