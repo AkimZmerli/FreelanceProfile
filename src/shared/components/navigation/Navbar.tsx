@@ -3,7 +3,7 @@
 import { cn } from "@/shared/lib/utils"
 import { SunMoon } from "lucide-react"
 
-import { Rocket, Factory, Tent, Send, Atom } from "lucide-react"
+import { Rocket, Factory, Tent, Send, Atom, Zap } from "lucide-react"
 
 import { Dock, DockIcon, DockItem } from "@/shared/components/animations/DockAnimation"
 
@@ -33,6 +33,11 @@ const Navbar = () => {
       title: "Kontakt",
       icon: <Send className="h-full w-full" />,
       href: "/contact",
+    },
+    {
+      title: "Berlin Night",
+      icon: <Zap className="h-full w-full text-cyan-400" />,
+      href: "/berlin-night",
     },
     {
       title: "darkmode",
