@@ -66,8 +66,8 @@ const SolutionOverview = () => {
           Vertical Slice Architecture
         </h2>
         <p className="text-lg text-white/85 max-w-3xl mx-auto">
-          A fundamental shift from organizing code by technical layer to organizing by feature,
-          creating self-contained modules with clear boundaries
+          <span className="font-bold">A fundamental shift from organizing code by technical layer to organizing by feature,
+          creating self-contained modules with clear boundaries</span>
         </p>
       </motion.div>
 

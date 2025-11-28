@@ -49,11 +49,6 @@ const HeroSection = () => {
     <div ref={ref} className="relative w-full">
       {/* Hero Header */}
       <div className="mb-8">
-        <Badge className="gap-2 mb-6">
-          <GitBranch className="h-4 w-4" />
-          Frontend Architecture Case Study
-        </Badge>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -68,8 +63,8 @@ const HeroSection = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-white/90 max-w-3xl">
-            A comprehensive two-week refactoring initiative that transformed a scattered
-            prototype codebase using <span className="text-cyan-400 font-semibold">vertical slice architecture</span> and
+            <span className="font-bold">A comprehensive two-week refactoring initiative that transformed a scattered
+            prototype codebase using</span> <span className="text-cyan-400 font-semibold">vertical slice architecture</span> and
             <span className="text-purple-400 font-semibold"> AI-assisted development</span> with Claude Code.
           </p>
         </motion.div>
@@ -136,14 +131,6 @@ const HeroSection = () => {
 
       </motion.div>
 
-      {/* Interactive Demo Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8, duration: 0.6 }}
-      >
-        <InteractiveDemo />
-      </motion.div>
     </div>
   );
 };

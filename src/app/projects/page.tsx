@@ -128,7 +128,7 @@ const ProjectsPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-lg text-white/70 max-w-2xl mx-auto"
+            className="text-lg text-white/70 max-w-2xl mx-auto font-bold"
           >
             Transforming ideas into exceptional digital experiences through innovative development and thoughtful design
           </motion.p>
@@ -144,7 +144,7 @@ const ProjectsPage = () => {
 
 
           {/* Projects Grid with staggered animations */}
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-6">
             {Projects.map((val, indx) => {
               return <ProjectCards key={indx} value={val} num={indx} />;
             })}

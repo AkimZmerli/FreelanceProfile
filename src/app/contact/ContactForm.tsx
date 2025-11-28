@@ -173,12 +173,14 @@ const ContactForm = () => {
   }
 
   return (
-    <Card>
-       
+    <Card className="group relative w-full h-full min-h-[400px] flex flex-col overflow-hidden border border-white/10 bg-gradient-to-br from-white/8 to-white/4 backdrop-blur-md hover:from-white/12 hover:to-white/6 transition-all duration-500">
+      {/* Gradient overlay - default state active */}
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10 group-hover:from-cyan-500/15 group-hover:via-blue-500/15 group-hover:to-purple-500/15 transition-all duration-500" />
+      
       <form onSubmit={handleSubmit}>
-        <CardHeader>
-          <CardTitle className="icon_underline mb-2">Drop me a message!</CardTitle>
-          <CardDescription>
+        <CardHeader className="relative z-10">
+          <CardTitle className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent group-hover:from-cyan-300 group-hover:via-blue-300 group-hover:to-purple-300 transition-all duration-300 mb-2">Drop me a message!</CardTitle>
+          <CardDescription className="text-base leading-relaxed text-white/80 group-hover:text-white/90 transition-colors duration-300">
             after sending, you will have {isCountingDown ? (
               <span className={`font-bold inline-block w-10 text-center ${countdown <= 5 ? 'text-red-500 animate-pulse' : ''}`}>
                 {countdown}.{milliseconds.toString().padStart(2, '0')}
@@ -188,7 +190,7 @@ const ContactForm = () => {
             )} secs to leave the page
           </CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="relative z-10">
           <div className="grid w-full max-w-sm items-center gap-1.5 mt-4">
             <Label htmlFor="name">Name</Label>
             <Input
@@ -217,9 +219,9 @@ const ContactForm = () => {
             ></textarea>
           </div>
         </CardContent>
-        <CardFooter>
-          <Button type="submit" className="w-full bg-slate-800 text-gray-100 rounded-md border hover:text-black">
-            Send
+        <CardFooter className="relative z-10">
+          <Button type="submit" className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium rounded-xl bg-gradient-to-r from-cyan-500/30 to-blue-500/30 border border-cyan-500/40 text-cyan-300 hover:from-cyan-500/40 hover:to-blue-500/40 hover:border-cyan-500/50 transition-all duration-300 backdrop-blur-sm">
+            Send Message
           </Button>
         </CardFooter>
       </form>

@@ -99,7 +99,7 @@ const SkillPage = () => {
         
         <FramerWrapper y={0} x={200} className="block">
           <div className="flex flex-col gap-4">
-            <p className="font-poppins text-2xl text-primary max-sm:text-base max-md:text-xl">
+            <p className="font-poppins text-2xl text-primary max-sm:text-base max-md:text-xl font-bold">
               Software architecture • AI integration • Custom platforms 
             </p>
           </div>
@@ -178,11 +178,11 @@ const SkillPage = () => {
       </div>
 
       {/* Tech Stack Icons */}
-        <FramerWrapper y={100} delay={0.4} className="block">
+        <FramerWrapper y={100} delay={0.4} className="block w-full max-w-full">
           <div className="flex flex-col gap-3">
-            <div className="w-full mx-auto px-0">
-              <h2 className="text-2xl font-semibold text-primary max-sm:text-xl ">Technologies I Use</h2>
-              <p className="text-primary max-w-4xl mb-1 max-sm:text-sm max-sm:mb-4 text-lg">
+            <div className="w-full mx-auto px-2 sm:px-4 max-w-full">
+              <h2 className="text-2xl font-semibold text-primary max-sm:text-xl mb-4">Technologies I Use</h2>
+              <p className="text-primary max-w-full mb-1 max-sm:text-sm max-sm:mb-4 text-lg font-bold break-words overflow-wrap-anywhere">
                 I work with cutting-edge technologies to ensure high performance, scalability, and seamless integration. Each tool is carefully selected to solve specific challenges and deliver exceptional user experiences.
               </p>
             </div>
