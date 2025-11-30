@@ -5,6 +5,7 @@ import { X } from "lucide-react";
 import HeroSection from "./components/HeroSection";
 import ProblemStatement from "./components/ProblemStatement";
 import SolutionOverview from "./components/SolutionOverview";
+import NarrativeBridge from "./components/NarrativeBridge";
 import CodeComparison from "./components/CodeComparison";
 import ProcessTimeline from "./components/ProcessTimeline";
 import ResultsShowcase from "./components/ResultsShowcase";
@@ -57,6 +58,8 @@ const CaseStudyPage = () => {
           <SolutionOverview />
         </motion.section>
 
+
+
         {/* Code Comparison Section */}
         <motion.section
           initial={{ opacity: 0 }}
@@ -64,6 +67,15 @@ const CaseStudyPage = () => {
           transition={{ duration: 0.4, delay: 0.3 }}
         >
           <CodeComparison />
+        </motion.section>
+
+                {/* Anthropic's Refactoring Approach Video */}
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.25 }}
+        >
+          <NarrativeBridge />
         </motion.section>
 
         {/* Results Showcase Section */}

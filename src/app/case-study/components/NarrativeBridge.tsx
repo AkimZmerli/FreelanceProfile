@@ -12,7 +12,7 @@ const NarrativeBridge = () => {
       <TextCard
         {...TextCardPresets.narrative}
         fullWidth={true}
-        title="Architecture Transformation Walkthrough"
+        title="Anthropic's Refactoring Approach"
         description={
           <div className="space-y-6">
             {/* Video iframe */}
@@ -20,8 +20,8 @@ const NarrativeBridge = () => {
               <div className="relative overflow-hidden rounded-lg border border-white/10 bg-gray-900/50 backdrop-blur-sm">
                 <iframe
                   className="w-full aspect-video"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=placeholder"
-                  title="Case Study Transformation Demo"
+                  src="https://www.youtube.com/embed/OwMu0pyYZBc"
+                  title="Anthropic's Refactoring Approach"
                   style={{ border: 'none' }}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
@@ -32,7 +32,7 @@ const NarrativeBridge = () => {
               </div>
             </div>
             <p className="text-center text-sm text-white/60">
-              Watch the complete transformation from prototype to production-ready architecture
+              Explore Anthropic&apos;s approach to intelligent code refactoring and architectural transformation
             </p>
           </div>
         }
