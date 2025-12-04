@@ -52,17 +52,17 @@ const ProjectsPage = () => {
       },
       rating: 5,
       reviewText:
-        "Absolutely love WebDev4Life! They really know what they are doing, getting the best out of my brand and build an incredible website. Thank you so much.",
+        "WebDev4Life transformed my photographic portfolio into an immersive gallery experience. They really took the time to understand my vision and include an UX designer to elevate my brand. I'm so grateful for their dedication. Thank you so much!",
     },
     {
-      reviewerName: "Alan Turing",
+      reviewerName: "Tore Waldhausen",
       reviewerImage: {
-        img: "/alan.png",
-        alt: "Alan Turing"
+        img: "/Tore.webp",
+        alt: "Tore Waldhausen"
       },
       rating: 5,
       reviewText:
-        "I actually didn't need a new Website but after seeing WebDev4Life's magic skills I had to get a new one. And it has been built to last. You have come to the right place",
+        "r3leaf GmbH is very thankful for WebDev4Life's initiative in refactoring our frontend codebase and reshaping our AI product development. They combine rare qualities: deep technical skills and genuine product vision. I highly recommend their services and expertise.",
     },
     {
       reviewerName: "Jeff Bezos",

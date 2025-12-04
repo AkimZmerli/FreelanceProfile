@@ -6,7 +6,7 @@ import ReviewCard from "./ReviewCard"
 import ScrambleButton from "@/shared/components/animations/ScrambleButton"
 import Image from "next/image"
 import valentin from '../../../../../public/valentin.png'
-import alan from '../../../../../public/alan.png'
+import tore from '../../../../../public/Tore.webp'
 import jeff from '../../../../../public/jeff.png'
 
 export default function ReviewExample() {
@@ -24,14 +24,14 @@ export default function ReviewExample() {
         "Absolutely love WebDev4Life! They really know what they are doing, getting the best out of my brand and build an incredible website. Thank you so much.",
     },
     {
-      reviewerName: "Alan Turing",
+      reviewerName: "Tore Waldhausen",
       reviewerImage: {
-        img: "/alan.png",
-        alt: "Alan Turing"
+        img: "/Tore.webp",
+        alt: "Tore Waldhausen"
       },
       rating: 5,
       reviewText:
-        "I actually didn't need a new Website but after seeing WebDev4Life's magic skills I had to get a new one. And it has been built to last. You have come to the right place",
+        "Akim combines rare qualities: deep technical skills in modern frontend and AI technologies, genuine product vision that delivers impressive user experiences, and the professional maturity to drive complex initiatives. I highly recommend him for sophisticated software engineering positions.",
     },
     {
       reviewerName: "Jeff Bezos",
