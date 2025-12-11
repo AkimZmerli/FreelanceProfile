@@ -94,8 +94,10 @@ const SkillPage = () => {
   return (
     <div className="h-full w-full relative flex flex-col items-start gap-10 overflow-hidden px-4 py-8 sm:px-6 md:px-8">
       
-      <div className="flex flex-col gap-8">
-        <Heading>Problem Solver</Heading>
+      <div className="flex flex-col gap-8 items-start">
+        <FramerWrapper y={0} x={0} className="block">
+          <Heading>Problem Solver</Heading>
+        </FramerWrapper>
         
         <FramerWrapper y={0} x={200} className="block">
           <div className="flex flex-col gap-4">
@@ -104,7 +106,6 @@ const SkillPage = () => {
             </p>
           </div>
         </FramerWrapper>
-
       </div>
 
       {/* Problem-Solving Domains */}

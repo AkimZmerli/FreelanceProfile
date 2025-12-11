@@ -31,7 +31,7 @@ export default function Home() {
       {/* Desktop Layout - Side by side */}
       <div className="hidden lg:flex w-full h-full">
         {/* LEFT SIDE */}
-        <FramerWrapper className="flex flex-col justify-start gap-5 w-auto items-start" y={0} x={-90}>
+        <FramerWrapper className="flex flex-col justify-center gap-5 w-auto items-start mt-[10%]" y={0} x={-90}>
           <HeroTexts />
         </FramerWrapper>
         
