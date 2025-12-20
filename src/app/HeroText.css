@@ -2,8 +2,20 @@
 
 }
 
-@media (min-width: 1400px) {
+@media (max-width: 768px) {
+  .hero-text-container {
+    transform: translateY(5%) translateX(-20%); /* Move down 5% and left 20% for mobile */
+  }
+}
+
+@media (min-width: 1400px) and (max-width: 1919px) {
   .hero-text-container {
     transform: translateY(15%) translateX(10%); /* Adjust for larger screens */
+  }
+}
+
+@media (min-width: 1920px) {
+  .hero-text-container {
+    transform: translateY(-5%) translateX(10%); /* Move up 20% (15%-20%) */
   }
 }

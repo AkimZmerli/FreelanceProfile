@@ -128,7 +128,7 @@ const ProjectsPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-lg text-white/70 max-w-2xl mx-auto font-bold"
+            className="text-lg text-gray-600 dark:text-white/70 max-w-2xl mx-auto font-bold"
           >
             Transforming ideas into exceptional digital experiences through innovative development and thoughtful design
           </motion.p>
@@ -160,8 +160,8 @@ const ProjectsPage = () => {
           className="space-y-8"
         >
           {/* Section Header with gradient and badge */}
-          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/2 backdrop-blur-md p-8">
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10" />
+          <div className="relative overflow-hidden rounded-2xl border dark:border-white/10 border-gray-200/50 dark:bg-gradient-to-br dark:from-white/5 dark:to-white/2 bg-gradient-to-br from-white/90 to-gray-50/80 backdrop-blur-md p-8 shadow-lg shadow-gray-200/20">
+            <div className="absolute inset-0 bg-gradient-to-r dark:from-cyan-500/10 dark:via-blue-500/10 dark:to-purple-500/10 from-cyan-600/12 via-blue-600/12 to-purple-600/12" />
 
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="text-center md:text-left space-y-2">
@@ -172,7 +172,7 @@ const ProjectsPage = () => {
                 <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
                   Client Reviews
                 </h2>
-                <p className="text-white/60 text-sm">
+                <p className="dark:text-white/60 text-gray-600 text-sm">
                   {reviews.length} reviews from satisfied clients
                 </p>
               </div>

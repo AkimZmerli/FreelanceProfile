@@ -58,18 +58,18 @@ const ProjectCards: React.FC<ProjectCardProps> = ({ value, num }) => {
       whileHover={{ y: -5 }}
       className="w-full h-full"
     >
-      <Card className="group relative w-full h-full min-h-[320px] flex flex-col overflow-hidden border border-white/10 bg-gradient-to-br from-white/5 to-white/2 backdrop-blur-md hover:from-white/8 hover:to-white/4 transition-all duration-500">
+      <Card className="group relative w-full h-full min-h-[320px] flex flex-col overflow-hidden border dark:border-white/10 border-gray-200/50 dark:bg-gradient-to-br dark:from-white/5 dark:to-white/2 bg-gradient-to-br from-white/70 to-gray-100/60 backdrop-blur-md dark:hover:from-white/8 dark:hover:to-white/4 hover:from-white/80 hover:to-gray-100/70 transition-all duration-500 shadow-lg shadow-gray-200/20">
         {/* Gradient overlay on hover */}
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 via-blue-500/0 to-purple-500/0 group-hover:from-cyan-500/10 group-hover:via-blue-500/10 group-hover:to-purple-500/10 transition-all duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-br dark:from-cyan-500/0 dark:via-blue-500/0 dark:to-purple-500/0 from-cyan-600/0 via-blue-600/0 to-purple-600/0 dark:group-hover:from-cyan-500/10 dark:group-hover:via-blue-500/10 dark:group-hover:to-purple-500/10 group-hover:from-cyan-600/8 group-hover:via-blue-600/8 group-hover:to-purple-600/8 transition-all duration-500" />
         
         <CardHeader className="relative z-10 pb-4">
-          <CardTitle className="text-2xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent group-hover:from-cyan-400 group-hover:via-blue-400 group-hover:to-purple-400 transition-all duration-300">
+          <CardTitle className="text-2xl font-bold bg-gradient-to-r dark:from-white dark:to-white/80 from-gray-800 to-gray-700 bg-clip-text text-transparent dark:group-hover:from-cyan-400 dark:group-hover:via-blue-400 dark:group-hover:to-purple-400 group-hover:from-cyan-600 group-hover:via-blue-600 group-hover:to-purple-600 transition-all duration-300">
             {value.title}
           </CardTitle>
         </CardHeader>
         
         <CardContent className="relative z-10 flex-1 flex flex-col space-y-4 px-6">
-          <p className="text-base leading-relaxed text-white/60 group-hover:text-white/80 transition-colors duration-300">
+          <p className="text-base leading-relaxed dark:text-white/60 text-gray-600 dark:group-hover:text-white/80 group-hover:text-gray-800 transition-colors duration-300">
             {value.description}
           </p>
           

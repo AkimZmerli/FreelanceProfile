@@ -1,7 +1,7 @@
 @media (max-width: 768px){
   /* Mobile screens */
   .responsive-hero-image {
-    transform: none;
+    transform: translateY(-23%) translateX(-10%);
     width: 200px;
     height: auto;
   }
@@ -25,11 +25,20 @@
   }
 }
 
-@media (min-width: 1480px){
-  /* Adjust for larger screens */
+@media (min-width: 1480px) and (max-width: 1919px){
+  /* Adjust for large screens */
   .responsive-hero-image {
     transform: translateY(28%) translateX(35%);
     width: 900px; /* Increase the width */
-  height: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+
+@media (min-width: 1920px){
+  /* Adjust for very large screens */
+  .responsive-hero-image {
+    transform: translateY(33%) translateX(65%); /* Down 5% (28%+5%) and right 30% (35%+30%) */
+    width: 900px;
+    height: auto;
   }
 }

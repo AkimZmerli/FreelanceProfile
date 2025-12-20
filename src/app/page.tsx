@@ -18,7 +18,7 @@ export default function Home() {
       {/* Mobile Layout - Flexbox centered */}
       <div className="flex flex-col justify-between items-center w-full h-full overflow-hidden lg:hidden">
         {/* HERO TEXT - Centered on mobile */}
-        <FramerWrapper className="flex flex-col justify-center gap-5 w-full items-center order-1 -mt-[10%]" y={0} x={-90}>
+        <FramerWrapper className="flex flex-col justify-center gap-5 w-full items-center order-1" y={0} x={-90}>
           <HeroTexts />
         </FramerWrapper>
         

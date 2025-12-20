@@ -28,16 +28,16 @@ export default function ReviewCard({
       transition={{ duration: 0.3 }}
       className={cn("w-full h-full", className)}
     >
-      <Card className="relative h-full border border-white/10 bg-gradient-to-br from-white/5 to-white/2 backdrop-blur-md hover:from-white/8 hover:to-white/4 transition-all duration-500 overflow-hidden group">
+      <Card className="relative h-full border dark:border-white/10 border-gray-200/50 dark:bg-gradient-to-br dark:from-white/5 dark:to-white/2 bg-gradient-to-br from-white/90 to-gray-50/80 backdrop-blur-md dark:hover:from-white/8 dark:hover:to-white/4 hover:from-white/95 hover:to-gray-50/90 transition-all duration-500 overflow-hidden group shadow-lg shadow-gray-200/20">
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 via-pink-500/0 to-orange-500/0 group-hover:from-purple-500/10 group-hover:via-pink-500/10 group-hover:to-orange-500/10 transition-all duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-br dark:from-purple-500/0 dark:via-pink-500/0 dark:to-orange-500/0 from-purple-600/0 via-pink-600/0 to-orange-600/0 dark:group-hover:from-purple-500/10 dark:group-hover:via-pink-500/10 dark:group-hover:to-orange-500/10 group-hover:from-purple-600/8 group-hover:via-pink-600/8 group-hover:to-orange-600/8 transition-all duration-500" />
         
         {/* Quote icon background */}
-        <Quote className="absolute top-4 right-4 w-12 h-12 text-white/5 group-hover:text-white/10 transition-colors duration-300" />
+        <Quote className="absolute top-4 right-4 w-12 h-12 dark:text-white/5 text-gray-200/30 dark:group-hover:text-white/10 group-hover:text-gray-300/50 transition-colors duration-300" />
         
         <CardHeader className="relative z-10 flex flex-col items-center text-center pb-4">
           <div className="relative mb-4">
-            <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-white/20 group-hover:border-white/30 transition-colors duration-300">
+            <div className="w-20 h-20 rounded-full overflow-hidden border-2 dark:border-white/20 border-gray-300/50 dark:group-hover:border-white/30 group-hover:border-gray-400/70 transition-colors duration-300">
               <Image 
                 src={reviewerImage?.img} 
                 alt={reviewerImage?.alt || reviewerName} 
@@ -54,7 +54,7 @@ export default function ReviewCard({
             )}
           </div>
 
-          <CardTitle className="text-xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent mb-3">
+          <CardTitle className="text-xl font-bold bg-gradient-to-r dark:from-white dark:to-white/80 from-gray-800 to-gray-700 bg-clip-text text-transparent mb-3">
             {reviewerName}
           </CardTitle>
 
@@ -80,7 +80,7 @@ export default function ReviewCard({
         </CardHeader>
 
         <CardContent className="relative z-10 px-6 pb-6">
-          <p className="text-white/70 text-center leading-relaxed group-hover:text-white/80 transition-colors duration-300">
+          <p className="dark:text-white/70 text-gray-600 text-center leading-relaxed dark:group-hover:text-white/80 group-hover:text-gray-800 transition-colors duration-300">
             {reviewText}
           </p>
         </CardContent>

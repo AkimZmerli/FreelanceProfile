@@ -34,11 +34,11 @@ const Navbar = () => {
       icon: <Send className="h-full w-full" />,
       href: "/contact",
     },
-    {
-      title: "darkmode",
-      icon: <SunMoon className="h-full w-full" />,
-      action: "toggleTheme",
-    },
+    // {
+    //   title: "darkmode",
+    //   icon: <SunMoon className="h-full w-full" />,
+    //   action: "toggleTheme",
+    // },
   ]
 
   const [scrolling, setScrolling] = useState(false)
@@ -113,13 +113,9 @@ const Navbar = () => {
                   </DockItem>
                 </Link>
               ) : (
-                <div onClick={item.action === "toggleTheme" ? toggleTheme : undefined} key={idx}>
-                  <DockItem className="aspect-square rounded-full bg-white/60 border border-primary/20 text-primary dark:bg-neutral-600 dark:border-neutral-500 dark:text-white">
-                    <DockIcon
-                      className={
-                        item.action === "toggleTheme" ? (theme === "dark" ? "text-[#f2f2f2]" : "text-[#404040]") : ""
-                      }
-                    >
+                <div key={idx}>
+                  <DockItem className="aspect-square rounded-full bg-gray-300/50 border border-gray-400/30 text-gray-400 cursor-not-allowed">
+                    <DockIcon className="text-gray-400">
                       {item.icon}
                     </DockIcon>
                   </DockItem>

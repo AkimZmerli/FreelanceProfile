@@ -66,12 +66,18 @@ const ContactForm = () => {
       formData.append('g-recaptcha-response', token);
 
       // Call server action
-      await SendEmail(formData);
+      const result = await SendEmail(formData);
+      
+      if (!result.success) {
+        throw new Error(result.error || 'Failed to send email');
+      }
+      
       (event.target as HTMLFormElement).reset();
-      setIsCountingDown(true);
+      alert('Message sent successfully! Thank you for reaching out.');
+      // setIsCountingDown(true);
       
       // Start countdown with milliseconds
-      let totalMs = 10000; // 10 seconds in milliseconds
+      /* let totalMs = 10000; // 10 seconds in milliseconds
       intervalRef.current = setInterval(() => {
         totalMs -= 10;
         const seconds = Math.floor(totalMs / 1000);
@@ -84,7 +90,7 @@ const ContactForm = () => {
           clearInterval(intervalRef.current!);
           handleCountdownComplete();
         }
-      }, 10);
+      }, 10); */
     } catch (error) {
       console.error('Error sending email:', error);
       const errorMessage = error instanceof Error ? error.message : 'An error occurred while sending the email. Please try again later.';
@@ -173,21 +179,22 @@ const ContactForm = () => {
   }
 
   return (
-    <Card className="group relative w-full h-full min-h-[400px] flex flex-col overflow-hidden border border-white/10 bg-gradient-to-br from-white/8 to-white/4 backdrop-blur-md hover:from-white/12 hover:to-white/6 transition-all duration-500">
+    <Card className="group relative w-full h-full min-h-[400px] flex flex-col overflow-hidden border border-gray-300/60 bg-gradient-to-br from-white/50 to-gray-100/40 backdrop-blur-md hover:from-white/60 hover:to-gray-100/50 dark:border-white/10 dark:bg-gradient-to-br dark:from-white/5 dark:to-white/2 dark:backdrop-blur-md dark:hover:from-white/8 dark:hover:to-white/4 transition-all duration-500 shadow-lg shadow-gray-200/20">
       {/* Gradient overlay - default state active */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10 group-hover:from-cyan-500/15 group-hover:via-blue-500/15 group-hover:to-purple-500/15 transition-all duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/0 via-blue-600/0 to-purple-600/0 group-hover:from-cyan-600/8 group-hover:via-blue-600/8 group-hover:to-purple-600/8 dark:from-cyan-500/0 dark:via-blue-500/0 dark:to-purple-500/0 dark:group-hover:from-cyan-500/10 dark:group-hover:via-blue-500/10 dark:group-hover:to-purple-500/10 transition-all duration-500" />
       
       <form onSubmit={handleSubmit}>
         <CardHeader className="relative z-10">
-          <CardTitle className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent group-hover:from-cyan-300 group-hover:via-blue-300 group-hover:to-purple-300 transition-all duration-300 mb-2">Drop me a message!</CardTitle>
-          <CardDescription className="text-base leading-relaxed text-white/80 group-hover:text-white/90 transition-colors duration-300">
-            after sending, you will have {isCountingDown ? (
+          <CardTitle className="text-2xl font-bold bg-gradient-to-r from-gray-600 to-gray-500 bg-clip-text text-transparent group-hover:from-cyan-600 group-hover:via-blue-600 group-hover:to-purple-600 dark:from-white dark:to-white/80 dark:group-hover:from-cyan-400 dark:group-hover:via-blue-400 dark:group-hover:to-purple-400 transition-all duration-300 mb-2">Drop me a message!</CardTitle>
+          <CardDescription className="text-base leading-relaxed text-gray-600 group-hover:text-gray-800 dark:text-white/60 dark:group-hover:text-white/80 transition-colors duration-300">
+            {/* after sending, you will have {isCountingDown ? (
               <span className={`font-bold inline-block w-10 text-center ${countdown <= 5 ? 'text-red-500 animate-pulse' : ''}`}>
                 {countdown}.{milliseconds.toString().padStart(2, '0')}
               </span>
             ) : (
               <span className="font-bold inline-block text-center">10.00</span>
-            )} secs to leave the page
+            )} secs to leave the page */}
+            Thank you for reaching out! I'll get back to you asap.
           </CardDescription>
         </CardHeader>
         <CardContent className="relative z-10">
@@ -220,7 +227,7 @@ const ContactForm = () => {
           </div>
         </CardContent>
         <CardFooter className="relative z-10">
-          <Button type="submit" className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium rounded-xl bg-gradient-to-r from-cyan-500/30 to-blue-500/30 border border-cyan-500/40 text-cyan-300 hover:from-cyan-500/40 hover:to-blue-500/40 hover:border-cyan-500/50 transition-all duration-300 backdrop-blur-sm">
+          <Button type="submit" className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium rounded-xl bg-gradient-to-r from-cyan-500/25 to-purple-500/25 border border-cyan-500/40 text-cyan-700 hover:from-cyan-500/35 hover:to-purple-500/35 hover:border-cyan-500/50 dark:from-cyan-500/30 dark:to-blue-500/30 dark:border-cyan-500/40 dark:text-cyan-300 dark:hover:from-cyan-500/40 dark:hover:to-blue-500/40 dark:hover:border-cyan-500/50 transition-all duration-300 backdrop-blur-sm">
             Send Message
           </Button>
         </CardFooter>

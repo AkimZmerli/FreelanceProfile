@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import SocialLinks from "@/shared/components/navigation/SocialLinks";
+import { useEffect, useState } from "react";
 import './HeroImage.css';
 import './HeroText.css';
 
@@ -23,6 +26,18 @@ const TextRotator = () => {
 };
 
 const HeroImage = () => {
+  const [isWideScreen, setIsWideScreen] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsWideScreen(window.innerWidth >= 1920);
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
   return (
     <div style={{ position: 'relative', width: '100%', height: 'auto', maxWidth: '100%', zIndex: 10 }}>
       <Image
@@ -34,6 +49,7 @@ const HeroImage = () => {
           width: '100%',
           height: 'auto',
           maxWidth: '500px',
+          transform: isWideScreen ? 'translateY(33%) translateX(85%)' : undefined,
         }}
         width={500}
         height={500}
@@ -44,8 +60,24 @@ const HeroImage = () => {
 };
 
 const HeroTexts = () => {
+  const [isWideScreen, setIsWideScreen] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsWideScreen(window.innerWidth >= 1920);
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
   return (
-    <div className="hero-text-container">
+    <div 
+      className="hero-text-container"
+      style={{
+        transform: isWideScreen ? 'translateY(-5%) translateX(10%)' : undefined,
+      }}>
       <h3 className="font-poppins text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-gray-700 dark:text-primary">Welcome to</h3>
       <h1 className="font-rubik text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl name_underline text-gray-700 dark:text-primary">
         WebDev <br /> 4Life 
