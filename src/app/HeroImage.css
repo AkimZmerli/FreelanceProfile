@@ -1,5 +1,15 @@
-@media (max-width: 768px){
-  /* Mobile screens */
+/* Hero Image Container Base */
+.hero-image-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Mobile Layout */
+@media (max-width: 1023px) {
   .responsive-hero-image {
     transform: translateY(-23%) translateX(-10%);
     width: 200px;
@@ -7,38 +17,63 @@
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px){
-  /* Tablet screens */
+/* Laptop Layout (1024px - 1679px) */
+@media (min-width: 1024px) and (max-width: 1679px) {
+  .hero-image-area {
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 5%;
+  }
+  
+  /* Chrome default */
   .responsive-hero-image {
-    transform: translateY(10%) translateX(5%);
-    width: 350px;
+    width: 400px;
     height: auto;
+    transform: translateX(-15%) translateY(35%);
+  }
+  
+  /* Firefox specific */
+  @supports (-moz-appearance: none) {
+    .responsive-hero-image {
+      transform: translateX(-15%) translateY(36%);
+    }
+  }
+  
+  /* Safari specific */
+  @supports (-webkit-appearance: none) and (not (background: -webkit-named-image(i))) {
+    .responsive-hero-image {
+      transform: translateX(-15%) translateY(36%);
+    }
   }
 }
 
-@media (min-width: 1025px) and (max-width: 1480px){
-  /* Laptop screens */
-  .responsive-hero-image {
-    transform: translateY(20%) translateX(40%);
-    width: 900px;
-    height: auto;
+/* Large Screen Layout (1680px+) */
+@media (min-width: 1680px) {
+  .hero-image-area {
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding-right: 8%;
+    padding-top: 5%;
   }
-}
-
-@media (min-width: 1480px) and (max-width: 1919px){
-  /* Adjust for large screens */
+  
+  /* Chrome default */
   .responsive-hero-image {
-    transform: translateY(28%) translateX(35%);
-    width: 900px; /* Increase the width */
-    height: auto; /* Maintain aspect ratio */
-  }
-}
-
-@media (min-width: 1920px){
-  /* Adjust for very large screens */
-  .responsive-hero-image {
-    transform: translateY(33%) translateX(65%); /* Down 5% (28%+5%) and right 30% (35%+30%) */
-    width: 900px;
+    width: 500px;
     height: auto;
+    transform: translateX(-20%) translateY(23%);
+  }
+  
+  /* Firefox specific */
+  @supports (-moz-appearance: none) {
+    .responsive-hero-image {
+      transform: translateX(-20%) translateY(24%);
+    }
+  }
+  
+  /* Safari specific */
+  @supports (-webkit-appearance: none) and (not (background: -webkit-named-image(i))) {
+    .responsive-hero-image {
+      transform: translateX(-20%) translateY(24%);
+    }
   }
 }

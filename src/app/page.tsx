@@ -28,16 +28,15 @@ export default function Home() {
         </FramerWrapper>
       </div>
 
-      {/* Desktop Layout - Side by side */}
-      <div className="hidden lg:flex w-full h-full">
-        {/* LEFT SIDE */}
-        <FramerWrapper className="flex flex-col justify-center gap-5 w-auto items-start mt-[10%]" y={0} x={-90}>
+      {/* Desktop Layout - CSS Grid */}
+      <div className="hidden desktop-grid:grid grid-cols-2 grid-rows-1 w-full h-full">
+        {/* TEXT AREA */}
+        <FramerWrapper className="hero-text-area flex flex-col justify-center gap-5" y={0} x={-90}>
           <HeroTexts />
         </FramerWrapper>
         
-        {/* RIGHT SIDE image */}
-        <FramerWrapper className="h-[70%] w-[47%] relative block" y={0} x={100}>
-          {/* IMAGE */}
+        {/* IMAGE AREA */}
+        <FramerWrapper className="hero-image-area flex justify-center items-center" y={0} x={100}>
           <HeroImage />
         </FramerWrapper>
       </div>
